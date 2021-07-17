@@ -231,7 +231,36 @@ $popularMovies = $home->getPopularMovies()->fetchAll(PDO::FETCH_ASSOC);
 
                   foreach ($recentSeries as $recent) {
 
-                    echo '<li class="w-1/2 my-2 px-1 border rounded">
+                    echo '<li class="md:w-1/2 w-full my-2 px-1 border rounded">
+  <div class=" media wow fadeInDown animated  flex cursor-pointer   flex bg-gray-100 border rounded">
+    <a href="' . $recent["name"] . '" class="w-32 text-lg  md:mr-3">
+      <img class="w-32 h-full"  alt="" src="images/posters/' . $recent["img_url"] . '" />
+    </a>
+    <div class="media-body p-3">
+      <a href="' . $recent["name"] . '" class="catg_title">'
+                      . $recent["name"] . '<p class="genre">' . $recent["genre"] . '</p> <p class="year">' . $recent["releasing_year"] . '</p> </a>
+    </div>
+  </div>
+</li>
+';
+                  }
+                  ?>
+
+
+
+                </ul>
+              </div>
+            </div>
+            <div class="single_post_content">
+              <h2><span>Most Rated Movies</span></h2>
+
+              <div class="">
+                <ul class="flex flex-wrap ">
+                  <?php
+
+                  foreach ($recentSeries as $recent) {
+
+                    echo '<li class="md:w-1/2 w-full my-2 px-1 border rounded">
   <div class=" media wow fadeInDown animated  flex cursor-pointer   flex bg-gray-100 border rounded">
     <a href="' . $recent["name"] . '" class="w-32 text-lg  mr-3">
       <img class="w-32 h-full"  alt="" src="images/posters/' . $recent["img_url"] . '" />
@@ -346,93 +375,8 @@ $popularMovies = $home->getPopularMovies()->fetchAll(PDO::FETCH_ASSOC);
                 </div>
               </div>
             </div>
-            <div class="single_post_content">
-              <h2><span>Photography</span></h2>
-              <ul class="photograph_nav wow fadeInDown">
-                <li>
-                  <div class="photo_grid">
-                    <figure class="effect-layla">
-                      <a class="fancybox-buttons" data-fancybox-group="button" href="images/photograph_img2.jpg" title="Photography Ttile 1">
-                        <img src="images/photograph_img2.jpg" alt="" /></a>
-                    </figure>
-                  </div>
-                </li>
-                <li>
-                  <div class="photo_grid">
-                    <figure class="effect-layla">
-                      <a class="fancybox-buttons" data-fancybox-group="button" href="images/photograph_img3.jpg" title="Photography Ttile 2">
-                        <img src="images/photograph_img3.jpg" alt="" />
-                      </a>
-                    </figure>
-                  </div>
-                </li>
-                <li>
-                  <div class="photo_grid">
-                    <figure class="effect-layla">
-                      <a class="fancybox-buttons" data-fancybox-group="button" href="images/photograph_img4.jpg" title="Photography Ttile 3">
-                        <img src="images/photograph_img4.jpg" alt="" />
-                      </a>
-                    </figure>
-                  </div>
-                </li>
-                <li>
-                  <div class="photo_grid">
-                    <figure class="effect-layla">
-                      <a class="fancybox-buttons" data-fancybox-group="button" href="images/photograph_img4.jpg" title="Photography Ttile 4">
-                        <img src="images/photograph_img4.jpg" alt="" />
-                      </a>
-                    </figure>
-                  </div>
-                </li>
-                <li>
-                  <div class="photo_grid">
-                    <figure class="effect-layla">
-                      <a class="fancybox-buttons" data-fancybox-group="button" href="images/photograph_img2.jpg" title="Photography Ttile 5">
-                        <img src="images/photograph_img2.jpg" alt="" />
-                      </a>
-                    </figure>
-                  </div>
-                </li>
-                <li>
-                  <div class="photo_grid">
-                    <figure class="effect-layla">
-                      <a class="fancybox-buttons" data-fancybox-group="button" href="images/photograph_img3.jpg" title="Photography Ttile 6">
-                        <img src="images/photograph_img3.jpg" alt="" />
-                      </a>
-                    </figure>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="single_post_content">
-              <h2><span>Latest Episodes</span></h2>
-
-              <div class="">
-                <ul class="flex flex-wrap ">
-                  <?php
-
-                  foreach ($recentSeries as $recent) {
-
-                    echo '<li class="w-1/2 my-2 px-1 border rounded">
-  <div class=" media wow fadeInDown animated  flex cursor-pointer   flex bg-gray-100 border rounded">
-    <a href="' . $recent["name"] . '" class="w-32 text-lg  mr-3">
-      <img class="w-32 h-full"  alt="" src="images/posters/' . $recent["img_url"] . '" />
-    </a>
-    <div class="media-body p-3">
-      <a href="' . $recent["name"] . '" class="catg_title">'
-                      . $recent["name"] . '<p class="genre">' . $recent["genre"] . '</p> <p class="year">' . $recent["releasing_year"] . '</p> </a>
-    </div>
-  </div>
-</li>
-';
-                  }
-                  ?>
 
 
-
-                </ul>
-              </div>
-            </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4">
@@ -442,7 +386,7 @@ $popularMovies = $home->getPopularMovies()->fetchAll(PDO::FETCH_ASSOC);
               <a class="sideAdd" href="#"><img style="object-fit:cover" src="images/telegram.gif" alt="" /></a>
             </div>
             <div class="single_sidebar bg-white">
-              <h2><span>Popular Movies</span></h2>
+              <h2><span>Editor's Choice</span></h2>
               <ul class="my-2">
                 <?php
 
@@ -558,7 +502,7 @@ $popularMovies = $home->getPopularMovies()->fetchAll(PDO::FETCH_ASSOC);
               </select>
             </div> -->
             <div class="single_sidebar wow fadeInDown">
-              <h2><span>GENERES</span></h2>
+              <h2><span>Your Requests</span></h2>
               <ul>
                 <li><a style="padding-top: 10px;padding-bottom: 10px;" href="#">Blog</a></li>
                 <li><a style="padding-top: 10px;padding-bottom: 10px;" href="#">Blog</a></li>
