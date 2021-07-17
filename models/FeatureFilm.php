@@ -10,11 +10,36 @@ class FeatureFilm
     //private $episode = 'episode';
     private $request = 'request';
 
+    public $genres = array(
+        array('link' => "Drama", 'name' => 'Drama'),
+        array('link' => "Thriller", 'name' => 'Thriller'),
+        array('link' => "Comedy", 'name' => '😂Comedy'),
+        array('link' => "Action", 'name' => 'Action'),
+        array('link' => "Horror", 'name' => '😱Horror'),
+        array('link' => "Adventure", 'name' => '🧗🏿‍♂️Adventure'),
+        array('link' => "Sci-fi", 'name' => 'Sci-fi'),
+        array('link' => "Crime", 'name' => '🔫Crime'),
+        array('link' => "Romance", 'name' => '👫Romance'),
+        array('link' => "Fantasy", 'name' => 'Fantasy'),
+        array('link' => "Family", 'name' => '👨‍👩‍👦Family'),
+        array('link' => "Mystery", 'name' => '❔Mystery'),
+        array('link' => "Animation", 'name' => 'Animation'),
+        array('link' => "Documentary", 'name' => 'Documentary'),
+        array('link' => "History", 'name' => 'History'),
+        array('link' => "Music", 'name' => '🎼Music'),
+        array('link' => "TV Movie", 'name' => '📺TV Movie'),
+        array('link' => "War", 'name' => '⚔️War'),
+        array('link' => "Western", 'name' => 'Western'),
+
+    );
+
+
+
     // Series Properties
     public $id;
     public $name;
     public $thumbnail;
-
+    public $limit = 24;
     //Constructor with DB
     public function __construct($db)
     {
@@ -27,7 +52,7 @@ class FeatureFilm
     {
         //Get Series 
         // $query = 'SELECT * FROM ' . $this->series . ' WHERE isActive = true ORDER BY name ASC';
-        $query = 'SELECT * FROM ' . $this->films . '  ORDER BY title ASC';
+        $query = 'SELECT * FROM ' . $this->films . '  ORDER BY title ASC  LIMIT ' . $this->limit;
 
         // Prepare Statement
         $stmt = $this->connection->prepare($query);
@@ -38,12 +63,38 @@ class FeatureFilm
         return $stmt;
     }
 
- public function getFilmDetail($film_id)
+
+
+
+    public function getFilmsPaginated($page)
+    {
+        $offset = ($this->limit * ($page - 1));
+        // echo $offset;
+        //Get Series   LIMIT {someLimit} OFFSET {someOffset};
+        // $query = 'SELECT * FROM ' . $this->series . ' WHERE isActive = true ORDER BY name ASC';
+        $query = 'SELECT * FROM ' . $this->films . '  ORDER BY title ASC  LIMIT ' . $this->limit . ' OFFSET ' . $offset;
+
+        // Prepare Statement
+        $stmt = $this->connection->prepare($query);
+
+        // Execute Query
+        $stmt->execute();
+
+        return $stmt;
+    }
+
+
+
+
+
+
+
+    public function getFilmDetail($film_id)
     {
         //Get Series 
         $query = 'SELECT * FROM ' . $this->films . ' WHERE id=' . $film_id;
 
-      
+
         // Prepare Statement
         $stmt = $this->connection->prepare($query);
 
@@ -75,10 +126,29 @@ class FeatureFilm
 
     //     return $stmt;
     // }
-    public function searchSeries($series_name)
+    // public function searchSeries($series_name)
+    // {
+    //     //Get Series 
+    //     $query = "SELECT * FROM " . $this->films . " WHERE name LIKE '%" . $series_name . "%' LIMIT 10";
+
+    //     // Prepare Statement
+    //     $stmt = $this->connection->prepare($query);
+
+    //     // Execute Query
+    //     $stmt->execute();
+
+    //     return $stmt;
+
+    //     echo '<a  class="hover:bg-gray-600 w-full px-4 py-1" href="">
+
+    //     </a>';
+    // }
+
+
+    public function searchFilm($film_name)
     {
         //Get Series 
-        $query = "SELECT * FROM " . $this->films . " WHERE name LIKE '%" . $series_name . "%' LIMIT 10";
+        $query = "SELECT * FROM " . $this->films . " WHERE title LIKE '%" . $film_name . "%' LIMIT 5";
 
         // Prepare Statement
         $stmt = $this->connection->prepare($query);
@@ -92,6 +162,7 @@ class FeatureFilm
                 
         </a>';
     }
+
 
     // public function getRecent()
     // {
@@ -123,8 +194,8 @@ class FeatureFilm
     public function getByGenre($genre)
     {
         //Get Series 
-        $query = "SELECT * FROM " . $this->films . " WHERE genre LIKE '%" . $genre . "%' LIMIT 6";
-
+        //$query = "SELECT * FROM " . $this->films . " WHERE genre LIKE '%" . $genre . "%' LIMIT 16";
+        $query = "SELECT * FROM " . $this->films . " WHERE genre LIKE '%" . $genre . "%' ";
         // Prepare Statement
         $stmt = $this->connection->prepare($query);
 
@@ -133,6 +204,33 @@ class FeatureFilm
 
         return $stmt;
     }
+
+
+    public function getMoviesPaginated($field, $value, $page)
+    {
+        $offset = ($this->limit * ($page - 1));
+        //Get Series 
+        //$query = "SELECT * FROM " . $this->films . " WHERE genre LIKE '%" . $genre . "%' LIMIT 16";
+        $query = "SELECT * FROM " . $this->films . " WHERE $field LIKE '%" . $value . "%'  LIMIT $this->limit OFFSET $offset";
+        // Prepare Statement
+        // echo $query;
+        $stmt = $this->connection->prepare($query);
+
+        // Execute Query
+        $stmt->execute();
+
+        return $stmt;
+    }
+
+
+
+
+
+
+
+
+
+
 
     public function getByYear($year)
     {
@@ -158,6 +256,17 @@ class FeatureFilm
 
         // Execute Query
         $stmt->execute();
+
+        return $stmt;
+    }
+
+    public function getCount($field, $value)
+    {
+
+        $sql = "SELECT COUNT(*) as total  FROM " . $this->films . " WHERE $field LIKE '%" . $value . "%' ";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->execute();
+        // echo $sql;
 
         return $stmt;
     }

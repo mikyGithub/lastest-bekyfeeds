@@ -18,6 +18,8 @@ h1, h2, h3, h4, h5, h6{font-family:'Oswald',sans-serif}
 h2{line-height:23px}
 img{border:none}
 img:hover{opacity:0.75}
+.year{ color:rgb(23, 162, 226) }
+.genre{ color:rgb(226, 53, 23) }
 .img-center{display:block; margin-left:auto; margin-right:auto; text-align:center}
 .img-right{display:block; margin-left:auto}
 .img-left{display:block; margin-right:auto}
@@ -90,6 +92,8 @@ img:hover{opacity:0.75}
 .social_nav li.facebook a:hover{ background-position:0 0px; background-size:270px 60px; background-color:#436eac}
 .social_nav li.twitter a{ background-image:url("images/socials.png"); background-position:-30px -30px; background-size:270px 60px}
 .social_nav li.twitter a:hover{ background-position:-30px 0px; background-size:270px 60px; background-color:#0598c9}
+.social_nav li.telegram a{ background-image:url("images/socials.png"); background-position:-30px -30px; background-size:270px 60px}
+.social_nav li.telegram a:hover{ background-position:-30px 0px; background-size:270px 60px; background-color:#0598c9}
 .social_nav li.flickr a{ background-image:url("images/socials.png"); background-position:-60px -30px; background-size:270px 60px}
 .social_nav li.flickr a:hover{ background-position:-60px 0px; background-size:270px 60px; background-color:#e33b7e}
 .social_nav li.pinterest a{ background-image:url("images/socials.png"); background-position:-90px -30px; background-size:270px 60px}
@@ -142,6 +146,12 @@ img:hover{opacity:0.75}
 .spost_nav li{float:left; display:block; width:100%; margin-bottom:10px}
 .spost_nav .media-left{width:100px; height:80px}
 .media-left > img{height:70px; width:90px}
+
+/* .spost_nav .media-left-custom{width:220px;height: 243px} */
+.media-left-custom { width:170px;height: 243px}
+
+
+
 .spost_nav .media-body > a{font-family:"Oswald",sans-serif}
 .featured_img{position:relative}
 .overlay:hover{ background:none repeat scroll 0 0 rgba(0,0,0,0.4)}

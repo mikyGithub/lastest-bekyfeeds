@@ -72,7 +72,7 @@ $popularMovies = $home->getPopularMovies()->fetchAll(PDO::FETCH_ASSOC);
         <div class="col-lg-12 col-md-12 col-sm-12">
           <div class="header_bottom">
             <div class="logo_area">
-              <a href="index.html" class="logo">
+              <a href="index" class="logo">
                 <h1>bekyfeeds</h1>
               </a>
             </div>
@@ -95,7 +95,7 @@ $popularMovies = $home->getPopularMovies()->fetchAll(PDO::FETCH_ASSOC);
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav main_nav">
             <li class="active">
-              <a href="index.html"><span class="fa fa-home desktop-home"></span><span class="mobile-show">Home</span></a>
+              <a href="index"><span class="fa fa-home desktop-home"></span><span class="mobile-show">Home</span></a>
             </li>
             <!-- <li><a href="#">Technology</a></li>
           <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Mobile</a>
@@ -126,7 +126,7 @@ $popularMovies = $home->getPopularMovies()->fetchAll(PDO::FETCH_ASSOC);
       <div class="row">
         <div class="col-lg-12 col-md-12">
           <div class="latest_newsarea">
-            <span>Popular Episodes</span>
+            <span>Popular Series</span>
             <ul id="ticker01" class="news_sticker">
               <?php
 
@@ -143,8 +143,8 @@ $popularMovies = $home->getPopularMovies()->fetchAll(PDO::FETCH_ASSOC);
             </ul>
             <div class="social_area">
               <ul class="social_nav">
-                <li class="facebook"><a href="#"></a></li>
                 <li class="twitter"><a href="#"></a></li>
+                <li class="facebook"><a href="#"></a></li>
               </ul>
             </div>
           </div>
@@ -162,7 +162,10 @@ $popularMovies = $home->getPopularMovies()->fetchAll(PDO::FETCH_ASSOC);
               echo '
   <div class="single_iteam">
   <a href="pages/single-series/' . $recent["url_name"] . '">
-    <img src="images/posters/' . $recent["img_url"] . '" alt="' . $recent["name"] . '" /></a>
+ 
+  
+  <img style="background-color:black;object-fit:contain" src="images/posters/' . $recent["img_url"] . '" alt="' . $recent["name"] . '" /></a>
+
   <div class="slider_article">
     <h2>
       <a class="slider_tittle" href="pages/single-series/">' . $recent["name"] . '</a>
@@ -182,7 +185,7 @@ $popularMovies = $home->getPopularMovies()->fetchAll(PDO::FETCH_ASSOC);
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4">
           <div class="latest_post">
-            <h2><span>Latest Movie</span></h2>
+            <h2><span>Latest Movies</span></h2>
             <div class="latest_post_container">
               <div id="prev-button"><i class="fa fa-chevron-up"></i></div>
               <ul class="latest_postnav">
@@ -193,11 +196,11 @@ $popularMovies = $home->getPopularMovies()->fetchAll(PDO::FETCH_ASSOC);
                   echo '<li>
   <div class="media">
     <a href="pages/single-movie/' . $recent["title"] . '" class="media-left">
-      <img alt="" src="images/posters/' . $recent["img_url"] . '" />
+      <img alt=". $recent["title"] ." style="background-color:black;object-fit:contain" src="' . $recent["img_url"] . '" />
     </a>
     <div class="media-body">
       <a href="pages/single-movie/' . $recent["title"] . '" class="catg_title">
-      ' . $recent["title"] . '</a>
+      ' . $recent["title"] . ' <p class="genre">' . $recent["genre"] . '</p> <p class="year">' . $recent["releasing_year"] . '</p> </a>
     </div>
   </div>
 </li>
@@ -219,7 +222,7 @@ $popularMovies = $home->getPopularMovies()->fetchAll(PDO::FETCH_ASSOC);
         <div class="col-lg-8 col-md-8 col-sm-8">
           <div class="left_content">
             <div class="single_post_content">
-              <h2><span>Business</span></h2>
+              <h2><span>Latest Episodes</span></h2>
               <div class="single_post_content_left">
                 <ul class="business_catgnav wow fadeInDown">
                   <li>
@@ -242,50 +245,27 @@ $popularMovies = $home->getPopularMovies()->fetchAll(PDO::FETCH_ASSOC);
               </div>
               <div class="single_post_content_right">
                 <ul class="spost_nav">
-                  <li>
-                    <div class="media wow fadeInDown">
-                      <a href="pages/single_page.html" class="media-left">
-                        <img alt="" src="images/post_img1.jpg" />
-                      </a>
-                      <div class="media-body">
-                        <a href="pages/single_page.html" class="catg_title">
-                          Aliquam malesuada diam eget turpis varius 1</a>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="media wow fadeInDown">
-                      <a href="pages/single_page.html" class="media-left">
-                        <img alt="" src="images/post_img2.jpg" />
-                      </a>
-                      <div class="media-body">
-                        <a href="pages/single_page.html" class="catg_title">
-                          Aliquam malesuada diam eget turpis varius 2</a>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="media wow fadeInDown">
-                      <a href="pages/single_page.html" class="media-left">
-                        <img alt="" src="images/post_img1.jpg" />
-                      </a>
-                      <div class="media-body">
-                        <a href="pages/single_page.html" class="catg_title">
-                          Aliquam malesuada diam eget turpis varius 3</a>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="media wow fadeInDown">
-                      <a href="pages/single_page.html" class="media-left">
-                        <img alt="" src="images/post_img2.jpg" />
-                      </a>
-                      <div class="media-body">
-                        <a href="pages/single_page.html" class="catg_title">
-                          Aliquam malesuada diam eget turpis varius 4</a>
-                      </div>
-                    </div>
-                  </li>
+                  <?php
+
+                  foreach ($recentSeries as $recent) {
+
+                    echo '<li>
+  <div class="media wow fadeInDown">
+    <a href="' . $recent["name"] . '" class="media-left">
+      <img style="background-color:black;object-fit:contain" alt="" src="images/posters/' . $recent["img_url"] . '" />
+    </a>
+    <div class="media-body">
+      <a href="' . $recent["name"] . '" class="catg_title">'
+                      . $recent["name"] . '<p class="genre">' . $recent["genre"] . '</p> <p class="year">' . $recent["releasing_year"] . '</p> </a>
+    </div>
+  </div>
+</li>
+';
+                  }
+                  ?>
+
+
+
                 </ul>
               </div>
             </div>
@@ -691,8 +671,8 @@ $popularMovies = $home->getPopularMovies()->fetchAll(PDO::FETCH_ASSOC);
               </div>
             </div> -->
             <div class="single_sidebar wow fadeInDown">
-              <h2><span>Sponsor</span></h2>
-              <a class="sideAdd" href="#"><img src="images/add_img.jpg" alt="" /></a>
+              <h2><span>Join Us</span></h2>
+              <a class="sideAdd" href="#"><img style="object-fit:cover" src="images/telegram.gif" alt="" /></a>
             </div>
             <!-- <div class="single_sidebar wow fadeInDown">
               <h2><span>Category</span></h2>
@@ -760,7 +740,7 @@ $popularMovies = $home->getPopularMovies()->fetchAll(PDO::FETCH_ASSOC);
       </div>
       <div class="footer_bottom">
         <p class="copyright">
-          Copyright &copy; 2021 <a href="index.html">NewsFeed</a>
+          Copyright &copy; 2021 <a href="index">NewsFeed</a>
         </p>
         <p class="developer">Developed By Bekyfeeds</p>
       </div>
