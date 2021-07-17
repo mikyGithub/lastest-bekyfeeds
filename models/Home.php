@@ -28,7 +28,7 @@ class Home
     {
         //Get Series 
         // $query = 'SELECT * FROM ' . $this->series . ' WHERE isActive = true ORDER BY name ASC';
-        $query = 'SELECT * FROM ' . $this->series . ' WHERE isRecent = true  ORDER BY name ASC LIMIT 5;';
+        $query = 'SELECT * FROM ' . $this->series . ' WHERE isRecent = true  ORDER BY name ASC LIMIT 6;';
 
         // Prepare Statement
         $stmt = $this->connection->prepare($query);
@@ -42,7 +42,7 @@ class Home
     {
         //Get Series 
         // $query = 'SELECT * FROM ' . $this->series . ' WHERE isActive = true ORDER BY name ASC';
-        $query = 'SELECT * FROM ' . $this->series . ' WHERE isPopular = true  ORDER BY name ASC LIMIT 5;';
+        $query = 'SELECT * FROM ' . $this->series . ' WHERE isPopular = true  ORDER BY name ASC LIMIT 6;';
 
         // Prepare Statement
         $stmt = $this->connection->prepare($query);
@@ -72,7 +72,7 @@ class Home
     {
         //Get movies 
         // $query = 'SELECT * FROM ' . $this->movies . ' WHERE isActive = true ORDER BY title ASC';
-        $query = 'SELECT * FROM ' . $this->movies . ' WHERE isPopular = true  ORDER BY title ASC LIMIT 5;';
+        $query = 'SELECT * FROM ' . $this->movies . ' WHERE isPopular = true  ORDER BY title ASC LIMIT 6;';
 
         // Prepare Statement
         $stmt = $this->connection->prepare($query);

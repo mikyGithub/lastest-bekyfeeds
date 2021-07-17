@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>NewsFeed</title>
+  <title>Bekyfeeds</title>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -15,6 +15,7 @@
   <link rel="stylesheet" type="text/css" href="assets/css/jquery.fancybox.css" />
   <link rel="stylesheet" type="text/css" href="assets/css/theme.css" />
   <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/utilities.min.css" />
   <!--[if lt IE 9]>
       <script src="assets/js/html5shiv.min.js"></script>
       <script src="assets/js/respond.min.js"></script>
@@ -194,15 +195,15 @@ $popularMovies = $home->getPopularMovies()->fetchAll(PDO::FETCH_ASSOC);
                 foreach ($recentMovies as $recent) {
 
                   echo '<li>
-  <div class="media">
-    <a href="pages/single-movie/' . $recent["title"] . '" class="media-left">
-      <img alt=". $recent["title"] ." style="background-color:black;object-fit:contain" src="' . $recent["img_url"] . '" />
+  <figure href="pages/single-movie/' . $recent["title"] . '" class="cursor-pointer media wow fadeInDown animated flex bg-gray-100 border rounded ">
+    <a href="pages/single-movie/' . $recent["title"] . '" class="w-32  mr-3">
+      <img alt=". $recent["title"] ." class="w-32 h-full" src="' . $recent["img_url"] . '" />
     </a>
-    <div class="media-body">
-      <a href="pages/single-movie/' . $recent["title"] . '" class="catg_title">
+    <figcaption class="media-body p-3">
+      <a href="catg_title pages/single-movie/' . $recent["title"] . '" class="catg_title">
       ' . $recent["title"] . ' <p class="genre">' . $recent["genre"] . '</p> <p class="year">' . $recent["releasing_year"] . '</p> </a>
-    </div>
-  </div>
+    </figcaption>
+  </figure>
 </li>
 ';
                 }
@@ -223,38 +224,19 @@ $popularMovies = $home->getPopularMovies()->fetchAll(PDO::FETCH_ASSOC);
           <div class="left_content">
             <div class="single_post_content">
               <h2><span>Latest Episodes</span></h2>
-              <div class="single_post_content_left">
-                <ul class="business_catgnav wow fadeInDown">
-                  <li>
-                    <figure class="bsbig_fig">
-                      <a href="pages/single_page.html" class="featured_img">
-                        <img alt="" src="images/featured_img1.jpg" />
-                        <span class="overlay"></span>
-                      </a>
-                      <figcaption>
-                        <a href="pages/single_page.html">Proin rhoncus consequat nisl eu ornare mauris</a>
-                      </figcaption>
-                      <p>
-                        Nunc tincidunt, elit non cursus euismod, lacus augue
-                        ornare metus, egestas imperdiet nulla nisl quis
-                        mauris. Suspendisse a phare...
-                      </p>
-                    </figure>
-                  </li>
-                </ul>
-              </div>
-              <div class="single_post_content_right">
-                <ul class="spost_nav">
+
+              <div class="">
+                <ul class="flex flex-wrap ">
                   <?php
 
                   foreach ($recentSeries as $recent) {
 
-                    echo '<li>
-  <div class="media wow fadeInDown">
-    <a href="' . $recent["name"] . '" class="media-left">
-      <img style="background-color:black;object-fit:contain" alt="" src="images/posters/' . $recent["img_url"] . '" />
+                    echo '<li class="w-1/2 my-2 px-1 border rounded">
+  <div class=" media wow fadeInDown animated  flex cursor-pointer   flex bg-gray-100 border rounded">
+    <a href="' . $recent["name"] . '" class="w-32 text-lg  mr-3">
+      <img class="w-32 h-full"  alt="" src="images/posters/' . $recent["img_url"] . '" />
     </a>
-    <div class="media-body">
+    <div class="media-body p-3">
       <a href="' . $recent["name"] . '" class="catg_title">'
                       . $recent["name"] . '<p class="genre">' . $recent["genre"] . '</p> <p class="year">' . $recent["releasing_year"] . '</p> </a>
     </div>
@@ -291,51 +273,29 @@ $popularMovies = $home->getPopularMovies()->fetchAll(PDO::FETCH_ASSOC);
                       </figure>
                     </li>
                   </ul>
-                  <ul class="spost_nav">
-                    <li>
-                      <div class="media wow fadeInDown">
-                        <a href="pages/single_page.html" class="media-left">
-                          <img alt="" src="images/post_img1.jpg" />
-                        </a>
-                        <div class="media-body">
-                          <a href="pages/single_page.html" class="catg_title">
-                            Aliquam malesuada diam eget turpis varius 1</a>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="media wow fadeInDown">
-                        <a href="pages/single_page.html" class="media-left">
-                          <img alt="" src="images/post_img2.jpg" />
-                        </a>
-                        <div class="media-body">
-                          <a href="pages/single_page.html" class="catg_title">
-                            Aliquam malesuada diam eget turpis varius 2</a>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="media wow fadeInDown">
-                        <a href="pages/single_page.html" class="media-left">
-                          <img alt="" src="images/post_img1.jpg" />
-                        </a>
-                        <div class="media-body">
-                          <a href="pages/single_page.html" class="catg_title">
-                            Aliquam malesuada diam eget turpis varius 3</a>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="media wow fadeInDown">
-                        <a href="pages/single_page.html" class="media-left">
-                          <img alt="" src="images/post_img2.jpg" />
-                        </a>
-                        <div class="media-body">
-                          <a href="pages/single_page.html" class="catg_title">
-                            Aliquam malesuada diam eget turpis varius 4</a>
-                        </div>
-                      </div>
-                    </li>
+
+                  <ul class="my-2 spost_nav">
+                    <?php
+
+                    foreach ($recentMovies as $recent) {
+
+                      echo '<li class="my-3">
+  <figure href="pages/single-movie/' . $recent["title"] . '" class="cursor-pointer media wow fadeInDown animated flex bg-gray-100 border rounded ">
+    <a href="pages/single-movie/' . $recent["title"] . '" class="w-32  mr-3">
+      <img alt=". $recent["title"] ." class="w-32 h-full" src="' . $recent["img_url"] . '" />
+    </a>
+    <figcaption class="media-body p-3">
+      <a href=" pages/single-movie/' . $recent["title"] . '" class="">
+      ' . $recent["title"] . ' <p class="genre">' . $recent["genre"] . '</p> <p class="year">' . $recent["releasing_year"] . '</p> </a>
+    </figcaption>
+  </figure>
+</li>
+';
+                    }
+                    ?>
+
+
+
                   </ul>
                 </div>
               </div>
@@ -360,51 +320,28 @@ $popularMovies = $home->getPopularMovies()->fetchAll(PDO::FETCH_ASSOC);
                       </figure>
                     </li>
                   </ul>
-                  <ul class="spost_nav">
-                    <li>
-                      <div class="media wow fadeInDown">
-                        <a href="pages/single_page.html" class="media-left">
-                          <img alt="" src="images/post_img1.jpg" />
-                        </a>
-                        <div class="media-body">
-                          <a href="pages/single_page.html" class="catg_title">
-                            Aliquam malesuada diam eget turpis varius 1</a>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="media wow fadeInDown">
-                        <a href="pages/single_page.html" class="media-left">
-                          <img alt="" src="images/post_img2.jpg" />
-                        </a>
-                        <div class="media-body">
-                          <a href="pages/single_page.html" class="catg_title">
-                            Aliquam malesuada diam eget turpis varius 2</a>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="media wow fadeInDown">
-                        <a href="pages/single_page.html" class="media-left">
-                          <img alt="" src="images/post_img1.jpg" />
-                        </a>
-                        <div class="media-body">
-                          <a href="pages/single_page.html" class="catg_title">
-                            Aliquam malesuada diam eget turpis varius 3</a>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="media wow fadeInDown">
-                        <a href="pages/single_page.html" class="media-left">
-                          <img alt="" src="images/post_img2.jpg" />
-                        </a>
-                        <div class="media-body">
-                          <a href="pages/single_page.html" class="catg_title">
-                            Aliquam malesuada diam eget turpis varius 4</a>
-                        </div>
-                      </div>
-                    </li>
+                  <ul class="my-2 spost_nav">
+                    <?php
+
+                    foreach ($recentMovies as $recent) {
+
+                      echo '<li class="my-3">
+  <figure href="pages/single-movie/' . $recent["title"] . '" class="cursor-pointer media wow fadeInDown animated flex bg-gray-100 border rounded ">
+    <a href="pages/single-movie/' . $recent["title"] . '" class="w-32  mr-3">
+      <img alt=". $recent["title"] ." class="w-32 h-full" src="' . $recent["img_url"] . '" />
+    </a>
+    <figcaption class="media-body p-3">
+      <a href=" pages/single-movie/' . $recent["title"] . '" class="">
+      ' . $recent["title"] . ' <p class="genre">' . $recent["genre"] . '</p> <p class="year">' . $recent["releasing_year"] . '</p> </a>
+    </figcaption>
+  </figure>
+</li>
+';
+                    }
+                    ?>
+
+
+
                   </ul>
                 </div>
               </div>
@@ -468,73 +405,31 @@ $popularMovies = $home->getPopularMovies()->fetchAll(PDO::FETCH_ASSOC);
               </ul>
             </div>
             <div class="single_post_content">
-              <h2><span>Games</span></h2>
-              <div class="single_post_content_left">
-                <ul class="business_catgnav">
-                  <li>
-                    <figure class="bsbig_fig wow fadeInDown">
-                      <a class="featured_img" href="pages/single_page.html">
-                        <img src="images/featured_img1.jpg" alt="" />
-                        <span class="overlay"></span>
-                      </a>
-                      <figcaption>
-                        <a href="pages/single_page.html">Proin rhoncus consequat nisl eu ornare mauris</a>
-                      </figcaption>
-                      <p>
-                        Nunc tincidunt, elit non cursus euismod, lacus augue
-                        ornare metus, egestas imperdiet nulla nisl quis
-                        mauris. Suspendisse a phare...
-                      </p>
-                    </figure>
-                  </li>
-                </ul>
-              </div>
-              <div class="single_post_content_right">
-                <ul class="spost_nav">
-                  <li>
-                    <div class="media wow fadeInDown">
-                      <a href="pages/single_page.html" class="media-left">
-                        <img alt="" src="images/post_img1.jpg" />
-                      </a>
-                      <div class="media-body">
-                        <a href="pages/single_page.html" class="catg_title">
-                          Aliquam malesuada diam eget turpis varius 1</a>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="media wow fadeInDown">
-                      <a href="pages/single_page.html" class="media-left">
-                        <img alt="" src="images/post_img2.jpg" />
-                      </a>
-                      <div class="media-body">
-                        <a href="pages/single_page.html" class="catg_title">
-                          Aliquam malesuada diam eget turpis varius 2</a>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="media wow fadeInDown">
-                      <a href="pages/single_page.html" class="media-left">
-                        <img alt="" src="images/post_img1.jpg" />
-                      </a>
-                      <div class="media-body">
-                        <a href="pages/single_page.html" class="catg_title">
-                          Aliquam malesuada diam eget turpis varius 3</a>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="media wow fadeInDown">
-                      <a href="pages/single_page.html" class="media-left">
-                        <img alt="" src="images/post_img2.jpg" />
-                      </a>
-                      <div class="media-body">
-                        <a href="pages/single_page.html" class="catg_title">
-                          Aliquam malesuada diam eget turpis varius 4</a>
-                      </div>
-                    </div>
-                  </li>
+              <h2><span>Latest Episodes</span></h2>
+
+              <div class="">
+                <ul class="flex flex-wrap ">
+                  <?php
+
+                  foreach ($recentSeries as $recent) {
+
+                    echo '<li class="w-1/2 my-2 px-1 border rounded">
+  <div class=" media wow fadeInDown animated  flex cursor-pointer   flex bg-gray-100 border rounded">
+    <a href="' . $recent["name"] . '" class="w-32 text-lg  mr-3">
+      <img class="w-32 h-full"  alt="" src="images/posters/' . $recent["img_url"] . '" />
+    </a>
+    <div class="media-body p-3">
+      <a href="' . $recent["name"] . '" class="catg_title">'
+                      . $recent["name"] . '<p class="genre">' . $recent["genre"] . '</p> <p class="year">' . $recent["releasing_year"] . '</p> </a>
+    </div>
+  </div>
+</li>
+';
+                  }
+                  ?>
+
+
+
                 </ul>
               </div>
             </div>
@@ -542,53 +437,34 @@ $popularMovies = $home->getPopularMovies()->fetchAll(PDO::FETCH_ASSOC);
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4">
           <aside class="right_content">
-            <div class="single_sidebar">
-              <h2><span>Popular Post</span></h2>
-              <ul class="spost_nav">
-                <li>
-                  <div class="media wow fadeInDown">
-                    <a href="pages/single_page.html" class="media-left">
-                      <img alt="" src="images/post_img1.jpg" />
-                    </a>
-                    <div class="media-body">
-                      <a href="pages/single_page.html" class="catg_title">
-                        Aliquam malesuada diam eget turpis varius 1</a>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="media wow fadeInDown">
-                    <a href="pages/single_page.html" class="media-left">
-                      <img alt="" src="images/post_img2.jpg" />
-                    </a>
-                    <div class="media-body">
-                      <a href="pages/single_page.html" class="catg_title">
-                        Aliquam malesuada diam eget turpis varius 2</a>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="media wow fadeInDown">
-                    <a href="pages/single_page.html" class="media-left">
-                      <img alt="" src="images/post_img1.jpg" />
-                    </a>
-                    <div class="media-body">
-                      <a href="pages/single_page.html" class="catg_title">
-                        Aliquam malesuada diam eget turpis varius 3</a>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="media wow fadeInDown">
-                    <a href="pages/single_page.html" class="media-left">
-                      <img alt="" src="images/post_img2.jpg" />
-                    </a>
-                    <div class="media-body">
-                      <a href="pages/single_page.html" class="catg_title">
-                        Aliquam malesuada diam eget turpis varius 4</a>
-                    </div>
-                  </div>
-                </li>
+            <div class="single_sidebar wow fadeInDown bg-white">
+              <h2><span>Join Us</span></h2>
+              <a class="sideAdd" href="#"><img style="object-fit:cover" src="images/telegram.gif" alt="" /></a>
+            </div>
+            <div class="single_sidebar bg-white">
+              <h2><span>Popular Movies</span></h2>
+              <ul class="my-2">
+                <?php
+
+                foreach ($recentMovies as $recent) {
+
+                  echo '<li class="my-3">
+  <figure href="pages/single-movie/' . $recent["title"] . '" class="cursor-pointer media wow fadeInDown animated flex bg-gray-100 border rounded ">
+    <a href="pages/single-movie/' . $recent["title"] . '" class="w-32  mr-3">
+      <img alt=". $recent["title"] ." class="w-32 h-full" src="' . $recent["img_url"] . '" />
+    </a>
+    <figcaption class="media-body p-3">
+      <a href=" pages/single-movie/' . $recent["title"] . '" class="">
+      ' . $recent["title"] . ' <p class="genre">' . $recent["genre"] . '</p> <p class="year">' . $recent["releasing_year"] . '</p> </a>
+    </figcaption>
+  </figure>
+</li>
+';
+                }
+                ?>
+
+
+
               </ul>
             </div>
             <!-- <div class="single_sidebar">
@@ -670,10 +546,7 @@ $popularMovies = $home->getPopularMovies()->fetchAll(PDO::FETCH_ASSOC);
                 </div>
               </div>
             </div> -->
-            <div class="single_sidebar wow fadeInDown">
-              <h2><span>Join Us</span></h2>
-              <a class="sideAdd" href="#"><img style="object-fit:cover" src="images/telegram.gif" alt="" /></a>
-            </div>
+
             <!-- <div class="single_sidebar wow fadeInDown">
               <h2><span>Category</span></h2>
               <select class="catgArchive">
