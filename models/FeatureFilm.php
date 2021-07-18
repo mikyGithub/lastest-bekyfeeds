@@ -122,6 +122,26 @@ class FeatureFilm
         </a>';
     }
 
+
+    public function searchFilmPaginated($film_name,$page)
+    {
+
+        $query = "SELECT * FROM " . $this->films . " WHERE title LIKE '%" . $film_name . "%'";
+
+
+       // $stmt = $this->connection->prepare($query);
+
+       // $stmt->execute();
+
+       return $this->paginate($query,$page);
+       // return $stmt;
+
+        // echo '<a  class="w-full px-4 py-1 hover:bg-gray-600" href="">
+                
+        // </a>';
+    }
+
+
     // filter by recent
     public function getRecent()
     {
@@ -217,8 +237,8 @@ class FeatureFilm
     {
         //Get Series 
         //$query = "SELECT * FROM " . $this->films . " WHERE genre LIKE '%" . $genre . "%' LIMIT 16";
-        $query = "SELECT * FROM " . $this->films . " WHERE title LIKE $letter '%' ORDER BY title ASC ";
-
+        $query = "SELECT * FROM " . $this->films . " WHERE title LIKE '$letter%' ORDER BY title ASC ";
+//echo $query;
         ///  $stmt = $this->connection->prepare($query);
 
         // Execute Querys
