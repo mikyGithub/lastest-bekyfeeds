@@ -113,36 +113,7 @@ class FeatureFilm
 
 
 
-    // public function getSeriesDetail($series_id)
-    // {
-    //     //Get Series 
-    //     $query = 'SELECT * FROM ' . $this->series . ' s  LEFT JOIN ' . $this->episode . ' e on e.season_id = s.id WHERE s.id=' . $series_id;
 
-    //     // Prepare Statement
-    //     $stmt = $this->connection->prepare($query);
-
-    //     // Execute Query
-    //     $stmt->execute();
-
-    //     return $stmt;
-    // }
-    // public function searchSeries($series_name)
-    // {
-    //     //Get Series 
-    //     $query = "SELECT * FROM " . $this->films . " WHERE name LIKE '%" . $series_name . "%' LIMIT 10";
-
-    //     // Prepare Statement
-    //     $stmt = $this->connection->prepare($query);
-
-    //     // Execute Query
-    //     $stmt->execute();
-
-    //     return $stmt;
-
-    //     echo '<a  class="hover:bg-gray-600 w-full px-4 py-1" href="">
-
-    //     </a>';
-    // }
 
 
     public function searchFilm($film_name)
@@ -158,38 +129,12 @@ class FeatureFilm
 
         return $stmt;
 
-        echo '<a  class="hover:bg-gray-600 w-full px-4 py-1" href="">
+        echo '<a  class="w-full px-4 py-1 hover:bg-gray-600" href="">
                 
         </a>';
     }
 
 
-    // public function getRecent()
-    // {
-    //     //Get Series 
-    //     $query = "SELECT * FROM " . $this->films . " WHERE isRecent = true LIMIT 6";
-
-    //     // Prepare Statement
-    //     $stmt = $this->connection->prepare($query);
-
-    //     // Execute Query
-    //     $stmt->execute();
-
-    //     return $stmt;
-    // }
-    // public function getPopular()
-    // {
-    //     //Get Series 
-    //     $query = "SELECT * FROM " . $this->series . " WHERE isPopular = true LIMIT 6";
-
-    //     // Prepare Statement
-    //     $stmt = $this->connection->prepare($query);
-
-    //     // Execute Query
-    //     $stmt->execute();
-
-    //     return $stmt;
-    // }
 
     public function getByGenre($genre)
     {
@@ -267,6 +212,35 @@ class FeatureFilm
         $stmt = $this->connection->prepare($sql);
         $stmt->execute();
         // echo $sql;
+
+        return $stmt;
+    }
+
+    public function getLatestMovies()
+    {
+        //Get Series 
+        // $query = 'SELECT * FROM ' . $this->series . ' WHERE isActive = true ORDER BY name ASC';
+        $query = 'SELECT * FROM ' . $this->films . ' WHERE isRecent = true  ORDER BY title ASC LIMIT 5';
+
+        // Prepare Statement
+        $stmt = $this->connection->prepare($query);
+
+        // Execute Query
+        $stmt->execute();
+
+        return $stmt;
+    }
+    public function getPopularMovies()
+    {
+        //Get movies 
+        // $query = 'SELECT * FROM ' . $this->movies . ' WHERE isActive = true ORDER BY title ASC';
+        $query = 'SELECT * FROM ' . $this->films . ' WHERE isPopular = true  ORDER BY title ASC LIMIT 6;';
+
+        // Prepare Statement
+        $stmt = $this->connection->prepare($query);
+
+        // Execute Query
+        $stmt->execute();
 
         return $stmt;
     }
