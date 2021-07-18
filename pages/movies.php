@@ -25,17 +25,17 @@
 
 <?php
 
-// require './models/Home.php';
+
 require '../models/FeatureFilm.php';
 require '../config/Database.php';
 $database = new Database();
 $db = $database->connect();
-$films = new FeatureFilm($db);
+$film = new FeatureFilm($db);
 $letters = array("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");
 
 
-$recentMovies = $films->getLatestMovies()->fetchAll(PDO::FETCH_ASSOC);
-$popularMovies = $films->getPopularMovies()->fetchAll(PDO::FETCH_ASSOC);
+$recentMovies = $film->getRecent()->fetchAll(PDO::FETCH_ASSOC);
+$popularMovies = $film->getPopular()->fetchAll(PDO::FETCH_ASSOC);
 
 
 
@@ -43,9 +43,9 @@ $popularMovies = $films->getPopularMovies()->fetchAll(PDO::FETCH_ASSOC);
 $page_number = 1;
 if (isset($_GET['page_number'])) {
     $page_number = $_GET['page_number'];
-    $movies = $films->getFilmsPaginated($page_number)->fetchAll(PDO::FETCH_ASSOC);
+    $allFilms = $film->getFilmsPaginated($page_number)->fetchAll(PDO::FETCH_ASSOC);
 } else {
-    $movies = $films->getFilms()->fetchAll(PDO::FETCH_ASSOC);
+    $allFilms = $film->getFilms()->fetchAll(PDO::FETCH_ASSOC);
 }
 
 
@@ -68,8 +68,6 @@ if (isset($_GET['page_number'])) {
                                 <li><a href="index,">Home</a></li>
                                 <li><a href="../pages/about">About</a></li>
                                 <li><a href="../pages/contact-us">Contact</a></li>
-                                <!-- <li><a href="../pages/privacy">Privacy Policies</a></li>
-                <li><a href="../pages/terms">Terms and Conditions</a></li> -->
                             </ul>
                         </div>
                         <div class="header_top_right">
@@ -105,20 +103,7 @@ if (isset($_GET['page_number'])) {
                         <li>
                             <a href="../index"><span class="fa fa-home desktop-home"></span><span class="mobile-show">Home</span></a>
                         </li>
-                        <!-- <li><a href="#">Technology</a></li>
-          <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Mobile</a>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Android</a></li>
-              <li><a href="#">Samsung</a></li>
-              <li><a href="#">Nokia</a></li>
-              <li><a href="#">Walton Mobile</a></li>
-              <li><a href="#">Sympony</a></li>
-            </ul>
-          </li>
-          <li><a href="#">Laptops</a></li>
-          <li><a href="#">Tablets</a></li>
-          <li><a href="../pages/contact.html">Contact Us</a></li>
-          <li><a href="../pages/404.html">404 Page</a></li> -->
+
                         <li><a href="../pages/tv-show">TV Show</a></li>
                         <li class="active"><a href="../pages/movies">Movies</a></li>
                         <li><a href="../pages/request">Your Requests</a></li>
@@ -169,7 +154,7 @@ if (isset($_GET['page_number'])) {
 
                             echo '
   <div class="single_iteam">
-  <a href="../pages/single-series/' . $recent["url_name"] . '">
+  <a href="../pages/single-series/' . $recent["title"] . '">
  
   
   <img style="background-color:black;object-fit:contain" src="images/posters/' . $recent["img_url"] . '" alt="' . $recent["name"] . '" /></a>
@@ -240,7 +225,7 @@ if (isset($_GET['page_number'])) {
                     <div class="w-auto my-6">
                         <div class="flex justify-between">
                             <?php
-                            foreach ($films->genres as $genre) {
+                            foreach ($film->genres as $genre) {
                                 echo '<a class="px-6 py-3 mr-1 cursor-pointer hover:bg-blue-200 bg-theme">' . $genre["name"] . '</a>';
                             }
                             ?>
@@ -265,10 +250,10 @@ if (isset($_GET['page_number'])) {
                             <ul class="flex flex-wrap justify-between">
 
                                 <?php
-                                foreach ($movies as $movie) {
+                                foreach ($allFilms as $movie) {
 
                                     echo '
-            <a href="movie_detail.php?film_id=' . $movie['id'] . '" class="w-1/2 my-3 rounded md:mb-6 md:w-1/5 lg:w-1/6">
+            <a href="movie_detail.php?movie_id=' . $movie['id'] . '" class="w-1/2 my-3 rounded md:mb-6 md:w-1/5 lg:w-1/6">
             <div  class="m-1 md:mx-3">
             <div class="w-full h-full overflow-hidden">
             <img src="' . $movie['img_url'] . '" class="object-cover rounded-t inner-img media-left-custom" alt="' . $movie['title'] . '">
