@@ -74,7 +74,7 @@ $popularMovies = $home->getPopularMovies()->fetchAll(PDO::FETCH_ASSOC);
           <div class="header_bottom">
             <div class="logo_area">
               <a href="index" class="logo">
-                <h1>bekyfeeds</h1>
+                <h1>Telegram</h1>
               </a>
             </div>
             <div class="add_banner">
@@ -135,7 +135,7 @@ $popularMovies = $home->getPopularMovies()->fetchAll(PDO::FETCH_ASSOC);
 
                 echo '
               <li>
-                <a href="single-series/' . $popular['url_name'] . '">' . $popular['name'] . '</a>
+                <a href="single-series/' . $popular['name'] . '">' . $popular['name'] . '</a>
               </li>
               ';
               }
@@ -162,7 +162,7 @@ $popularMovies = $home->getPopularMovies()->fetchAll(PDO::FETCH_ASSOC);
 
               echo '
   <div class="single_iteam">
-  <a href="pages/single-series/' . $recent["url_name"] . '">
+  <a href="pages/single-series/' . $recent["name"] . '">
  
   
   <img style="background-color:black;object-fit:contain" src="images/posters/' . $recent["img_url"] . '" alt="' . $recent["name"] . '" /></a>
