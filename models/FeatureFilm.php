@@ -72,13 +72,10 @@ class FeatureFilm
     }
 
     // Search Film
-    public function searchFilm($film_name)
+    public function searchFilmPaginated($film_name,$page)
     {
-        $query = "SELECT * FROM " . $this->films . " WHERE title LIKE '%" . $film_name . "%' LIMIT 5";
-        $stmt = $this->connection->prepare($query);
-        $stmt->execute();
-        return $stmt;
-        echo '<a  class="w-full px-4 py-1 hover:bg-gray-600" href=""></a>';
+        $query = "SELECT * FROM " . $this->films . " WHERE title LIKE '%" . $film_name . "%'";
+       return $this->paginate($query,$page);
     }
 
     // Get Recent Films

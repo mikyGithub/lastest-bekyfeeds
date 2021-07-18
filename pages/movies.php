@@ -39,7 +39,6 @@ $popularMovies = $film->getPopular()->fetchAll(PDO::FETCH_ASSOC);
 
 
 
-
 $page_number = 1;
 $selected_letter=0;
 $selected_genre=0;
@@ -60,13 +59,13 @@ if (isset($_GET['genre'])) {
    // $allFilms = $films->getFilmsPaginated($page_number)->fetchAll(PDO::FETCH_ASSOC);
 }
 
-if (isset($_post['search_btn'])) {
+if (isset($_GET['search'])) {
   //  echo $search
-    $search = $_post['search'];
-    //$allFilms=$films->searchFilmPaginated($search,$page_number);
+    $search = $_GET['search'];
+    $allFilms=$film->searchFilmPaginated($search,$page_number);
    // $allFilms = $films->getFilmsPaginated($page_number)->fetchAll(PDO::FETCH_ASSOC);
 }
-if($selected_letter===0 && $selected_genre===0){
+if(!isset($selected_letter) && !isset($selected_genre) && !isset($search)){
     $allFilms=$film->getFilmsPaginated($page_number);
 }
 
@@ -105,7 +104,7 @@ if($selected_letter===0 && $selected_genre===0){
                             </a>
                         </div>
                         <div class="add_banner">
-                            <a href="#"><img src="images/addbanner_728x90_V1.jpg" alt="" /></a>
+                            <a href="#"><img src="../images/banner.jpg" alt="" /></a>
                         </div>
                     </div>
                 </div>
@@ -236,7 +235,7 @@ if($selected_letter===0 && $selected_genre===0){
 
             <div class="flex flex-col w-full">
                 <div class="latest_post">
-                    <form action="/action_page.php">
+                    <form action="./movies.php">
                         <div style="border:0px" class="flex items-center justify-between my-4 outline-none ">
 
                             <input style="border:0px; border-bottom:2px solid #139ea8" type="text" placeholder="Search.." class="w-5/6 px-3 py-3 bg-gray-200 border-b focus:outline-none" name="search">
@@ -261,7 +260,7 @@ if($selected_letter===0 && $selected_genre===0){
                             <div class="flex flex-col justify-between">
                                 <?php
                             foreach ($letters as $letter) {
-                                echo '<div class="px-6 py-3 my-1 cursor-pointer hover:bg-blue-200 bg-theme"> <a href="movies.php?letter='.$letter.'"> '.$letter.'<a></div>';
+                                echo '<a href="movies.php?letter='.$letter.'" class="px-6 py-3 my-1 cursor-pointer hover:bg-blue-200 bg-theme"> '.$letter.'</a>';
                             }
                                 ?>
 
