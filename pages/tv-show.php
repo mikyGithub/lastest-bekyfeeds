@@ -15,7 +15,8 @@
     <link rel="stylesheet" type="text/css" href="../assets/css/jquery.fancybox.css" />
     <link rel="stylesheet" type="text/css" href="../assets/css/theme.css" />
     <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.4/utilities.min.css" integrity="sha512-einsnY5Ti9WNRsxAwifno5lMOviZlMkkewp55Mi480T97asB8MBDxRvZLd93jX5yebFwygHb1KHhlajtS3aMsA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" type="text/css" href="../assets/css/utilities.min.css" />
     <!--[if lt IE 9]>
       <script src="assets/js/html5shiv.min.js"></script>
       <script src="assets/js/respond.min.js"></script>
@@ -229,23 +230,23 @@ if (isset($_GET['page_number'])) {
         </section> -->
         <section id="contentSection">
 
-            <div class="w-full flex flex-col">
+            <div class="flex flex-col w-full">
                 <div class="latest_post">
                     <form action="/action_page.php">
-                        <div style="border:0px" class="my-4 flex justify-between items-center outline-none ">
+                        <div style="border:0px" class="flex items-center justify-between my-4 outline-none ">
 
-                            <input style="border:0px" type="text" placeholder="Search.." class="bg-gray-200 focus:outline-none px-3 py-3 w-5/6" name="search">
-                            <button style="border:0px" class="px-6 py-3 bg-theme focus:outline-none w-1/6" type="submit">Search</button>
+                            <input style="border:0px" type="text" placeholder="Search.." class="w-5/6 px-3 py-3 bg-gray-200 focus:outline-none" name="search">
+                            <button style="border:0px" class="w-1/6 px-6 py-3 bg-theme focus:outline-none" type="submit">Search</button>
                         </div>
                     </form>
                     <h2><span>Movies</span></h2>
 
                     <div class="flex">
                         <div class="w-auto">
-                            <div class="flex justify-between flex-col">
+                            <div class="flex flex-col justify-between">
                                 <?php
                                 foreach ($letters as $letter) {
-                                    echo '<div class="bg-theme  py-3 px-6 my-1">' . $letter . '</div>';
+                                    echo '<div class="px-6 py-3 my-1 bg-theme">' . $letter . '</div>';
                                 }
                                 ?>
 
@@ -259,13 +260,13 @@ if (isset($_GET['page_number'])) {
                                 foreach ($recent as $r) {
 
                                     echo '
-            <a href="movie_detail.php?film_id=' . $r['id'] . '" class="w-1/2  rounded md:mb-6 md:w-1/5 lg:w-1/6 my-3">
-            <div  class=" m-1 md:mx-3  ">
+            <a href="movie_detail.php?film_id=' . $r['id'] . '" class="w-1/2 my-3 rounded md:mb-6 md:w-1/5 lg:w-1/6">
+            <div  class="m-1  md:mx-3">
             <div class="w-full h-full overflow-hidden">
-            <img src="' . $r['img_url'] . '" class="inner-img object-cover  rounded-t media-left-custom" alt="' . $r['title'] . '">
+            <img src="' . $r['img_url'] . '" class="object-cover rounded-t inner-img media-left-custom" alt="' . $r['title'] . '">
             </div>
         
-              <div class="flex items-center justify-between p-2 bg-theme rounded-b ">
+              <div class="flex items-center justify-between p-2 rounded-b bg-theme ">
         
                 <p class="text-sm font-semibold text-gray-300 md:text-base">' . substr($r['title'], 0, 20)  . '</p>
                 
@@ -282,29 +283,29 @@ if (isset($_GET['page_number'])) {
                             <!-- Pagination  -->
                             <div class="flex flex-col items-center my-12">
                                 <div class="flex text-gray-700">
-                                    <div class="h-8 w-8 mr-1 flex justify-center items-center  bg-gray-200 cursor-pointer">
-                                        <a href="movies.php?page_number= <?php echo $page_number - 1 ?>"> <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-left w-4 h-4">
+                                    <div class="flex items-center justify-center w-8 h-8 mr-1 bg-gray-200 cursor-pointer">
+                                        <a href="movies.php?page_number= <?php echo $page_number - 1 ?>"> <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 feather feather-chevron-left">
                                                 <polyline points="15 18 9 12 15 6"></polyline>
                                             </svg></a>
                                     </div>
 
-                                    <div class="flex h-8 font-medium  bg-gray-200">
+                                    <div class="flex h-8 font-medium bg-gray-200">
                                         <?php
 
                                         for ($i = 1; $i < 8; $i++) {
 
                                             if ($page_number != $i) {
-                                                echo ' <div class="w-8 md:flex justify-center items-center hidden  cursor-pointer leading-5 transition duration-150 ease-in  rounded-full  "><a href="movies.php?page_number=' . $i . '">' . $i . '</div>';
+                                                echo ' <div class="items-center justify-center hidden w-8 leading-5 transition duration-150 ease-in rounded-full cursor-pointer md:flex "><a href="movies.php?page_number=' . $i . '">' . $i . '</div>';
                                             } else {
-                                                echo ' <div class="w-8 md:flex justify-center items-center hidden  cursor-pointer leading-5 transition duration-150 ease-in  rounded-full bg-green-600 text-white   "><a href="movies.php?page_number=' . $i . '">' . $i . '</div>';
+                                                echo ' <div class="items-center justify-center hidden w-8 leading-5 text-white transition duration-150 ease-in bg-green-600 rounded-full cursor-pointer md:flex "><a href="movies.php?page_number=' . $i . '">' . $i . '</div>';
                                             }
                                         }
 
                                         ?>
-                                        <div class="w-8 h-8 md:hidden flex justify-center items-center cursor-pointer leading-5 transition duration-150 ease-in rounded-full bg-pink-600 text-white">4</div>
+                                        <div class="flex items-center justify-center w-8 h-8 leading-5 text-white transition duration-150 ease-in bg-pink-600 rounded-full cursor-pointer md:hidden">4</div>
                                     </div>
-                                    <div class="h-8 w-8 ml-1 flex justify-center items-center bg-gray-200 cursor-pointer">
-                                        <a href="movies.php?page_number= <?php echo $page_number + 1 ?>"> <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right w-4 h-4">
+                                    <div class="flex items-center justify-center w-8 h-8 ml-1 bg-gray-200 cursor-pointer">
+                                        <a href="movies.php?page_number= <?php echo $page_number + 1 ?>"> <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 feather feather-chevron-right">
                                                 <polyline points="9 18 15 12 9 6"></polyline>
                                             </svg></a>
                                     </div>
