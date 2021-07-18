@@ -25,53 +25,28 @@
 
 <?php
 
-// require './models/Home.php';
+
 require '../models/FeatureFilm.php';
 require '../config/Database.php';
 $database = new Database();
 $db = $database->connect();
-$films = new FeatureFilm($db);
+$film = new FeatureFilm($db);
 $letters = array("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");
-$movies=array();
 
-$recentMovies = $films->getLatestMovies()->fetchAll(PDO::FETCH_ASSOC);
-$popularMovies = $films->getPopularMovies()->fetchAll(PDO::FETCH_ASSOC);
+
+$recentMovies = $film->getRecent()->fetchAll(PDO::FETCH_ASSOC);
+$popularMovies = $film->getPopular()->fetchAll(PDO::FETCH_ASSOC);
 
 
 
 
 $page_number = 1;
-$selected_letter=0;
-$selected_genre=0;
-$search='';
 if (isset($_GET['page_number'])) {
     $page_number = $_GET['page_number'];
-   // $movies = $films->getFilmsPaginated($page_number)->fetchAll(PDO::FETCH_ASSOC);
-} 
-
-if (isset($_GET['letter'])) {
-    $selected_letter = $_GET['letter'];
-    $movies=$films->getByLetterPaginated($selected_letter,$page_number);
-   // $movies = $films->getFilmsPaginated($page_number)->fetchAll(PDO::FETCH_ASSOC);
-} 
-if (isset($_GET['genre'])) {
-    $selected_genre = $_GET['genre'];
-    $movies=$films->getByGenrePaginated($selected_genre,$page_number);
-   // $movies = $films->getFilmsPaginated($page_number)->fetchAll(PDO::FETCH_ASSOC);
+    $allFilms = $film->getFilmsPaginated($page_number)->fetchAll(PDO::FETCH_ASSOC);
+} else {
+    $allFilms = $film->getFilms()->fetchAll(PDO::FETCH_ASSOC);
 }
-
-if (isset($_post['search_btn'])) {
-  //  echo $search
-    $search = $_post['search'];
-    //$movies=$films->searchFilmPaginated($search,$page_number);
-   // $movies = $films->getFilmsPaginated($page_number)->fetchAll(PDO::FETCH_ASSOC);
-}
-if($selected_letter===0 && $selected_genre===0){
-    $movies=$films->getFilmsPaginated($page_number);
-}
-
-
-
 
 
 ?>
@@ -93,8 +68,6 @@ if($selected_letter===0 && $selected_genre===0){
                                 <li><a href="index,">Home</a></li>
                                 <li><a href="../pages/about">About</a></li>
                                 <li><a href="../pages/contact-us">Contact</a></li>
-                                <!-- <li><a href="../pages/privacy">Privacy Policies</a></li>
-                <li><a href="../pages/terms">Terms and Conditions</a></li> -->
                             </ul>
                         </div>
                         <div class="header_top_right">
@@ -130,20 +103,7 @@ if($selected_letter===0 && $selected_genre===0){
                         <li>
                             <a href="../index"><span class="fa fa-home desktop-home"></span><span class="mobile-show">Home</span></a>
                         </li>
-                        <!-- <li><a href="#">Technology</a></li>
-          <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Mobile</a>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Android</a></li>
-              <li><a href="#">Samsung</a></li>
-              <li><a href="#">Nokia</a></li>
-              <li><a href="#">Walton Mobile</a></li>
-              <li><a href="#">Sympony</a></li>
-            </ul>
-          </li>
-          <li><a href="#">Laptops</a></li>
-          <li><a href="#">Tablets</a></li>
-          <li><a href="../pages/contact.html">Contact Us</a></li>
-          <li><a href="../pages/404.html">404 Page</a></li> -->
+
                         <li><a href="../pages/tv-show">TV Show</a></li>
                         <li class="active"><a href="../pages/movies">Movies</a></li>
                         <li><a href="../pages/request">Your Requests</a></li>
@@ -194,7 +154,7 @@ if($selected_letter===0 && $selected_genre===0){
 
                             echo '
   <div class="single_iteam">
-  <a href="../pages/single-series/' . $recent["url_name"] . '">
+  <a href="../pages/single-series/' . $recent["title"] . '">
  
   
   <img style="background-color:black;object-fit:contain" src="images/posters/' . $recent["img_url"] . '" alt="' . $recent["name"] . '" /></a>
@@ -254,19 +214,19 @@ if($selected_letter===0 && $selected_genre===0){
 
             <div class="flex flex-col w-full">
                 <div class="latest_post">
-                    <form method="post">
+                    <form action="/action_page.php">
                         <div style="border:0px" class="flex items-center justify-between my-4 outline-none ">
 
                             <input style="border:0px; border-bottom:2px solid #139ea8" type="text" placeholder="Search.." class="w-5/6 px-3 py-3 bg-gray-200 border-b focus:outline-none" name="search">
-                            <a href="movies.php?search=<?php echo $search ?>"> <button style="border:0px; border-bottom:2px solid #139ea8" class="w-1/6 px-6 py-3 bg-theme focus:outline-none" type="submit" name="search_btn">Search </button> </a>
+                            <button style="border:0px; border-bottom:2px solid #139ea8" class="w-1/6 px-6 py-3 bg-theme focus:outline-none" type="submit">Search</button>
                         </div>
                     </form>
 
                     <div class="w-auto my-6">
                         <div class="flex justify-between">
                             <?php
-                            foreach ($films->genres as $genre) {
-                                echo '<a class="px-6 py-3 mr-1 cursor-pointer hover:bg-blue-200 bg-theme" href="movies.php?genre=' . $genre["link"] . '">' . $genre["name"] . '</a>';
+                            foreach ($film->genres as $genre) {
+                                echo '<a class="px-6 py-3 mr-1 cursor-pointer hover:bg-blue-200 bg-theme">' . $genre["name"] . '</a>';
                             }
                             ?>
 
@@ -279,7 +239,7 @@ if($selected_letter===0 && $selected_genre===0){
                             <div class="flex flex-col justify-between">
                                 <?php
                                 foreach ($letters as $letter) {
-                                    echo '<div class="px-6 py-3 my-1 cursor-pointer hover:bg-blue-200 bg-theme"> <a href="movies.php?letter='.$letter.'"> '.$letter.'<a></div>';
+                                    echo '<div class="px-6 py-3 my-1 cursor-pointer hover:bg-blue-200 bg-theme">' . $letter . '</div>';
                                 }
                                 ?>
 
@@ -290,10 +250,10 @@ if($selected_letter===0 && $selected_genre===0){
                             <ul class="flex flex-wrap justify-between">
 
                                 <?php
-                                foreach ($movies as $movie) {
+                                foreach ($allFilms as $movie) {
 
                                     echo '
-            <a href="movie_detail.php?film_id=' . $movie['id'] . '" class="w-1/2 my-3 rounded md:mb-6 md:w-1/5 lg:w-1/6">
+            <a href="movie_detail.php?movie_id=' . $movie['id'] . '" class="w-1/2 my-3 rounded md:mb-6 md:w-1/5 lg:w-1/6">
             <div  class="m-1 md:mx-3">
             <div class="w-full h-full overflow-hidden">
             <img src="' . $movie['img_url'] . '" class="object-cover rounded-t inner-img media-left-custom" alt="' . $movie['title'] . '">
@@ -317,35 +277,9 @@ if($selected_letter===0 && $selected_genre===0){
                             <div class="flex flex-col items-center my-12">
                                 <div class="flex text-gray-700">
                                     <div class="flex items-center justify-center w-8 h-8 mr-1 bg-gray-200 cursor-pointer">
-                                        <?php  
-                                        if($selected_letter!==0){
-                                            echo ' <a href="movies.php?page_number='.($page_number-1).'&letter='.$selected_letter.'"> <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 feather feather-chevron-left">
-                                            <polyline points="15 18 9 12 15 6"></polyline>
-                                        </svg></a>
-                                            ';
-                                        }
-                                        if($selected_genre!==0){
-                                            echo ' <a href="movies.php?page_number='.($page_number-1).'&letter='.$selected_genre.'"> <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 feather feather-chevron-left">
-                                            <polyline points="15 18 9 12 15 6"></polyline>
-                                        </svg></a>
-                                            ';
-                                        }
-                                        if($search!==0){
-                                            echo ' <a href="movies.php?page_number='.($page_number-1).'&search='.$search.'"> <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 feather feather-chevron-left">
-                                            <polyline points="15 18 9 12 15 6"></polyline>
-                                        </svg></a>
-                                            ';
-                                        }
-                                        if($selected_genre==0 && $selected_letter==0 && $search!==0){
-                                            echo ' <a href="movies.php?page_number='.($page_number-1).'"> <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 feather feather-chevron-left">
-                                            <polyline points="15 18 9 12 15 6"></polyline>
-                                        </svg></a>
-                                            ';
-                                        }
-                                        ?>
-                                        <!-- <a href="movies.php?page_number= <?php echo $page_number - 1 ?>"> <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 feather feather-chevron-left">
+                                        <a href="movies.php?page_number= <?php echo $page_number - 1 ?>"> <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 feather feather-chevron-left">
                                                 <polyline points="15 18 9 12 15 6"></polyline>
-                                            </svg></a> -->
+                                            </svg></a>
                                     </div>
 
                                     <div class="flex h-8 font-medium bg-gray-200">
@@ -364,37 +298,9 @@ if($selected_letter===0 && $selected_genre===0){
                                         <div class="flex items-center justify-center w-8 h-8 leading-5 text-white transition duration-150 ease-in bg-pink-600 rounded-full cursor-pointer md:hidden">4</div>
                                     </div>
                                     <div class="flex items-center justify-center w-8 h-8 ml-1 bg-gray-200 cursor-pointer">
-                                    <?php  
-                                        if($selected_letter!==0){
-                                            echo ' <a href="movies.php?page_number='.($page_number+1).'&letter='.$selected_letter.'"> <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 feather feather-chevron-right">
-                                            <polyline points="9 18 15 12 9 6"></polyline>
-                                        </svg></a>
-                                            ';
-                                        }
-                                        if($selected_genre!==0){
-                                            echo ' <a href="movies.php?page_number='.($page_number+1).'&genre='.$selected_genre.'"> <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 feather feather-chevron-right">
-                                            <polyline points="9 18 15 12 9 6"></polyline>
-                                        </svg></a>
-                                            ';
-                                        }
-                                        if($search!==0){
-                                            echo ' <a href="movies.php?page_number='.($page_number+1).'&search='.$search.'"> <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 feather feather-chevron-left">
-                                            <polyline points="15 18 9 12 15 6"></polyline>
-                                        </svg></a>
-                                            ';
-                                        }
-                                        if($selected_genre==0 && $selected_letter==0 && $search==0){
-                                            echo ' <a href="movies.php?page_number='.($page_number+1).'"> <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 feather feather-chevron-right">
-                                            <polyline points="9 18 15 12 9 6"></polyline>
-                                        </svg></a>
-                                            ';
-                                        }
-                                        ?>   
-                                    
-                                    
-                                    <!-- <a href="movies.php?page_number= <?php echo $page_number + 1 ?>"> <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 feather feather-chevron-right">
+                                        <a href="movies.php?page_number= <?php echo $page_number + 1 ?>"> <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 feather feather-chevron-right">
                                                 <polyline points="9 18 15 12 9 6"></polyline>
-                                            </svg></a> -->
+                                            </svg></a>
                                     </div>
                                 </div>
                             </div>
