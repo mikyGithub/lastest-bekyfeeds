@@ -15,7 +15,6 @@
     <link rel="stylesheet" type="text/css" href="../assets/css/jquery.fancybox.css" />
     <link rel="stylesheet" type="text/css" href="../assets/css/theme.css" />
     <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
-
     <link rel="stylesheet" type="text/css" href="../assets/css/utilities.min.css" />
     <!--[if lt IE 9]>
       <script src="assets/js/html5shiv.min.js"></script>
@@ -122,8 +121,8 @@ if (isset($_GET['page_number'])) {
           <li><a href="#">Tablets</a></li>
           <li><a href="../pages/contact.html">Contact Us</a></li>
           <li><a href="../pages/404.html">404 Page</a></li> -->
-                        <li class="active"><a href="../pages/tv-show">TV Show</a></li>
-                        <li><a href="../pages/movies">Movies</a></li>
+                        <li><a href="../pages/tv-show">TV Show</a></li>
+                        <li class="active"><a href="../pages/movies">Movies</a></li>
                         <li><a href="../pages/request">Your Requests</a></li>
                         <li><a href="../pages/news">News</a></li>
                         <li><a href="../pages/trailer">Movie Trailers</a></li>
@@ -235,10 +234,21 @@ if (isset($_GET['page_number'])) {
                     <form action="/action_page.php">
                         <div style="border:0px" class="flex items-center justify-between my-4 outline-none ">
 
-                            <input style="border:0px" type="text" placeholder="Search.." class="w-5/6 px-3 py-3 bg-gray-200 focus:outline-none" name="search">
-                            <button style="border:0px" class="w-1/6 px-6 py-3 bg-theme focus:outline-none" type="submit">Search</button>
+                            <input style="border:0px; border-bottom:2px solid #139ea8" type="text" placeholder="Search.." class="w-5/6 px-3 py-3 bg-gray-200 border-b focus:outline-none" name="search">
+                            <button style="border:0px; border-bottom:2px solid #139ea8" class="w-1/6 px-6 py-3 bg-theme focus:outline-none" type="submit">Search</button>
                         </div>
                     </form>
+
+                    <div class="w-auto my-6">
+                        <div class="flex justify-between">
+                            <?php
+                            foreach ($films->genres as $genre) {
+                                echo '<a class="px-6 py-3 mr-1 cursor-pointer hover:bg-blue-200 bg-theme">' . $genre["name"] . '</a>';
+                            }
+                            ?>
+
+                        </div>
+                    </div>
                     <h2><span>Movies</span></h2>
 
                     <div class="flex">
@@ -246,7 +256,7 @@ if (isset($_GET['page_number'])) {
                             <div class="flex flex-col justify-between">
                                 <?php
                                 foreach ($letters as $letter) {
-                                    echo '<div class="px-6 py-3 my-1 bg-theme">' . $letter . '</div>';
+                                    echo '<div class="px-6 py-3 my-1 cursor-pointer hover:bg-blue-200 bg-theme">' . $letter . '</div>';
                                 }
                                 ?>
 
@@ -261,7 +271,7 @@ if (isset($_GET['page_number'])) {
 
                                     echo '
             <a href="movie_detail.php?film_id=' . $r['id'] . '" class="w-1/2 my-3 rounded md:mb-6 md:w-1/5 lg:w-1/6">
-            <div  class="m-1  md:mx-3">
+            <div  class="m-1 md:mx-3">
             <div class="w-full h-full overflow-hidden">
             <img src="' . $r['img_url'] . '" class="object-cover rounded-t inner-img media-left-custom" alt="' . $r['title'] . '">
             </div>
@@ -461,85 +471,11 @@ if (isset($_GET['page_number'])) {
                     </div>
                 </div>
             </div>
-            <div class="single_post_content">
-                <h2><span>Photography</span></h2>
-                <ul class="photograph_nav wow fadeInDown">
-                    <li>
-                        <div class="photo_grid">
-                            <figure class="effect-layla">
-                                <a class="fancybox-buttons" data-fancybox-group="button" href="images/photograph_img2.jpg" title="Photography Ttile 1">
-                                    <img src="images/photograph_img2.jpg" alt="" /></a>
-                            </figure>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="photo_grid">
-                            <figure class="effect-layla">
-                                <a class="fancybox-buttons" data-fancybox-group="button" href="images/photograph_img3.jpg" title="Photography Ttile 2">
-                                    <img src="images/photograph_img3.jpg" alt="" />
-                                </a>
-                            </figure>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="photo_grid">
-                            <figure class="effect-layla">
-                                <a class="fancybox-buttons" data-fancybox-group="button" href="images/photograph_img4.jpg" title="Photography Ttile 3">
-                                    <img src="images/photograph_img4.jpg" alt="" />
-                                </a>
-                            </figure>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="photo_grid">
-                            <figure class="effect-layla">
-                                <a class="fancybox-buttons" data-fancybox-group="button" href="images/photograph_img4.jpg" title="Photography Ttile 4">
-                                    <img src="images/photograph_img4.jpg" alt="" />
-                                </a>
-                            </figure>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="photo_grid">
-                            <figure class="effect-layla">
-                                <a class="fancybox-buttons" data-fancybox-group="button" href="images/photograph_img2.jpg" title="Photography Ttile 5">
-                                    <img src="images/photograph_img2.jpg" alt="" />
-                                </a>
-                            </figure>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="photo_grid">
-                            <figure class="effect-layla">
-                                <a class="fancybox-buttons" data-fancybox-group="button" href="images/photograph_img3.jpg" title="Photography Ttile 6">
-                                    <img src="images/photograph_img3.jpg" alt="" />
-                                </a>
-                            </figure>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+
             <div class="single_post_content">
                 <h2><span>Games</span></h2>
                 <div class="single_post_content_left">
-                    <ul class="business_catgnav">
-                        <li>
-                            <figure class="bsbig_fig wow fadeInDown">
-                                <a class="featured_img" href="../pages/single_page.html">
-                                    <img src="images/featured_img1.jpg" alt="" />
-                                    <span class="overlay"></span>
-                                </a>
-                                <figcaption>
-                                    <a href="../pages/single_page.html">Proin rhoncus consequat nisl eu ornare mauris</a>
-                                </figcaption>
-                                <p>
-                                    Nunc tincidunt, elit non cursus euismod, lacus augue
-                                    ornare metus, egestas imperdiet nulla nisl quis
-                                    mauris. Suspendisse a phare...
-                                </p>
-                            </figure>
-                        </li>
-                    </ul>
+                    <a class="sideAdd" href="#"><img class="object-contain" src="../images/telegram.gif" alt="" /></a>
                 </div>
                 <div class="single_post_content_right">
                     <ul class="spost_nav">
@@ -591,163 +527,7 @@ if (isset($_GET['page_number'])) {
                 </div>
             </div>
 
-            <div class="col-lg-4 col-md-4 col-sm-4">
-                <aside class="right_content">
-                    <div class="single_sidebar">
-                        <h2><span>Popular Post</span></h2>
-                        <ul class="spost_nav">
-                            <li>
-                                <div class="media wow fadeInDown">
-                                    <a href="../pages/single_page.html" class="media-left">
-                                        <img alt="" src="images/post_img1.jpg" />
-                                    </a>
-                                    <div class="media-body">
-                                        <a href="../pages/single_page.html" class="catg_title">
-                                            Aliquam malesuada diam eget turpis varius 1</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="media wow fadeInDown">
-                                    <a href="../pages/single_page.html" class="media-left">
-                                        <img alt="" src="images/post_img2.jpg" />
-                                    </a>
-                                    <div class="media-body">
-                                        <a href="../pages/single_page.html" class="catg_title">
-                                            Aliquam malesuada diam eget turpis varius 2</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="media wow fadeInDown">
-                                    <a href="../pages/single_page.html" class="media-left">
-                                        <img alt="" src="images/post_img1.jpg" />
-                                    </a>
-                                    <div class="media-body">
-                                        <a href="../pages/single_page.html" class="catg_title">
-                                            Aliquam malesuada diam eget turpis varius 3</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="media wow fadeInDown">
-                                    <a href="../pages/single_page.html" class="media-left">
-                                        <img alt="" src="images/post_img2.jpg" />
-                                    </a>
-                                    <div class="media-body">
-                                        <a href="../pages/single_page.html" class="catg_title">
-                                            Aliquam malesuada diam eget turpis varius 4</a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- <div class="single_sidebar">
-              <ul class="nav nav-tabs" role="tablist">
-                <li role="presentation" class="active">
-                  <a href="#category" aria-controls="home" role="tab" data-toggle="tab">Category</a>
-                </li>
-                <li role="presentation">
-                  <a href="#video" aria-controls="profile" role="tab" data-toggle="tab">Video</a>
-                </li>
-                <li role="presentation">
-                  <a href="#comments" aria-controls="messages" role="tab" data-toggle="tab">Comments</a>
-                </li>
-              </ul>
-              <div class="tab-content">
-                <div role="tabpanel" class="tab-pane active" id="category">
-                  <ul>
-                    <li class="cat-item"><a href="#">Sports</a></li>
-                    <li class="cat-item"><a href="#">Fashion</a></li>
-                    <li class="cat-item"><a href="#">Business</a></li>
-                    <li class="cat-item"><a href="#">Technology</a></li>
-                    <li class="cat-item"><a href="#">Games</a></li>
-                    <li class="cat-item"><a href="#">Life &amp; Style</a></li>
-                    <li class="cat-item"><a href="#">Photography</a></li>
-                  </ul>
-                </div>
-                <div role="tabpanel" class="tab-pane" id="video">
-                  <div class="vide_area">
-                    <iframe width="100%" height="250" src="http://www.youtube.com/embed/h5QWbURNEpA?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>
-                  </div>
-                </div>
-                <div role="tabpanel" class="tab-pane" id="comments">
-                  <ul class="spost_nav">
-                    <li>
-                      <div class="media wow fadeInDown">
-                        <a href="../pages/single_page.html" class="media-left">
-                          <img alt="" src="images/post_img1.jpg" />
-                        </a>
-                        <div class="media-body">
-                          <a href="../pages/single_page.html" class="catg_title">
-                            Aliquam malesuada diam eget turpis varius 1</a>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="media wow fadeInDown">
-                        <a href="../pages/single_page.html" class="media-left">
-                          <img alt="" src="images/post_img2.jpg" />
-                        </a>
-                        <div class="media-body">
-                          <a href="../pages/single_page.html" class="catg_title">
-                            Aliquam malesuada diam eget turpis varius 2</a>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="media wow fadeInDown">
-                        <a href="../pages/single_page.html" class="media-left">
-                          <img alt="" src="images/post_img1.jpg" />
-                        </a>
-                        <div class="media-body">
-                          <a href="../pages/single_page.html" class="catg_title">
-                            Aliquam malesuada diam eget turpis varius 3</a>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="media wow fadeInDown">
-                        <a href="../pages/single_page.html" class="media-left">
-                          <img alt="" src="images/post_img2.jpg" />
-                        </a>
-                        <div class="media-body">
-                          <a href="../pages/single_page.html" class="catg_title">
-                            Aliquam malesuada diam eget turpis varius 4</a>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div> -->
-                    <div class="single_sidebar wow fadeInDown">
-                        <h2><span>Join Us</span></h2>
-                        <a class="sideAdd" href="#"><img style="object-fit:cover" src="images/telegram.gif" alt="" /></a>
-                    </div>
-                    <!-- <div class="single_sidebar wow fadeInDown">
-              <h2><span>Category</span></h2>
-              <select class="catgArchive">
-                <option>Select Category</option>
-                <option>Life styles</option>
-                <option>Sports</option>
-                <option>Technology</option>
-                <option>Treads</option>
-              </select>
-            </div> -->
-                    <div class="single_sidebar wow fadeInDown">
-                        <h2><span>GENERES</span></h2>
-                        <ul>
-                            <li><a style="padding-top: 10px;padding-bottom: 10px;" href="#">Blog</a></li>
-                            <li><a style="padding-top: 10px;padding-bottom: 10px;" href="#">Blog</a></li>
-                            <li><a style="padding-top: 10px;padding-bottom: 10px;" href="#">Blog</a></li>
-                            <li><a style="padding-top: 10px;padding-bottom: 10px;" href="#">Blog</a></li>
-                            <li><a style="padding-top: 10px;padding-bottom: 10px;" href="#">Blog</a></li>
 
-                        </ul>
-                    </div>
-                </aside>
-            </div>
     </div>
     </section>
     <footer id="footer">

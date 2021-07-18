@@ -33,11 +33,9 @@ $db = $database->connect();
 $films = new FeatureFilm($db);
 $letters = array("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");
 
-// $recentSeries = $home->getLatestEpisodes()->fetchAll(PDO::FETCH_ASSOC);
-// $popularSeries = $home->getPopularEpisodes()->fetchAll(PDO::FETCH_ASSOC);
 
-// $recentMovies = $home->getLatestMovies()->fetchAll(PDO::FETCH_ASSOC);
-// $popularMovies = $home->getPopularMovies()->fetchAll(PDO::FETCH_ASSOC);
+$recentMovies = $films->getLatestMovies()->fetchAll(PDO::FETCH_ASSOC);
+$popularMovies = $films->getPopularMovies()->fetchAll(PDO::FETCH_ASSOC);
 
 
 
@@ -45,9 +43,9 @@ $letters = array("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"
 $page_number = 1;
 if (isset($_GET['page_number'])) {
     $page_number = $_GET['page_number'];
-    $recent = $films->getFilmsPaginated($page_number)->fetchAll(PDO::FETCH_ASSOC);
+    $movies = $films->getFilmsPaginated($page_number)->fetchAll(PDO::FETCH_ASSOC);
 } else {
-    $recent = $films->getFilms()->fetchAll(PDO::FETCH_ASSOC);
+    $movies = $films->getFilms()->fetchAll(PDO::FETCH_ASSOC);
 }
 
 
@@ -267,18 +265,18 @@ if (isset($_GET['page_number'])) {
                             <ul class="flex flex-wrap justify-between">
 
                                 <?php
-                                foreach ($recent as $r) {
+                                foreach ($movies as $movie) {
 
                                     echo '
-            <a href="movie_detail.php?film_id=' . $r['id'] . '" class="w-1/2 my-3 rounded md:mb-6 md:w-1/5 lg:w-1/6">
+            <a href="movie_detail.php?film_id=' . $movie['id'] . '" class="w-1/2 my-3 rounded md:mb-6 md:w-1/5 lg:w-1/6">
             <div  class="m-1 md:mx-3">
             <div class="w-full h-full overflow-hidden">
-            <img src="' . $r['img_url'] . '" class="object-cover rounded-t inner-img media-left-custom" alt="' . $r['title'] . '">
+            <img src="' . $movie['img_url'] . '" class="object-cover rounded-t inner-img media-left-custom" alt="' . $movie['title'] . '">
             </div>
         
               <div class="flex items-center justify-between p-2 rounded-b bg-theme ">
         
-                <p class="text-sm font-semibold text-gray-300 md:text-base">' . substr($r['title'], 0, 20)  . '</p>
+                <p class="text-sm font-semibold text-gray-300 md:text-base">' . substr($movie['title'], 0, 20)  . '</p>
                 
         
               </div>
@@ -334,430 +332,97 @@ if (isset($_GET['page_number'])) {
             <div class="fashion_technology_area">
                 <div class="fashion">
                     <div class="single_post_content">
-                        <h2><span>Fashion</span></h2>
-                        <ul class="business_catgnav wow fadeInDown">
-                            <li>
-                                <figure class="bsbig_fig">
-                                    <a href="../pages/single_page.html" class="featured_img">
-                                        <img alt="" src="images/featured_img2.jpg" />
-                                        <span class="overlay"></span>
-                                    </a>
-                                    <figcaption>
-                                        <a href="../pages/single_page.html">Proin rhoncus consequat nisl eu ornare mauris</a>
-                                    </figcaption>
-                                    <p>
-                                        Nunc tincidunt, elit non cursus euismod, lacus augue
-                                        ornare metus, egestas imperdiet nulla nisl quis
-                                        mauris. Suspendisse a phare...
-                                    </p>
-                                </figure>
-                            </li>
-                        </ul>
-                        <ul class="spost_nav">
-                            <li>
-                                <div class="media wow fadeInDown">
-                                    <a href="../pages/single_page.html" class="media-left">
-                                        <img alt="" src="images/post_img1.jpg" />
-                                    </a>
-                                    <div class="media-body">
-                                        <a href="../pages/single_page.html" class="catg_title">
-                                            Aliquam malesuada diam eget turpis varius 1</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="media wow fadeInDown">
-                                    <a href="../pages/single_page.html" class="media-left">
-                                        <img alt="" src="images/post_img2.jpg" />
-                                    </a>
-                                    <div class="media-body">
-                                        <a href="../pages/single_page.html" class="catg_title">
-                                            Aliquam malesuada diam eget turpis varius 2</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="media wow fadeInDown">
-                                    <a href="../pages/single_page.html" class="media-left">
-                                        <img alt="" src="images/post_img1.jpg" />
-                                    </a>
-                                    <div class="media-body">
-                                        <a href="../pages/single_page.html" class="catg_title">
-                                            Aliquam malesuada diam eget turpis varius 3</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="media wow fadeInDown">
-                                    <a href="../pages/single_page.html" class="media-left">
-                                        <img alt="" src="images/post_img2.jpg" />
-                                    </a>
-                                    <div class="media-body">
-                                        <a href="../pages/single_page.html" class="catg_title">
-                                            Aliquam malesuada diam eget turpis varius 4</a>
-                                    </div>
-                                </div>
-                            </li>
+                        <h2><span>Latest Movies</span></h2>
+
+                        <ul class="my-2 spost_nav">
+                            <?php
+
+                            foreach ($recentMovies as $recent) {
+
+                                echo '<li class="my-3">
+  <figure href="pages/single-movie/' . $recent["title"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
+    <a href="pages/single-movie/' . $recent["title"] . '" class="w-32 mr-3">
+      <img alt=". $recent["title"] ." class="w-32 h-full" src="' . $recent["img_url"] . '" />
+    </a>
+    <figcaption class="p-3 media-body">
+      <a href=" pages/single-movie/' . $recent["title"] . '" class="">
+      ' . $recent["title"] . ' <p class="genre">' . $recent["genre"] . '</p> <p class="year">' . $recent["releasing_year"] . '</p> </a>
+    </figcaption>
+  </figure>
+</li>
+';
+                            }
+                            ?>
+
+
+
                         </ul>
                     </div>
                 </div>
                 <div class="technology">
                     <div class="single_post_content">
-                        <h2><span>Technology</span></h2>
-                        <ul class="business_catgnav">
-                            <li>
-                                <figure class="bsbig_fig wow fadeInDown">
-                                    <a href="../pages/single_page.html" class="featured_img">
-                                        <img alt="" src="images/featured_img3.jpg" />
-                                        <span class="overlay"></span>
-                                    </a>
-                                    <figcaption>
-                                        <a href="../pages/single_page.html">Proin rhoncus consequat nisl eu ornare mauris</a>
-                                    </figcaption>
-                                    <p>
-                                        Nunc tincidunt, elit non cursus euismod, lacus augue
-                                        ornare metus, egestas imperdiet nulla nisl quis
-                                        mauris. Suspendisse a phare...
-                                    </p>
-                                </figure>
-                            </li>
-                        </ul>
-                        <ul class="spost_nav">
-                            <li>
-                                <div class="media wow fadeInDown">
-                                    <a href="../pages/single_page.html" class="media-left">
-                                        <img alt="" src="images/post_img1.jpg" />
-                                    </a>
-                                    <div class="media-body">
-                                        <a href="../pages/single_page.html" class="catg_title">
-                                            Aliquam malesuada diam eget turpis varius 1</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="media wow fadeInDown">
-                                    <a href="../pages/single_page.html" class="media-left">
-                                        <img alt="" src="images/post_img2.jpg" />
-                                    </a>
-                                    <div class="media-body">
-                                        <a href="../pages/single_page.html" class="catg_title">
-                                            Aliquam malesuada diam eget turpis varius 2</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="media wow fadeInDown">
-                                    <a href="../pages/single_page.html" class="media-left">
-                                        <img alt="" src="images/post_img1.jpg" />
-                                    </a>
-                                    <div class="media-body">
-                                        <a href="../pages/single_page.html" class="catg_title">
-                                            Aliquam malesuada diam eget turpis varius 3</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="media wow fadeInDown">
-                                    <a href="../pages/single_page.html" class="media-left">
-                                        <img alt="" src="images/post_img2.jpg" />
-                                    </a>
-                                    <div class="media-body">
-                                        <a href="../pages/single_page.html" class="catg_title">
-                                            Aliquam malesuada diam eget turpis varius 4</a>
-                                    </div>
-                                </div>
-                            </li>
+                        <h2><span>Popular Movies</span></h2>
+
+                        <ul class="my-2 spost_nav">
+                            <?php
+
+                            foreach ($recentMovies as $recent) {
+
+                                echo '<li class="my-3">
+  <figure href="pages/single-movie/' . $recent["title"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
+    <a href="pages/single-movie/' . $recent["title"] . '" class="w-32 mr-3">
+      <img alt=". $recent["title"] ." class="w-32 h-full" src="' . $recent["img_url"] . '" />
+    </a>
+    <figcaption class="p-3 media-body">
+      <a href=" pages/single-movie/' . $recent["title"] . '" class="">
+      ' . $recent["title"] . ' <p class="genre">' . $recent["genre"] . '</p> <p class="year">' . $recent["releasing_year"] . '</p> </a>
+    </figcaption>
+  </figure>
+</li>
+';
+                            }
+                            ?>
+
+
+
                         </ul>
                     </div>
                 </div>
             </div>
+
             <div class="single_post_content">
-                <h2><span>Photography</span></h2>
-                <ul class="photograph_nav wow fadeInDown">
-                    <li>
-                        <div class="photo_grid">
-                            <figure class="effect-layla">
-                                <a class="fancybox-buttons" data-fancybox-group="button" href="images/photograph_img2.jpg" title="Photography Ttile 1">
-                                    <img src="images/photograph_img2.jpg" alt="" /></a>
-                            </figure>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="photo_grid">
-                            <figure class="effect-layla">
-                                <a class="fancybox-buttons" data-fancybox-group="button" href="images/photograph_img3.jpg" title="Photography Ttile 2">
-                                    <img src="images/photograph_img3.jpg" alt="" />
-                                </a>
-                            </figure>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="photo_grid">
-                            <figure class="effect-layla">
-                                <a class="fancybox-buttons" data-fancybox-group="button" href="images/photograph_img4.jpg" title="Photography Ttile 3">
-                                    <img src="images/photograph_img4.jpg" alt="" />
-                                </a>
-                            </figure>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="photo_grid">
-                            <figure class="effect-layla">
-                                <a class="fancybox-buttons" data-fancybox-group="button" href="images/photograph_img4.jpg" title="Photography Ttile 4">
-                                    <img src="images/photograph_img4.jpg" alt="" />
-                                </a>
-                            </figure>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="photo_grid">
-                            <figure class="effect-layla">
-                                <a class="fancybox-buttons" data-fancybox-group="button" href="images/photograph_img2.jpg" title="Photography Ttile 5">
-                                    <img src="images/photograph_img2.jpg" alt="" />
-                                </a>
-                            </figure>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="photo_grid">
-                            <figure class="effect-layla">
-                                <a class="fancybox-buttons" data-fancybox-group="button" href="images/photograph_img3.jpg" title="Photography Ttile 6">
-                                    <img src="images/photograph_img3.jpg" alt="" />
-                                </a>
-                            </figure>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <div class="single_post_content">
-                <h2><span>Games</span></h2>
+                <h2><span>Editor's Choice</span></h2>
                 <div class="single_post_content_left">
-                    <ul class="business_catgnav">
-                        <li>
-                            <figure class="bsbig_fig wow fadeInDown">
-                                <a class="featured_img" href="../pages/single_page.html">
-                                    <img src="images/featured_img1.jpg" alt="" />
-                                    <span class="overlay"></span>
-                                </a>
-                                <figcaption>
-                                    <a href="../pages/single_page.html">Proin rhoncus consequat nisl eu ornare mauris</a>
-                                </figcaption>
-                                <p>
-                                    Nunc tincidunt, elit non cursus euismod, lacus augue
-                                    ornare metus, egestas imperdiet nulla nisl quis
-                                    mauris. Suspendisse a phare...
-                                </p>
-                            </figure>
-                        </li>
-                    </ul>
+                    <a class="sideAdd" href="#"><img class="object-contain" src="../images/telegram.gif" alt="" /></a>
                 </div>
                 <div class="single_post_content_right">
-                    <ul class="spost_nav">
-                        <li>
-                            <div class="media wow fadeInDown">
-                                <a href="../pages/single_page.html" class="media-left">
-                                    <img alt="" src="images/post_img1.jpg" />
-                                </a>
-                                <div class="media-body">
-                                    <a href="../pages/single_page.html" class="catg_title">
-                                        Aliquam malesuada diam eget turpis varius 1</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="media wow fadeInDown">
-                                <a href="../pages/single_page.html" class="media-left">
-                                    <img alt="" src="images/post_img2.jpg" />
-                                </a>
-                                <div class="media-body">
-                                    <a href="../pages/single_page.html" class="catg_title">
-                                        Aliquam malesuada diam eget turpis varius 2</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="media wow fadeInDown">
-                                <a href="../pages/single_page.html" class="media-left">
-                                    <img alt="" src="images/post_img1.jpg" />
-                                </a>
-                                <div class="media-body">
-                                    <a href="../pages/single_page.html" class="catg_title">
-                                        Aliquam malesuada diam eget turpis varius 3</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="media wow fadeInDown">
-                                <a href="../pages/single_page.html" class="media-left">
-                                    <img alt="" src="images/post_img2.jpg" />
-                                </a>
-                                <div class="media-body">
-                                    <a href="../pages/single_page.html" class="catg_title">
-                                        Aliquam malesuada diam eget turpis varius 4</a>
-                                </div>
-                            </div>
-                        </li>
+                    <ul class="my-2 spost_nav">
+                        <?php
+
+                        foreach ($recentMovies as $recent) {
+
+                            echo '<li class="my-3">
+  <figure href="pages/single-movie/' . $recent["title"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
+    <a href="pages/single-movie/' . $recent["title"] . '" class="w-32 mr-3">
+      <img alt=". $recent["title"] ." class="w-32 h-full" src="' . $recent["img_url"] . '" />
+    </a>
+    <figcaption class="p-3 media-body">
+      <a href=" pages/single-movie/' . $recent["title"] . '" class="">
+      ' . $recent["title"] . ' <p class="genre">' . $recent["genre"] . '</p> <p class="year">' . $recent["releasing_year"] . '</p> </a>
+    </figcaption>
+  </figure>
+</li>
+';
+                        }
+                        ?>
+
+
+
                     </ul>
                 </div>
             </div>
 
-            <div class="col-lg-4 col-md-4 col-sm-4">
-                <aside class="right_content">
-                    <div class="single_sidebar">
-                        <h2><span>Popular Post</span></h2>
-                        <ul class="spost_nav">
-                            <li>
-                                <div class="media wow fadeInDown">
-                                    <a href="../pages/single_page.html" class="media-left">
-                                        <img alt="" src="images/post_img1.jpg" />
-                                    </a>
-                                    <div class="media-body">
-                                        <a href="../pages/single_page.html" class="catg_title">
-                                            Aliquam malesuada diam eget turpis varius 1</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="media wow fadeInDown">
-                                    <a href="../pages/single_page.html" class="media-left">
-                                        <img alt="" src="images/post_img2.jpg" />
-                                    </a>
-                                    <div class="media-body">
-                                        <a href="../pages/single_page.html" class="catg_title">
-                                            Aliquam malesuada diam eget turpis varius 2</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="media wow fadeInDown">
-                                    <a href="../pages/single_page.html" class="media-left">
-                                        <img alt="" src="images/post_img1.jpg" />
-                                    </a>
-                                    <div class="media-body">
-                                        <a href="../pages/single_page.html" class="catg_title">
-                                            Aliquam malesuada diam eget turpis varius 3</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="media wow fadeInDown">
-                                    <a href="../pages/single_page.html" class="media-left">
-                                        <img alt="" src="images/post_img2.jpg" />
-                                    </a>
-                                    <div class="media-body">
-                                        <a href="../pages/single_page.html" class="catg_title">
-                                            Aliquam malesuada diam eget turpis varius 4</a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- <div class="single_sidebar">
-              <ul class="nav nav-tabs" role="tablist">
-                <li role="presentation" class="active">
-                  <a href="#category" aria-controls="home" role="tab" data-toggle="tab">Category</a>
-                </li>
-                <li role="presentation">
-                  <a href="#video" aria-controls="profile" role="tab" data-toggle="tab">Video</a>
-                </li>
-                <li role="presentation">
-                  <a href="#comments" aria-controls="messages" role="tab" data-toggle="tab">Comments</a>
-                </li>
-              </ul>
-              <div class="tab-content">
-                <div role="tabpanel" class="tab-pane active" id="category">
-                  <ul>
-                    <li class="cat-item"><a href="#">Sports</a></li>
-                    <li class="cat-item"><a href="#">Fashion</a></li>
-                    <li class="cat-item"><a href="#">Business</a></li>
-                    <li class="cat-item"><a href="#">Technology</a></li>
-                    <li class="cat-item"><a href="#">Games</a></li>
-                    <li class="cat-item"><a href="#">Life &amp; Style</a></li>
-                    <li class="cat-item"><a href="#">Photography</a></li>
-                  </ul>
-                </div>
-                <div role="tabpanel" class="tab-pane" id="video">
-                  <div class="vide_area">
-                    <iframe width="100%" height="250" src="http://www.youtube.com/embed/h5QWbURNEpA?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>
-                  </div>
-                </div>
-                <div role="tabpanel" class="tab-pane" id="comments">
-                  <ul class="spost_nav">
-                    <li>
-                      <div class="media wow fadeInDown">
-                        <a href="../pages/single_page.html" class="media-left">
-                          <img alt="" src="images/post_img1.jpg" />
-                        </a>
-                        <div class="media-body">
-                          <a href="../pages/single_page.html" class="catg_title">
-                            Aliquam malesuada diam eget turpis varius 1</a>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="media wow fadeInDown">
-                        <a href="../pages/single_page.html" class="media-left">
-                          <img alt="" src="images/post_img2.jpg" />
-                        </a>
-                        <div class="media-body">
-                          <a href="../pages/single_page.html" class="catg_title">
-                            Aliquam malesuada diam eget turpis varius 2</a>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="media wow fadeInDown">
-                        <a href="../pages/single_page.html" class="media-left">
-                          <img alt="" src="images/post_img1.jpg" />
-                        </a>
-                        <div class="media-body">
-                          <a href="../pages/single_page.html" class="catg_title">
-                            Aliquam malesuada diam eget turpis varius 3</a>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="media wow fadeInDown">
-                        <a href="../pages/single_page.html" class="media-left">
-                          <img alt="" src="images/post_img2.jpg" />
-                        </a>
-                        <div class="media-body">
-                          <a href="../pages/single_page.html" class="catg_title">
-                            Aliquam malesuada diam eget turpis varius 4</a>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div> -->
-                    <div class="single_sidebar wow fadeInDown">
-                        <h2><span>Join Us</span></h2>
-                        <a class="sideAdd" href="#"><img style="object-fit:cover" src="images/telegram.gif" alt="" /></a>
-                    </div>
-                    <!-- <div class="single_sidebar wow fadeInDown">
-              <h2><span>Category</span></h2>
-              <select class="catgArchive">
-                <option>Select Category</option>
-                <option>Life styles</option>
-                <option>Sports</option>
-                <option>Technology</option>
-                <option>Treads</option>
-              </select>
-            </div> -->
-                    <div class="single_sidebar wow fadeInDown">
-                        <h2><span>GENERES</span></h2>
-                        <ul>
-                            <li><a style="padding-top: 10px;padding-bottom: 10px;" href="#">Blog</a></li>
-                            <li><a style="padding-top: 10px;padding-bottom: 10px;" href="#">Blog</a></li>
-                            <li><a style="padding-top: 10px;padding-bottom: 10px;" href="#">Blog</a></li>
-                            <li><a style="padding-top: 10px;padding-bottom: 10px;" href="#">Blog</a></li>
-                            <li><a style="padding-top: 10px;padding-bottom: 10px;" href="#">Blog</a></li>
 
-                        </ul>
-                    </div>
-                </aside>
-            </div>
     </div>
     </section>
     <footer id="footer">
