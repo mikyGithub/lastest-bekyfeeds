@@ -87,7 +87,7 @@ if (isset($_GET['page_number'])) {
                             </a>
                         </div>
                         <div class="add_banner">
-                            <a href="#"><img src="images/addbanner_728x90_V1.jpg" alt="" /></a>
+                            <a href="#"><img src="../images/banner.jpg" alt="" /></a>
                         </div>
                     </div>
                 </div>
@@ -121,8 +121,8 @@ if (isset($_GET['page_number'])) {
           <li><a href="#">Tablets</a></li>
           <li><a href="../pages/contact.html">Contact Us</a></li>
           <li><a href="../pages/404.html">404 Page</a></li> -->
-                        <li><a href="../pages/tv-show">TV Show</a></li>
-                        <li class="active"><a href="../pages/movies">Movies</a></li>
+                        <li class="active"><a href="../pages/tv-show">TV Show</a></li>
+                        <li ><a href="../pages/movies">Movies</a></li>
                         <li><a href="../pages/request">Your Requests</a></li>
                         <li><a href="../pages/news">News</a></li>
                         <li><a href="../pages/trailer">Movie Trailers</a></li>
