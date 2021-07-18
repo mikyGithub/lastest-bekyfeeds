@@ -41,11 +41,33 @@ $popularMovies = $film->getPopular()->fetchAll(PDO::FETCH_ASSOC);
 
 
 $page_number = 1;
+$selected_letter=0;
+$selected_genre=0;
+$search='';
 if (isset($_GET['page_number'])) {
     $page_number = $_GET['page_number'];
-    $allFilms = $film->getFilmsPaginated($page_number)->fetchAll(PDO::FETCH_ASSOC);
-} else {
-    $allFilms = $film->getFilms()->fetchAll(PDO::FETCH_ASSOC);
+   // $movies = $films->getFilmsPaginated($page_number)->fetchAll(PDO::FETCH_ASSOC);
+} 
+
+if (isset($_GET['letter'])) {
+    $selected_letter = $_GET['letter'];
+    $allFilms=$film->getByLetterPaginated($selected_letter,$page_number);
+   // $allFilms = $films->getFilmsPaginated($page_number)->fetchAll(PDO::FETCH_ASSOC);
+} 
+if (isset($_GET['genre'])) {
+    $selected_genre = $_GET['genre'];
+    $allFilms=$film->getByGenrePaginated($selected_genre,$page_number);
+   // $allFilms = $films->getFilmsPaginated($page_number)->fetchAll(PDO::FETCH_ASSOC);
+}
+
+if (isset($_post['search_btn'])) {
+  //  echo $search
+    $search = $_post['search'];
+    //$allFilms=$films->searchFilmPaginated($search,$page_number);
+   // $allFilms = $films->getFilmsPaginated($page_number)->fetchAll(PDO::FETCH_ASSOC);
+}
+if($selected_letter===0 && $selected_genre===0){
+    $allFilms=$film->getFilmsPaginated($page_number);
 }
 
 
@@ -225,8 +247,8 @@ if (isset($_GET['page_number'])) {
                     <div class="w-auto my-6">
                         <div class="flex justify-between">
                             <?php
-                            foreach ($film->genres as $genre) {
-                                echo '<a class="px-6 py-3 mr-1 cursor-pointer hover:bg-blue-200 bg-theme">' . $genre["name"] . '</a>';
+                             foreach ($film->genres as $genre) {
+                                echo '<a class="px-6 py-3 mr-1 cursor-pointer hover:bg-blue-200 bg-theme" href="movies.php?genre=' . $genre["link"] . '">' . $genre["name"] . '</a>';
                             }
                             ?>
 
@@ -238,9 +260,9 @@ if (isset($_GET['page_number'])) {
                         <div class="w-auto">
                             <div class="flex flex-col justify-between">
                                 <?php
-                                foreach ($letters as $letter) {
-                                    echo '<div class="px-6 py-3 my-1 cursor-pointer hover:bg-blue-200 bg-theme">' . $letter . '</div>';
-                                }
+                            foreach ($letters as $letter) {
+                                echo '<div class="px-6 py-3 my-1 cursor-pointer hover:bg-blue-200 bg-theme"> <a href="movies.php?letter='.$letter.'"> '.$letter.'<a></div>';
+                            }
                                 ?>
 
                             </div>
@@ -277,9 +299,29 @@ if (isset($_GET['page_number'])) {
                             <div class="flex flex-col items-center my-12">
                                 <div class="flex text-gray-700">
                                     <div class="flex items-center justify-center w-8 h-8 mr-1 bg-gray-200 cursor-pointer">
-                                        <a href="movies.php?page_number= <?php echo $page_number - 1 ?>"> <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 feather feather-chevron-left">
+                                        <?php  
+                                        if($selected_letter!==0){
+                                            echo ' <a href="movies.php?page_number='.$page_number.'&letter='.$selected_letter.'"> <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 feather feather-chevron-left">
+                                            <polyline points="15 18 9 12 15 6"></polyline>
+                                        </svg></a>
+                                            ';
+                                        }
+                                        if($selected_genre!==0){
+                                            echo ' <a href="movies.php?page_number='.$page_number.'&letter='.$selected_genre.'"> <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 feather feather-chevron-left">
+                                            <polyline points="15 18 9 12 15 6"></polyline>
+                                        </svg></a>
+                                            ';
+                                        }
+                                        if($selected_genre==0 && $selected_letter==0){
+                                            echo ' <a href="movies.php?page_number='.($page_number-1).'"> <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 feather feather-chevron-left">
+                                            <polyline points="15 18 9 12 15 6"></polyline>
+                                        </svg></a>
+                                            ';
+                                        }
+                                        ?>
+                                        <!-- <a href="movies.php?page_number= <?php echo $page_number - 1 ?>"> <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 feather feather-chevron-left">
                                                 <polyline points="15 18 9 12 15 6"></polyline>
-                                            </svg></a>
+                                            </svg></a> -->
                                     </div>
 
                                     <div class="flex h-8 font-medium bg-gray-200">
@@ -298,9 +340,31 @@ if (isset($_GET['page_number'])) {
                                         <div class="flex items-center justify-center w-8 h-8 leading-5 text-white transition duration-150 ease-in bg-pink-600 rounded-full cursor-pointer md:hidden">4</div>
                                     </div>
                                     <div class="flex items-center justify-center w-8 h-8 ml-1 bg-gray-200 cursor-pointer">
-                                        <a href="movies.php?page_number= <?php echo $page_number + 1 ?>"> <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 feather feather-chevron-right">
+                                    <?php  
+                                        if($selected_letter!==0){
+                                            echo ' <a href="movies.php?page_number='.($page_number+1).'&letter='.$selected_letter.'"> <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 feather feather-chevron-right">
+                                            <polyline points="9 18 15 12 9 6"></polyline>
+                                        </svg></a>
+                                            ';
+                                        }
+                                        if($selected_genre!==0){
+                                            echo ' <a href="movies.php?page_number='.($page_number+1).'&genre='.$selected_genre.'"> <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 feather feather-chevron-right">
+                                            <polyline points="9 18 15 12 9 6"></polyline>
+                                        </svg></a>
+                                            ';
+                                        }
+                                        if($selected_genre==0 && $selected_letter==0){
+                                            echo ' <a href="movies.php?page_number='.($page_number+1).'"> <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 feather feather-chevron-right">
+                                            <polyline points="9 18 15 12 9 6"></polyline>
+                                        </svg></a>
+                                            ';
+                                        }
+                                        ?>   
+                                    
+                                    
+                                    <!-- <a href="movies.php?page_number= <?php echo $page_number + 1 ?>"> <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 feather feather-chevron-right">
                                                 <polyline points="9 18 15 12 9 6"></polyline>
-                                            </svg></a>
+                                            </svg></a> -->
                                     </div>
                                 </div>
                             </div>

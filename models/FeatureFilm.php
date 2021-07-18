@@ -141,7 +141,7 @@ class FeatureFilm
     // Get Films By Letter [Paginated]
     public function getByLetterPaginated($letter, $page)
     {
-        $query = "SELECT * FROM " . $this->films . " WHERE title LIKE $letter '%' ORDER BY title ASC ";
+        $query = "SELECT * FROM " . $this->films . " WHERE title LIKE '$letter%' ORDER BY title ASC ";
         return $this->paginate($query, $page);
     }
 
@@ -186,7 +186,7 @@ class FeatureFilm
         $offset = ($this->limit * ($page - 1));
         $sql = $query . 'LIMIT ' . $this->limit . ' OFFSET ' . $offset;
         $stmt = $this->connection->prepare($sql);
-        echo $sql;
+        //echo $sql;
         $stmt->execute();
         return $stmt;
     }
