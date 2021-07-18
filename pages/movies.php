@@ -234,10 +234,21 @@ if (isset($_GET['page_number'])) {
                     <form action="/action_page.php">
                         <div style="border:0px" class="flex items-center justify-between my-4 outline-none ">
 
-                            <input style="border:0px" type="text" placeholder="Search.." class="w-5/6 px-3 py-3 bg-gray-200 focus:outline-none" name="search">
-                            <button style="border:0px" class="w-1/6 px-6 py-3 bg-theme focus:outline-none" type="submit">Search</button>
+                            <input style="border:0px; border-bottom:2px solid #139ea8" type="text" placeholder="Search.." class="w-5/6 px-3 py-3 bg-gray-200 border-b focus:outline-none" name="search">
+                            <button style="border:0px; border-bottom:2px solid #139ea8" class="w-1/6 px-6 py-3 bg-theme focus:outline-none" type="submit">Search</button>
                         </div>
                     </form>
+
+                    <div class="w-auto my-6">
+                        <div class="flex justify-between">
+                            <?php
+                            foreach ($films->genres as $genre) {
+                                echo '<a class="px-6 py-3 mr-1 cursor-pointer hover:bg-blue-200 bg-theme">' . $genre["name"] . '</a>';
+                            }
+                            ?>
+
+                        </div>
+                    </div>
                     <h2><span>Movies</span></h2>
 
                     <div class="flex">
@@ -245,7 +256,7 @@ if (isset($_GET['page_number'])) {
                             <div class="flex flex-col justify-between">
                                 <?php
                                 foreach ($letters as $letter) {
-                                    echo '<div class="px-6 py-3 my-1 bg-theme">' . $letter . '</div>';
+                                    echo '<div class="px-6 py-3 my-1 cursor-pointer hover:bg-blue-200 bg-theme">' . $letter . '</div>';
                                 }
                                 ?>
 
