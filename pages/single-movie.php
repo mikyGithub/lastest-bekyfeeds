@@ -248,7 +248,7 @@ if($isParameter === false){
                                 echo '<li class="my-3">
   <figure href="pages/single-movie/' . $recent["title"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
     <a href="pages/single-movie/' . $recent["title"] . '" class="w-32 mr-3">
-      <img alt=". $recent["title"] ." class="w-32 h-full" src="' .$recent["img_url"]. '" />
+      <img alt="'. $recent["title"] .'" class="w-32 h-full" src="' .$recent["img_url"]. '" />
     </a>
     <figcaption class="p-3 media-body">
       <a href=" pages/single-movie/' . $recent["title"] . '" class="">
@@ -277,7 +277,7 @@ if($isParameter === false){
                                 echo '<li class="my-3">
   <figure href="pages/single-movie/' . $recent["title"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
     <a href="pages/single-movie/' . $recent["title"] . '" class="w-32 mr-3">
-      <img alt=". $recent["title"] ." class="w-32 h-full" src="' .$recent["img_url"] . '" />
+      <img alt="'. $recent["title"] .'" class="w-32 h-full" src="' .$recent["img_url"] . '" />
     </a>
     <figcaption class="p-3 media-body">
       <a href=" pages/single-movie/' . $recent["title"] . '" class="">
@@ -310,7 +310,7 @@ if($isParameter === false){
                             echo '<li class="my-3">
   <figure href="pages/single-movie/' . $recent["title"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
     <a href="pages/single-movie/' . $recent["title"] . '" class="w-32 mr-3">
-      <img alt=". $recent["title"] ." class="w-32 h-full" src="' .$recent["img_url"] . '" />
+      <img alt="'. $recent["title"] .'" class="w-32 h-full" src="' .$recent["img_url"] . '" />
     </a>
     <figcaption class="p-3 media-body">
       <a href=" pages/single-movie/' . $recent["title"] . '" class="">
