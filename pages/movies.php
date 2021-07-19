@@ -36,6 +36,7 @@ $letters = array("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"
 
 $recentMovies = $film->getRecent()->fetchAll(PDO::FETCH_ASSOC);
 $popularMovies = $film->getPopular()->fetchAll(PDO::FETCH_ASSOC);
+$editorMovies = $film->getEditor()->fetchAll(PDO::FETCH_ASSOC);
 
 $isParameter = false;
 
@@ -101,7 +102,7 @@ if($isParameter === false){
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="header_bottom">
                         <div class="logo_area">
-                            <a href="index" class="logo">
+                            <a href="/index" class="logo">
                                 <h1>bekyfeeds</h1>
                             </a>
                         </div>
@@ -129,7 +130,7 @@ if($isParameter === false){
                                     class="mobile-show">Home</span></a>
                         </li>
 
-                        <li><a href="../pages/movies">TV Show</a></li>
+                        <li><a href="../pages/tv-show">TV Show</a></li>
                         <li class="active"><a href="../pages/movies">Movies</a></li>
                         <li><a href="../pages/request">Your Requests</a></li>
                         <!-- <li><a href="../pages/news">News</a></li>
@@ -213,11 +214,11 @@ if($isParameter === false){
 
                                     echo '<li>
   <div class="media">
-    <a href="../pages/single-movie/' . $recent["title"] . '" class="media-left-custom">
+    <a href="../pages/single-movie.php?title=' . $recent["title"] . '" class="media-left-custom">
       <img alt=". $recent["title"] ." style="background-color:black;object-fit:contain" src="' . $recent["img_url"] . '" />
     </a>
     <div class="media-body">
-      <a href="../pages/single-movie/' . $recent["title"] . '" class="catg_title">
+      <a href="../pages/single-movie.php?title=' . $recent["title"] . '" class="catg_title">
       ' . $recent["title"] . ' <p class="genre">' . $recent["genre"] . '</p> <p class="year">' . $recent["releasing_year"] . '</p> </a>
     </div>
   </div>
@@ -399,12 +400,12 @@ if($isParameter === false){
                             foreach ($recentMovies as $recent) {
 
                                 echo '<li class="my-3">
-  <figure href="pages/single-movie/' . $recent["title"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
-    <a href="pages/single-movie/' . $recent["title"] . '" class="w-32 mr-3">
+  <figure href="../pages/single-movie.php?title=' . $recent["title"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
+    <a href="../pages/single-movie.php?title=' . $recent["title"] . '" class="w-32 mr-3">
       <img alt="'. $recent["title"] .'" class="w-32 h-full" src="' . $recent["img_url"] . '" />
     </a>
     <figcaption class="p-3 media-body">
-      <a href=" pages/single-movie/' . $recent["title"] . '" class="">
+      <a href=" ../pages/single-movie.php?title=' . $recent["title"] . '" class="">
       ' . $recent["title"] . ' <p class="genre">' . $recent["genre"] . '</p> <p class="year">' . $recent["releasing_year"] . '</p> </a>
     </figcaption>
   </figure>
@@ -425,16 +426,16 @@ if($isParameter === false){
                         <ul class="my-2 spost_nav">
                             <?php
 
-                            foreach ($recentMovies as $recent) {
+                            foreach ($popularMovies as $popular) {
 
                                 echo '<li class="my-3">
-  <figure href="pages/single-movie/' . $recent["title"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
-    <a href="pages/single-movie/' . $recent["title"] . '" class="w-32 mr-3">
-      <img alt="'. $recent["title"] .'" class="w-32 h-full" src="' . $recent["img_url"] . '" />
+  <figure href="../pages/single-movie.php?title=' . $popular["title"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
+    <a href="../pages/single-movie.php?title=' . $popular["title"] . '" class="w-32 mr-3">
+      <img alt="'. $popular["title"] .'" class="w-32 h-full" src="' . $popular["img_url"] . '" />
     </a>
     <figcaption class="p-3 media-body">
-      <a href=" pages/single-movie/' . $recent["title"] . '" class="">
-      ' . $recent["title"] . ' <p class="genre">' . $recent["genre"] . '</p> <p class="year">' . $recent["releasing_year"] . '</p> </a>
+      <a href=" ../pages/single-movie.php?title=' . $popular["title"] . '" class="">
+      ' . $popular["title"] . ' <p class="genre">' . $popular["genre"] . '</p> <p class="year">' . $popular["releasing_year"] . '</p> </a>
     </figcaption>
   </figure>
 </li>
@@ -458,16 +459,16 @@ if($isParameter === false){
                     <ul class="my-2 spost_nav">
                         <?php
 
-                        foreach ($recentMovies as $recent) {
+                        foreach ($editorMovies as $editor) {
 
                             echo '<li class="my-3">
-  <figure href="pages/single-movie/' . $recent["title"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
-    <a href="pages/single-movie/' . $recent["title"] . '" class="w-32 mr-3">
-      <img alt="'. $recent["title"] .'" class="w-32 h-full" src="' . $recent["img_url"] . '" />
+  <figure href="../pages/single-movie.php?title=' . $editor["title"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
+    <a href="../pages/single-movie.php?title=' . $editor["title"] . '" class="w-32 mr-3">
+      <img alt="'. $editor["title"] .'" class="w-32 h-full" src="' . $editor["img_url"] . '" />
     </a>
     <figcaption class="p-3 media-body">
-      <a href=" pages/single-movie/' . $recent["title"] . '" class="">
-      ' . $recent["title"] . ' <p class="genre">' . $recent["genre"] . '</p> <p class="year">' . $recent["releasing_year"] . '</p> </a>
+      <a href=" ../pages/single-movie.php?title=' . $editor["title"] . '" class="">
+      ' . $editor["title"] . ' <p class="genre">' . $editor["genre"] . '</p> <p class="year">' . $editor["releasing_year"] . '</p> </a>
     </figcaption>
   </figure>
 </li>

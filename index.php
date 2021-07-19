@@ -38,6 +38,11 @@ $recentMovies = $home->getLatestMovies()->fetchAll(PDO::FETCH_ASSOC);
 $popularMovies = $home->getPopularMovies()->fetchAll(PDO::FETCH_ASSOC);
 $requests = $home->getLatestRequests()->fetchAll(PDO::FETCH_ASSOC);
 
+$actionMovies = $home->getActionMovies()->fetchAll(PDO::FETCH_ASSOC);
+$romanticMovies = $home->getRomanticMovies()->fetchAll(PDO::FETCH_ASSOC);
+$sliderMovies = $home->getSliderMovies()->fetchAll(PDO::FETCH_ASSOC);
+$editorMovies = $home->getEditorMovies()->fetchAll(PDO::FETCH_ASSOC);
+
 
 
 
@@ -137,7 +142,7 @@ $requests = $home->getLatestRequests()->fetchAll(PDO::FETCH_ASSOC);
 
                 echo '
               <li>
-                <a href="single-series/' . $popular['name'] . '">' . $popular['name'] . '</a>
+                <a href="pages/single-series.php?series_id=' . $popular['id'] . '">' . $popular['name'] . '</a>
               </li>
               ';
               }
@@ -160,21 +165,21 @@ $requests = $home->getLatestRequests()->fetchAll(PDO::FETCH_ASSOC);
                     <div class="slick_slider">
                         <?php
 
-            foreach ($recentSeries as $recent) {
+            foreach ($sliderMovies as $slider) {
 
               echo '
   <div class="single_iteam">
-  <a href="pages/single-series/' . $recent["name"] . '">
+  <a href="pages/single-movie.php?title=' . $slider["title"] . '">
  
   
-  <img style="background-color:black;object-fit:contain" src="images/posters/' . $recent["img_url"] . '" alt="' . $recent["name"] . '" /></a>
+  <img style="background-color:black;object-fit:contain" src="' . $slider["img_url"] . '" alt="' . $slider["title"] . '" /></a>
 
   <div class="slider_article">
     <h2>
-      <a class="slider_tittle" href="pages/single-series/">' . $recent["name"] . '</a>
+      <a class="slider_tittle" href="pages/single-movie.php?title=">' . $slider["title"] . '</a>
     </h2>
     <p>
-    ' . $recent["description"] . '
+    ' . $slider["description"] . '
     </p>
   </div>
 </div>
@@ -197,12 +202,12 @@ $requests = $home->getLatestRequests()->fetchAll(PDO::FETCH_ASSOC);
                 foreach ($recentMovies as $recent) {
 
                   echo '<li>
-  <figure href="pages/single-movie/' . $recent["title"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
-    <a href="pages/single-movie/' . $recent["title"] . '" class="w-32 mr-3">
-      <img alt=". $recent["title"] ." class="w-32 h-full" src="' . $recent["img_url"] . '" />
+  <figure href="pages/single-movie.php?title=' . $recent["title"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
+    <a href="pages/single-movie.php?title=' . $recent["title"] . '" class="w-32 mr-3">
+      <img alt="'. $recent["title"] .'" class="w-32 h-full" src="' . $recent["img_url"] . '" />
     </a>
     <figcaption class="p-3 media-body">
-      <a href="catg_title pages/single-movie/' . $recent["title"] . '" class="catg_title">
+      <a href="catg_title pages/single-movie.php?title=' . $recent["title"] . '" class="catg_title">
       ' . $recent["title"] . ' <p class="genre">' . $recent["genre"] . '</p> <p class="year">' . $recent["releasing_year"] . '</p> </a>
     </figcaption>
   </figure>
@@ -233,13 +238,13 @@ $requests = $home->getLatestRequests()->fetchAll(PDO::FETCH_ASSOC);
 
                   foreach ($recentSeries as $recent) {
 
-                    echo '<li class="w-full px-1 my-2 border rounded md:w-1/2">
+                    echo '<li href="pages/single-series.php?series_id=' . $recent["id"] . '" class="w-full px-1 my-2 border rounded md:w-1/2">
   <div class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated">
-    <a href="' . $recent["name"] . '" class="w-32 text-lg md:mr-3">
+    <a href="pages/single-series.php?series_id=' . $recent["id"] . '" class="w-32 text-lg md:mr-3 cursor-pointer">
       <img class="w-32 h-full"  alt="" src="images/posters/' . $recent["img_url"] . '" />
     </a>
     <div class="p-3 media-body">
-      <a href="' . $recent["name"] . '" class="catg_title">'
+      <a href="pages/single-series.php?series_id=' . $recent["id"] . '" class="catg_title">'
                       . $recent["name"] . '<p class="genre">' . $recent["genre"] . '</p> <p class="year">' . $recent["releasing_year"] . '</p> </a>
     </div>
   </div>
@@ -260,19 +265,19 @@ $requests = $home->getLatestRequests()->fetchAll(PDO::FETCH_ASSOC);
                                 <ul class="flex flex-wrap ">
                                     <?php
 
-                  foreach ($recentSeries as $recent) {
+                  foreach ($popularSeries as $popular) {
 
-                    echo '<li class="w-full px-1 my-2 border rounded md:w-1/2">
-  <div class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated">
-    <a href="' . $recent["name"] . '" class="w-32 mr-3 text-lg">
-      <img class="w-32 h-full"  alt="" src="images/posters/' . $recent["img_url"] . '" />
-    </a>
-    <div class="p-3 media-body">
-      <a href="' . $recent["name"] . '" class="catg_title">'
-                      . $recent["name"] . '<p class="genre">' . $recent["genre"] . '</p> <p class="year">' . $recent["releasing_year"] . '</p> </a>
-    </div>
-  </div>
-</li>
+                    echo '<li href="pages/single-series.php?series_id=' . $popular["id"] . '" class="w-full px-1 my-2 border rounded md:w-1/2">
+                    <div class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated">
+                      <a href="pages/single-series.php?series_id=' . $popular["id"] . '" class="w-32 text-lg md:mr-3 cursor-pointer">
+                        <img class="w-32 h-full"  alt="" src="images/posters/' . $popular["img_url"] . '" />
+                      </a>
+                      <div class="p-3 media-body">
+                        <a href="pages/single-series.php?series_id=' . $popular["id"] . '" class="catg_title">'
+                                        . $popular["name"] . '<p class="genre">' . $popular["genre"] . '</p> <p class="year">' . $popular["releasing_year"] . '</p> </a>
+                      </div>
+                    </div>
+                  </li>
 ';
                   }
                   ?>
@@ -289,16 +294,16 @@ $requests = $home->getLatestRequests()->fetchAll(PDO::FETCH_ASSOC);
                                     <ul class="my-2 spost_nav">
                                         <?php
 
-                    foreach ($recentMovies as $recent) {
+                    foreach ($actionMovies as $action) {
 
                       echo '<li class="my-3">
-  <figure href="pages/single-movie/' . $recent["title"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
-    <a href="pages/single-movie/' . $recent["title"] . '" class="w-32 mr-3">
-      <img alt=". $recent["title"] ." class="w-32 h-full" src="' . $recent["img_url"] . '" />
+  <figure href="pages/single-movie.php?title=' . $action["title"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
+    <a href="pages/single-movie.php?title=' . $action["title"] . '" class="w-32 mr-3">
+      <img alt="'. $action["title"] .'" class="w-32 h-full" src="' . $action["img_url"] . '" />
     </a>
     <figcaption class="p-3 media-body">
-      <a href=" pages/single-movie/' . $recent["title"] . '" class="">
-      ' . $recent["title"] . ' <p class="genre">' . $recent["genre"] . '</p> <p class="year">' . $recent["releasing_year"] . '</p> </a>
+      <a href=" pages/single-movie.php?title=' . $action["title"] . '" class="">
+      ' . $action["title"] . ' <p class="genre">' . $action["genre"] . '</p> <p class="year">' . $action["releasing_year"] . '</p> </a>
     </figcaption>
   </figure>
 </li>
@@ -313,16 +318,16 @@ $requests = $home->getLatestRequests()->fetchAll(PDO::FETCH_ASSOC);
                                     <ul class="my-2 spost_nav">
                                         <?php
 
-                    foreach ($recentMovies as $recent) {
+                    foreach ($romanticMovies as $romantic) {
 
                       echo '<li class="my-3">
-  <figure href="pages/single-movie/' . $recent["title"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
-    <a href="pages/single-movie/' . $recent["title"] . '" class="w-32 mr-3">
-      <img alt=". $recent["title"] ." class="w-32 h-full" src="' . $recent["img_url"] . '" />
+  <figure href="pages/single-movie.php?title=' . $romantic["title"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
+    <a href="pages/single-movie.php?title=' . $romantic["title"] . '" class="w-32 mr-3">
+      <img alt="'. $romantic["title"] .'" class="w-32 h-full" src="' . $romantic["img_url"] . '" />
     </a>
     <figcaption class="p-3 media-body">
-      <a href=" pages/single-movie/' . $recent["title"] . '" class="">
-      ' . $recent["title"] . ' <p class="genre">' . $recent["genre"] . '</p> <p class="year">' . $recent["releasing_year"] . '</p> </a>
+      <a href=" pages/single-movie.php?title=' . $romantic["title"] . '" class="">
+      ' . $romantic["title"] . ' <p class="genre">' . $romantic["genre"] . '</p> <p class="year">' . $romantic["releasing_year"] . '</p> </a>
     </figcaption>
   </figure>
 </li>
@@ -344,12 +349,12 @@ $requests = $home->getLatestRequests()->fetchAll(PDO::FETCH_ASSOC);
                     foreach ($recentMovies as $recent) {
 
                       echo '<li class="my-3">
-  <figure href="pages/single-movie/' . $recent["title"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
-    <a href="pages/single-movie/' . $recent["title"] . '" class="w-32 mr-3">
-      <img alt=". $recent["title"] ." class="w-32 h-full" src="' . $recent["img_url"] . '" />
+  <figure href="pages/single-movie.php?title=' . $recent["title"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
+    <a href="pages/single-movie.php?title=' . $recent["title"] . '" class="w-32 mr-3">
+      <img alt="'. $recent["title"] .'" class="w-32 h-full" src="' . $recent["img_url"] . '" />
     </a>
     <figcaption class="p-3 media-body">
-      <a href=" pages/single-movie/' . $recent["title"] . '" class="">
+      <a href=" pages/single-movie.php?title=' . $recent["title"] . '" class="">
       ' . $recent["title"] . ' <p class="genre">' . $recent["genre"] . '</p> <p class="year">' . $recent["releasing_year"] . '</p> </a>
     </figcaption>
   </figure>
@@ -367,12 +372,12 @@ $requests = $home->getLatestRequests()->fetchAll(PDO::FETCH_ASSOC);
                     foreach ($recentMovies as $recent) {
 
                       echo '<li class="my-3">
-  <figure href="pages/single-movie/' . $recent["title"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
-    <a href="pages/single-movie/' . $recent["title"] . '" class="w-32 mr-3">
-      <img alt=". $recent["title"] ." class="w-32 h-full" src="' . $recent["img_url"] . '" />
+  <figure href="pages/single-movie.php?title=' . $recent["title"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
+    <a href="pages/single-movie.php?title=' . $recent["title"] . '" class="w-32 mr-3">
+      <img alt="'. $recent["title"] .'" class="w-32 h-full" src="' . $recent["img_url"] . '" />
     </a>
     <figcaption class="p-3 media-body">
-      <a href=" pages/single-movie/' . $recent["title"] . '" class="">
+      <a href=" pages/single-movie.php?title=' . $recent["title"] . '" class="">
       ' . $recent["title"] . ' <p class="genre">' . $recent["genre"] . '</p> <p class="year">' . $recent["releasing_year"] . '</p> </a>
     </figcaption>
   </figure>
@@ -403,16 +408,16 @@ $requests = $home->getLatestRequests()->fetchAll(PDO::FETCH_ASSOC);
                             <ul class="my-2">
                                 <?php
 
-                foreach ($recentMovies as $recent) {
+                foreach ($editorMovies as $editor) {
 
                   echo '<li class="my-3">
-  <figure href="pages/single-movie/' . $recent["title"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
-    <a href="pages/single-movie/' . $recent["title"] . '" class="w-32 mr-3">
-      <img alt=". $recent["title"] ." class="w-32 h-full" src="' . $recent["img_url"] . '" />
+  <figure href="pages/single-movie.php?title=' . $editor["title"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
+    <a href="pages/single-movie.php?title=' . $editor["title"] . '" class="w-32 mr-3">
+      <img alt="'. $editor["title"] .'" class="w-32 h-full" src="' . $editor["img_url"] . '" />
     </a>
     <figcaption class="p-3 media-body">
-      <a href=" pages/single-movie/' . $recent["title"] . '" class="">
-      ' . $recent["title"] . ' <p class="genre">' . $recent["genre"] . '</p> <p class="year">' . $recent["releasing_year"] . '</p> </a>
+      <a href=" pages/single-movie.php?title=' . $editor["title"] . '" class="">
+      ' . $editor["title"] . ' <p class="genre">' . $editor["genre"] . '</p> <p class="year">' . $editor["releasing_year"] . '</p> </a>
     </figcaption>
   </figure>
 </li>

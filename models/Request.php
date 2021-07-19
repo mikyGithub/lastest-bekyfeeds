@@ -33,7 +33,7 @@ class Request
      // Get Latest Movies
      public function getLatestMovies()
      {
-         $query = 'SELECT * FROM ' . $this->movies . ' WHERE isRecent = true  ORDER BY title ASC LIMIT 5';
+         $query = 'SELECT * FROM ' . $this->movies . ' WHERE isRecent = true  ORDER BY title ASC LIMIT 4';
          $stmt = $this->connection->prepare($query);
          $stmt->execute();
          return $stmt;

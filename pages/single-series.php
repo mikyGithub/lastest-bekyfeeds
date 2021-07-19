@@ -36,7 +36,7 @@ $series = new Series($db);
 
 $recentSeries = $series->getRecent()->fetchAll(PDO::FETCH_ASSOC);
 $popularSeries = $series->getPopular()->fetchAll(PDO::FETCH_ASSOC);
-$popularSeries = $series->getPopular()->fetchAll(PDO::FETCH_ASSOC);
+$editorSeries = $series->getEditor()->fetchAll(PDO::FETCH_ASSOC);
 
 $isParameter = false;
 
@@ -415,12 +415,12 @@ if($isParameter === false){
                             foreach ($recentSeries as $recent) {
 
                                 echo '<li class="my-3">
-  <figure href="pages/single-movie/' . $recent["name"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
-    <a href="pages/single-movie/' . $recent["name"] . '" class="w-32 mr-3">
-      <img alt=". $recent["name"] ." class="w-32 h-full" src="../images/posters/' . $recent["img_url"] . '" />
+  <figure href="../pages/single-series.php?series_id=' . $recent["id"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
+    <a href="../pages/single-series.php?series_id=' . $recent["id"] . '" class="w-32 mr-3">
+      <img alt="'. $recent["name"] .'" class="w-32 h-full" src="../images/posters/' . $recent["img_url"] . '" />
     </a>
     <figcaption class="p-3 media-body">
-      <a href=" pages/single-movie/' . $recent["name"] . '" class="">
+      <a href=" ../pages/single-series.php?series_id=' . $recent["id"] . '" class="">
       ' . $recent["name"] . ' <p class="genre">' . $recent["genre"] . '</p> <p class="year">' . $recent["releasing_year"] . '</p> </a>
     </figcaption>
   </figure>
@@ -441,16 +441,16 @@ if($isParameter === false){
                         <ul class="my-2 spost_nav">
                             <?php
 
-                            foreach ($recentSeries as $recent) {
+                            foreach ($popularSeries as $popular) {
 
                                 echo '<li class="my-3">
-  <figure href="pages/single-movie/' . $recent["name"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
-    <a href="pages/single-movie/' . $recent["name"] . '" class="w-32 mr-3">
-      <img alt=". $recent["name"] ." class="w-32 h-full" src="../images/posters/' . $recent["img_url"] . '" />
+  <figure href="../pages/single-series.php?series_id=' . $popular["id"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
+    <a href="../pages/single-series.php?series_id=' . $popular["id"] . '" class="w-32 mr-3">
+      <img alt="'. $popular["name"] .'" class="w-32 h-full" src="../images/posters/' . $popular["img_url"] . '" />
     </a>
     <figcaption class="p-3 media-body">
-      <a href=" pages/single-movie/' . $recent["name"] . '" class="">
-      ' . $recent["name"] . ' <p class="genre">' . $recent["genre"] . '</p> <p class="year">' . $recent["releasing_year"] . '</p> </a>
+      <a href=" ../pages/single-series.php?series_id=' . $popular["id"] . '" class="">
+      ' . $popular["name"] . ' <p class="genre">' . $popular["genre"] . '</p> <p class="year">' . $popular["releasing_year"] . '</p> </a>
     </figcaption>
   </figure>
 </li>
@@ -474,16 +474,16 @@ if($isParameter === false){
                     <ul class="my-2 spost_nav">
                         <?php
 
-                        foreach ($recentSeries as $recent) {
+                        foreach ($editorSeries as $editor) {
 
                             echo '<li class="my-3">
-  <figure href="pages/single-movie/' . $recent["name"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
-    <a href="pages/single-movie/' . $recent["name"] . '" class="w-32 mr-3">
-      <img alt=". $recent["name"] ." class="w-32 h-full" src="../images/posters/' . $recent["img_url"] . '" />
+  <figure href="../pages/single-series.php?series_id=' . $editor["id"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
+    <a href="../pages/single-series.php?series_id=' . $editor["id"] . '" class="w-32 mr-3">
+      <img alt="'. $editor["name"] .'" class="w-32 h-full" src="../images/posters/' . $editor["img_url"] . '" />
     </a>
     <figcaption class="p-3 media-body">
-      <a href=" pages/single-movie/' . $recent["name"] . '" class="">
-      ' . $recent["name"] . ' <p class="genre">' . $recent["genre"] . '</p> <p class="year">' . $recent["releasing_year"] . '</p> </a>
+      <a href=" ../pages/single-series.php?series_id=' . $editor["id"] . '" class="">
+      ' . $editor["name"] . ' <p class="genre">' . $editor["genre"] . '</p> <p class="year">' . $editor["releasing_year"] . '</p> </a>
     </figcaption>
   </figure>
 </li>

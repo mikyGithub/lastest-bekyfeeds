@@ -146,7 +146,7 @@ class FeatureFilm
     // Get Films By Year 
     public function getByYear($year)
     {
-        //Get Series 
+        //Get Movies 
         $query = "SELECT * FROM " . $this->films . " WHERE releasing_year LIKE '%" . $year . "%' LIMIT 4";
         $stmt = $this->connection->prepare($query);
         $stmt->execute();
@@ -185,6 +185,15 @@ class FeatureFilm
         $sql = $query . 'LIMIT ' . $this->limit . ' OFFSET ' . $offset;
         $stmt = $this->connection->prepare($sql);
         //echo $sql;
+        $stmt->execute();
+        return $stmt;
+    }
+
+    // Get Editor Movies
+    public function getEditor()
+    {
+        $query = "SELECT * FROM " . $this->films . " WHERE isEditor = true LIMIT 4";
+        $stmt = $this->connection->prepare($query);
         $stmt->execute();
         return $stmt;
     }

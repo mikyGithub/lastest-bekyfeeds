@@ -31,10 +31,46 @@ class Home
         return $stmt;
     }
     
+    // Get Slider Movies
+    public function getSliderMovies()
+    {
+        $query = 'SELECT * FROM ' . $this->movies . ' WHERE isSlider = true  ORDER BY title ASC LIMIT 6;';
+        $stmt = $this->connection->prepare($query);
+        $stmt->execute();
+        return $stmt;
+    }
+    
+    // Get Editors Movies
+    public function getEditorMovies()
+    {
+        $query = 'SELECT * FROM ' . $this->movies . ' WHERE isEditor = true  ORDER BY title ASC LIMIT 6;';
+        $stmt = $this->connection->prepare($query);
+        $stmt->execute();
+        return $stmt;
+    }
+    
     // Get Popular Episodes
     public function getPopularEpisodes()
     {
         $query = 'SELECT * FROM ' . $this->series . ' WHERE isPopular = true  ORDER BY name ASC LIMIT 4;';
+        $stmt = $this->connection->prepare($query);
+        $stmt->execute();
+        return $stmt;
+    }
+    
+    // Get Action Episodes
+    public function getActionMovies()
+    {
+        $query = "SELECT * FROM " . $this->movies . " WHERE genre  LIKE '%Action%' ORDER BY title ASC LIMIT 4;";
+        $stmt = $this->connection->prepare($query);
+        $stmt->execute();
+        return $stmt;
+    }
+    
+    // Get Romantic Episodes
+    public function getRomanticMovies()
+    {
+        $query = "SELECT * FROM " . $this->movies . " WHERE genre  LIKE '%Roman%' ORDER BY title ASC LIMIT 4;";
         $stmt = $this->connection->prepare($query);
         $stmt->execute();
         return $stmt;
@@ -45,7 +81,7 @@ class Home
     public function getLatestMovies()
     {
         
-        $query = 'SELECT * FROM ' . $this->movies . ' WHERE isRecent = true  ORDER BY title ASC LIMIT 5';
+        $query = 'SELECT * FROM ' . $this->movies . ' WHERE isRecent = true  ORDER BY title ASC LIMIT 4';
         $stmt = $this->connection->prepare($query);
         $stmt->execute();
         return $stmt;
