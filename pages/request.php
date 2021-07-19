@@ -108,8 +108,8 @@ $latestEpisodes = $request->getLatestEpisodes()->fetchAll(PDO::FETCH_ASSOC);
 
 
 
-            <div class="flex justify-between">
-                <div class="w-3/4 mr-3">
+            <div class="md:flex justify-between">
+                <div class="md:w-3/4 md:mr-3">
                     <div class="single_post_content wow fadeInDown">
                         <h2><span>Your Requests</span></h2>
                         <ul>
@@ -125,7 +125,7 @@ echo '<li class="p-3 my-1 bg-gray-200 hover:bg-gray-100 "><a class="flex justify
                         </ul>
                     </div>
                 </div>
-                <div class="w-1/4">
+                <div class="md:w-1/4">
 
                     <div class="bg-white single_post_content wow fadeInDown">
                         <h2><span>Join Us</span></h2>
