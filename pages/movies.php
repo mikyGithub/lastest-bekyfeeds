@@ -281,7 +281,7 @@ if($isParameter === false){
                                 foreach ($allFilms as $movie) {
 
                                     echo '
-            <a href="movie_detail.php?movie_id=' . $movie['id'] . '" class="">
+            <a href="single-movie.php?title=' . $movie['title'] . '" class="">
             <div  class="m-1 md:mx-3">
             <div class="w-full h-full overflow-hidden">
             <img src="' . $movie['img_url'] . '" class="object-cover rounded-t inner-img media-left-custom " alt="' . $movie['title'] . '">

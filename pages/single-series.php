@@ -227,11 +227,11 @@ if($isParameter === false){
 
                                     echo '<li>
   <div class="media">
-    <a href="../pages/single-movie/' . $recent["name"] . '" class="media-left-custom">
+    <a href="../pages/single-movie.php?=title' . $recent["name"] . '" class="media-left-custom">
       <img alt=". $recent["name"] ." style="background-color:black;object-fit:contain" src="../images/posters/' . $recent["img_url"] . '" />
     </a>
     <div class="media-body">
-      <a href="../pages/single-movie/' . $recent["name"] . '" class="catg_name">
+      <a href="../pages/single-movie.php?=title' . $recent["name"] . '" class="catg_name">
       ' . $recent["name"] . ' <p class="genre">' . $recent["genre"] . '</p> <p class="year">' . $recent["releasing_year"] . '</p> </a>
     </div>
   </div>
