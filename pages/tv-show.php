@@ -154,11 +154,12 @@ if($isParameter === false){
                                 placeholder="Search.." class="w-5/6 px-3 py-3 bg-gray-200 border-b focus:outline-none"
                                 name="search">
                             <button style="border:0px; border-bottom:2px solid #139ea8"
-                                class="w-1/6 px-6 py-3 bg-theme focus:outline-none" type="submit">Search</button>
+                                class="w-2/6 md:w-1/6 px-6 py-3 bg-theme focus:outline-none"
+                                type="submit">Search</button>
                         </div>
                     </form>
 
-                    <div class="w-auto my-6">
+                    <div class="md:block hidden  my-6">
                         <div style="border:1px dashed #139ea8" class="flex  flex-wrap p-3 bg-gray-200">
                             <?php
                              foreach ($series->genres as $genre) {
@@ -171,7 +172,7 @@ if($isParameter === false){
                     <h2><span>Series</span></h2>
 
                     <div class="flex">
-                        <div class="w-auto">
+                        <div class="md:block hidden ">
                             <div style="border:1px dashed #139ea8"
                                 class="bg-gray-100 p-3 flex flex-col justify-between">
                                 <?php
@@ -184,24 +185,24 @@ if($isParameter === false){
                         </div>
 
                         <div>
-                            <div class="flex flex-wrap w-full ">
+                            <div class="flex flex-wrap  ">
 
                                 <?php
                                 foreach ($allSeries as $series) {
 
-                                    echo ' <a href="single-series.php?series_id=' . $series['id'] . '" class=" ">
-                                    <div class="media-left-custom mx-1 mb-20 mx-6 ">
-                                   
-                                    <img src="../images/posters/' . $series['img_url'] . '" class="inner-img object-cover  rounded-t media-left-custom" alt="' . $series['name'] . '">
+                                    echo ' <a href="single-series.php?series_id=' . $series['id'] . '" class=" w-1/2 md:w-1/6  mb-20 md:mx-6">
+                                    
+                                    <div class="h-78 w-64  ">
+                                    <img src="../images/posters/' . $series['img_url'] . '" class="  object-cover h-78 w-64 " alt="' . $series['name'] . '">
                                 
                       
-                                      <div class="flex items-center justify-between p-2 bg-theme rounded-b ">
+                                      <div class="flex items-center justify-between p-2 bg-theme ">
                       
                                         <h5 class="  text-white ">' . substr($series['name'], 0, 20)  . '</h5>
                                         
                       
                                       </div>
-                                    </div>
+                                  </div>
                                   </a>';
                                 }
 
