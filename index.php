@@ -71,7 +71,7 @@ $editorMovies = $home->getEditorMovies()->fetchAll(PDO::FETCH_ASSOC);
                             </ul>
                         </div>
                         <div class="header_top_right">
-                            <a href="https://t.me/bekyfeedscommunity">Join Us on Telegram</a>
+                            <a href="https://t.me/bekyfeedscommounity">Join Us on Telegram</a>
                         </div>
                     </div>
                 </div>
@@ -151,8 +151,9 @@ $editorMovies = $home->getEditorMovies()->fetchAll(PDO::FETCH_ASSOC);
                         </ul>
                         <div class="social_area">
                             <ul class="social_nav">
-                                <li class="twitter"><a href="#"></a></li>
-                                <li class="facebook"><a href="#"></a></li>
+                                <li class="twitter"><a href="https://www.facebook.com/Beky-Feeds-112556537282665"></a>
+                                </li>
+                                <li class="facebook"><a href="https://t.me/bekyfeedscommounity"></a></li>
                             </ul>
                         </div>
                     </div>

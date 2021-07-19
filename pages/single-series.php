@@ -108,7 +108,7 @@ if($isParameter === false){
                             </ul>
                         </div>
                         <div class="header_top_right">
-                            <a href="https://t.me/bekyfeedscommunity">Join Us on Telegram</a>
+                            <a href="https://t.me/bekyfeedscommounity">Join Us on Telegram</a>
                         </div>
                     </div>
                 </div>
