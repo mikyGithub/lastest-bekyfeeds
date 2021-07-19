@@ -1,6 +1,5 @@
 .scrollToTop{background-color:#139ea8; color:#fff}
 .bg-theme{background-color:#139ea8; color:#fff}
-.text-theme{color:#139ea8;}
 .scrollToTop:hover, .scrollToTop:focus{background-color:#fff; color:#139ea8; border-color:1px solid #139ea8}
 .logo > span{color:#139ea8}
 .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus{background-color:#139ea8}

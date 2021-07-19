@@ -37,7 +37,7 @@ $letters = array("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"
 $recentMovies = $film->getRecent()->fetchAll(PDO::FETCH_ASSOC);
 $popularMovies = $film->getPopular()->fetchAll(PDO::FETCH_ASSOC);
 
-
+$isParameter = false;
 
 $page_number = 1;
 $selected_letter=0;
@@ -45,28 +45,30 @@ $selected_genre=0;
 $search='';
 if (isset($_GET['page_number'])) {
     $page_number = $_GET['page_number'];
-   // $movies = $films->getFilmsPaginated($page_number)->fetchAll(PDO::FETCH_ASSOC);
+   
 } 
 
 if (isset($_GET['letter'])) {
     $selected_letter = $_GET['letter'];
     $allFilms=$film->getByLetterPaginated($selected_letter,$page_number);
-   // $allFilms = $films->getFilmsPaginated($page_number)->fetchAll(PDO::FETCH_ASSOC);
+    $isParameter = true;
+   
 } 
 if (isset($_GET['genre'])) {
     $selected_genre = $_GET['genre'];
     $allFilms=$film->getByGenrePaginated($selected_genre,$page_number);
-   // $allFilms = $films->getFilmsPaginated($page_number)->fetchAll(PDO::FETCH_ASSOC);
+    $isParameter = true;
 }
 
 if (isset($_GET['search'])) {
   //  echo $search
     $search = $_GET['search'];
     $allFilms=$film->searchFilmPaginated($search,$page_number);
-   // $allFilms = $films->getFilmsPaginated($page_number)->fetchAll(PDO::FETCH_ASSOC);
+    $isParameter = true;
 }
-if(!isset($selected_letter) && !isset($selected_genre) && !isset($search)){
+if($isParameter === false){
     $allFilms=$film->getFilmsPaginated($page_number);
+    
 }
 
 
@@ -113,7 +115,8 @@ if(!isset($selected_letter) && !isset($selected_genre) && !isset($search)){
         <section id="navArea">
             <nav class="navbar navbar-inverse" role="navigation">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span> <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -122,16 +125,17 @@ if(!isset($selected_letter) && !isset($selected_genre) && !isset($search)){
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav main_nav">
                         <li>
-                            <a href="../index"><span class="fa fa-home desktop-home"></span><span class="mobile-show">Home</span></a>
+                            <a href="../index"><span class="fa fa-home desktop-home"></span><span
+                                    class="mobile-show">Home</span></a>
                         </li>
 
                         <li><a href="../pages/tv-show">TV Show</a></li>
                         <li class="active"><a href="../pages/movies">Movies</a></li>
                         <li><a href="../pages/request">Your Requests</a></li>
-                        <li><a href="../pages/news">News</a></li>
+                        <!-- <li><a href="../pages/news">News</a></li>
                         <li><a href="../pages/trailer">Movie Trailers</a></li>
                         <li><a href="../pages/sport">Sport</a></li>
-                        <li><a href="../pages/game">Game</a></li>
+                        <li><a href="../pages/game">Game</a></li> -->
                     </ul>
                 </div>
             </nav>
@@ -148,7 +152,7 @@ if(!isset($selected_letter) && !isset($selected_genre) && !isset($search)){
 
                                 echo '
               <li>
-                <a href="single-series/' . $popular['url_name'] . '">' . $popular['name'] . '</a>
+                <a href="single-movie.php?title=' . $popular['url_name'] . '">' . $popular['name'] . '</a>
               </li>
               ';
                             }
@@ -175,14 +179,14 @@ if(!isset($selected_letter) && !isset($selected_genre) && !isset($search)){
 
                             echo '
   <div class="single_iteam">
-  <a href="../pages/single-series/' . $recent["title"] . '">
+  <a href="../pages/single-movie.php?title=' . $recent["title"] . '">
  
   
   <img style="background-color:black;object-fit:contain" src="images/posters/' . $recent["img_url"] . '" alt="' . $recent["name"] . '" /></a>
 
   <div class="slider_article">
     <h2>
-      <a class="slider_tittle" href="../pages/single-series/">' . $recent["name"] . '</a>
+      <a class="slider_tittle" href="../pages/single-movie.php?title=">' . $recent["name"] . '</a>
     </h2>
     <p>
     ' . $recent["description"] . '
@@ -238,8 +242,11 @@ if(!isset($selected_letter) && !isset($selected_genre) && !isset($search)){
                     <form action="./movies.php">
                         <div style="border:0px" class="flex items-center justify-between my-4 outline-none ">
 
-                            <input style="border:0px; border-bottom:2px solid #139ea8" type="text" placeholder="Search.." class="w-5/6 px-3 py-3 bg-gray-200 border-b focus:outline-none" name="search">
-                            <button style="border:0px; border-bottom:2px solid #139ea8" class="w-1/6 px-6 py-3 bg-theme focus:outline-none" type="submit">Search</button>
+                            <input style="border:0px; border-bottom:2px solid #139ea8" type="text"
+                                placeholder="Search.." class="w-5/6 px-3 py-3 bg-gray-200 border-b focus:outline-none"
+                                name="search">
+                            <button style="border:0px; border-bottom:2px solid #139ea8"
+                                class="w-1/6 px-6 py-3 bg-theme focus:outline-none" type="submit">Search</button>
                         </div>
                     </form>
 
@@ -274,15 +281,15 @@ if(!isset($selected_letter) && !isset($selected_genre) && !isset($search)){
                                 foreach ($allFilms as $movie) {
 
                                     echo '
-            <a href="movie_detail.php?movie_id=' . $movie['id'] . '" class="w-1/2 my-3 rounded md:mb-6 md:w-1/5 lg:w-1/6">
+            <a href="movie_detail.php?movie_id=' . $movie['id'] . '" class="">
             <div  class="m-1 md:mx-3">
             <div class="w-full h-full overflow-hidden">
-            <img src="' . $movie['img_url'] . '" class="object-cover rounded-t inner-img media-left-custom" alt="' . $movie['title'] . '">
+            <img src="' . $movie['img_url'] . '" class="object-cover rounded-t inner-img media-left-custom " alt="' . $movie['title'] . '">
             </div>
         
               <div class="flex items-center justify-between p-2 rounded-b bg-theme ">
         
-                <p class="text-sm font-semibold text-gray-300 md:text-base">' . substr($movie['title'], 0, 20)  . '</p>
+                <p class="text-white leading-wider">' . substr($movie['title'], 0, 20)  . '</p>
                 
         
               </div>
@@ -297,7 +304,8 @@ if(!isset($selected_letter) && !isset($selected_genre) && !isset($search)){
                             <!-- Pagination  -->
                             <div class="flex flex-col items-center my-12">
                                 <div class="flex text-gray-700">
-                                    <div class="flex items-center justify-center w-8 h-8 mr-1 bg-gray-200 cursor-pointer">
+                                    <div
+                                        class="flex items-center justify-center w-8 h-8 mr-1 bg-gray-200 cursor-pointer">
                                         <?php  
                                         if($selected_letter!==0){
                                             echo ' <a href="movies.php?page_number='.$page_number.'&letter='.$selected_letter.'"> <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 feather feather-chevron-left">
@@ -336,10 +344,13 @@ if(!isset($selected_letter) && !isset($selected_genre) && !isset($search)){
                                         }
 
                                         ?>
-                                        <div class="flex items-center justify-center w-8 h-8 leading-5 text-white transition duration-150 ease-in bg-pink-600 rounded-full cursor-pointer md:hidden">4</div>
+                                        <div
+                                            class="flex items-center justify-center w-8 h-8 leading-5 text-white transition duration-150 ease-in bg-pink-600 rounded-full cursor-pointer md:hidden">
+                                            4</div>
                                     </div>
-                                    <div class="flex items-center justify-center w-8 h-8 ml-1 bg-gray-200 cursor-pointer">
-                                    <?php  
+                                    <div
+                                        class="flex items-center justify-center w-8 h-8 ml-1 bg-gray-200 cursor-pointer">
+                                        <?php  
                                         if($selected_letter!==0){
                                             echo ' <a href="movies.php?page_number='.($page_number+1).'&letter='.$selected_letter.'"> <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 feather feather-chevron-right">
                                             <polyline points="9 18 15 12 9 6"></polyline>
@@ -358,10 +369,10 @@ if(!isset($selected_letter) && !isset($selected_genre) && !isset($search)){
                                         </svg></a>
                                             ';
                                         }
-                                        ?>   
-                                    
-                                    
-                                    <!-- <a href="movies.php?page_number= <?php echo $page_number + 1 ?>"> <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 feather feather-chevron-right">
+                                        ?>
+
+
+                                        <!-- <a href="movies.php?page_number= <?php echo $page_number + 1 ?>"> <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 feather feather-chevron-right">
                                                 <polyline points="9 18 15 12 9 6"></polyline>
                                             </svg></a> -->
                                     </div>

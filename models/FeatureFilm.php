@@ -81,7 +81,7 @@ class FeatureFilm
     // Get Recent Films
     public function getRecent()
     {
-        $query = "SELECT * FROM " . $this->films . " WHERE isRecent = true LIMIT 6";
+        $query = "SELECT * FROM " . $this->films . " WHERE isRecent = true LIMIT 4";
         $stmt = $this->connection->prepare($query);
         $stmt->execute();
         return $stmt;
@@ -97,7 +97,7 @@ class FeatureFilm
     // Get Popular Films
     public function getPopular()
     {
-        $query = "SELECT * FROM " . $this->films . " WHERE isPopular = true LIMIT 6";
+        $query = "SELECT * FROM " . $this->films . " WHERE isPopular = true LIMIT 4";
         $stmt = $this->connection->prepare($query);
         $stmt->execute();
         return $stmt;
@@ -146,7 +146,7 @@ class FeatureFilm
     public function getByYear($year)
     {
         //Get Series 
-        $query = "SELECT * FROM " . $this->films . " WHERE releasing_year LIKE '%" . $year . "%' LIMIT 6";
+        $query = "SELECT * FROM " . $this->films . " WHERE releasing_year LIKE '%" . $year . "%' LIMIT 4";
         $stmt = $this->connection->prepare($query);
         $stmt->execute();
         return $stmt;

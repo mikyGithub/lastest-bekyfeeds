@@ -1,5 +1,9 @@
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^([^\.]+)$ $1.php [NC,L]
 
-RewriteRule ^series/([0-9a-zA-Z]+) detail.php?series_id=$1 [NC,L]
+
+
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+RewriteRule ^pages/single-series/([a-zA-Z0-9\-=&_@\.\,\)\(]*)$ pages/single-series.php?series_id=$1 [NC,L]
+
+

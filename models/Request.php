@@ -42,7 +42,7 @@ class Request
      // Get Latest Episodes
     public function getLatestEpisodes()
     {
-        $query = 'SELECT * FROM ' . $this->series . ' WHERE isRecent = true  ORDER BY name ASC LIMIT 6;';
+        $query = 'SELECT * FROM ' . $this->series . ' WHERE isRecent = true  ORDER BY name ASC LIMIT 4;';
         $stmt = $this->connection->prepare($query);
         $stmt->execute();
         return $stmt;
