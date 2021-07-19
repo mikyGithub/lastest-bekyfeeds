@@ -44,10 +44,10 @@ $page_number = 1;
 $selected_letter=0;
 $selected_genre=0;
 $search='';
-$selected_series = '';
+$selected_film = '';
 if (isset($_GET['title'])) {
-    $selected_series = $_GET['title'];
-    $film_detail = $film->getFilmDetail($selected_series)->fetch(PDO::FETCH_ASSOC);
+    $selected_film = $_GET['title'];
+    $film_detail = $film->getFilmDetail($selected_film)->fetch(PDO::FETCH_ASSOC);
     $title = $film_detail['title'];
     $img_url = $film_detail['img_url'];
     $description = $film_detail['description'];
@@ -158,7 +158,7 @@ if($isParameter === false){
 
             <div class="flex flex-col w-full">
                 <div class="latest_post">
-                    <form action="./tv-show.php">
+                    <form action="./movies.php">
                         <div style="border:0px" class="flex items-center justify-between my-4 outline-none ">
 
                             <input style="border:0px; border-bottom:2px solid #139ea8" type="text"

@@ -129,7 +129,7 @@ if($isParameter === false){
                                     class="mobile-show">Home</span></a>
                         </li>
 
-                        <li><a href="../pages/tv-show">TV Show</a></li>
+                        <li><a href="../pages/movies">TV Show</a></li>
                         <li class="active"><a href="../pages/movies">Movies</a></li>
                         <li><a href="../pages/request">Your Requests</a></li>
                         <!-- <li><a href="../pages/news">News</a></li>
@@ -249,12 +249,11 @@ if($isParameter === false){
                                 class="w-1/6 px-6 py-3 bg-theme focus:outline-none" type="submit">Search</button>
                         </div>
                     </form>
-
                     <div class="w-auto my-6">
-                        <div class="flex justify-between">
+                        <div style="border:1px dashed #139ea8" class="flex  flex-wrap p-3 bg-gray-200">
                             <?php
                              foreach ($film->genres as $genre) {
-                                echo '<a class="px-6 py-3 mr-1 cursor-pointer hover:bg-blue-200 bg-theme" href="movies.php?genre=' . $genre["link"] . '">' . $genre["name"] . '</a>';
+                                echo '<a class="px-6 my-3 py-3 mr-1 rounded cursor-pointer hover:bg-blue-200 bg-theme" href="movies.php?genre=' . $genre["link"] . '">' . $genre["link"] . '</a>';
                             }
                             ?>
 
@@ -264,10 +263,11 @@ if($isParameter === false){
 
                     <div class="flex">
                         <div class="w-auto">
-                            <div class="flex flex-col justify-between">
+                            <div style="border:1px dashed #139ea8"
+                                class="bg-gray-100 p-3 flex flex-col justify-between">
                                 <?php
                             foreach ($letters as $letter) {
-                                echo '<a href="movies.php?letter='.$letter.'" class="px-6 py-3 my-1 cursor-pointer hover:bg-blue-200 bg-theme"> '.$letter.'</a>';
+                                echo '<a href="movies.php?letter='.$letter.'" class="rounded px-6 py-3 my-1 cursor-pointer hover:bg-blue-200 bg-theme"> '.$letter.'</a>';
                             }
                                 ?>
 
@@ -275,7 +275,7 @@ if($isParameter === false){
                         </div>
 
                         <div>
-                            <ul class="flex flex-wrap justify-between">
+                            <ul class="flex flex-wrap ">
 
                                 <?php
                                 foreach ($allFilms as $movie) {
@@ -401,7 +401,7 @@ if($isParameter === false){
                                 echo '<li class="my-3">
   <figure href="pages/single-movie/' . $recent["title"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
     <a href="pages/single-movie/' . $recent["title"] . '" class="w-32 mr-3">
-      <img alt=". $recent["title"] ." class="w-32 h-full" src="' . $recent["img_url"] . '" />
+      <img alt="'. $recent["title"] .'" class="w-32 h-full" src="' . $recent["img_url"] . '" />
     </a>
     <figcaption class="p-3 media-body">
       <a href=" pages/single-movie/' . $recent["title"] . '" class="">
@@ -430,7 +430,7 @@ if($isParameter === false){
                                 echo '<li class="my-3">
   <figure href="pages/single-movie/' . $recent["title"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
     <a href="pages/single-movie/' . $recent["title"] . '" class="w-32 mr-3">
-      <img alt=". $recent["title"] ." class="w-32 h-full" src="' . $recent["img_url"] . '" />
+      <img alt="'. $recent["title"] .'" class="w-32 h-full" src="' . $recent["img_url"] . '" />
     </a>
     <figcaption class="p-3 media-body">
       <a href=" pages/single-movie/' . $recent["title"] . '" class="">
@@ -463,7 +463,7 @@ if($isParameter === false){
                             echo '<li class="my-3">
   <figure href="pages/single-movie/' . $recent["title"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
     <a href="pages/single-movie/' . $recent["title"] . '" class="w-32 mr-3">
-      <img alt=". $recent["title"] ." class="w-32 h-full" src="' . $recent["img_url"] . '" />
+      <img alt="'. $recent["title"] .'" class="w-32 h-full" src="' . $recent["img_url"] . '" />
     </a>
     <figcaption class="p-3 media-body">
       <a href=" pages/single-movie/' . $recent["title"] . '" class="">
