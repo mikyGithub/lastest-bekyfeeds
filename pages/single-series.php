@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>NewsFeed</title>
+    <title>BekyFeeds</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -267,17 +267,17 @@ if($isParameter === false){
 
 
 
-                    <div class="flex">
+                    <div class="md:flex">
 
 
                         <div>
 
-                            <div class="flex justify-between">
-                                <div class="w-3/4 mr-3">
+                            <div class="md:flex justify-between">
+                                <div class="w-full md:w-3/4 md:mr-3">
                                     <div class="single_post_content wow fadeInDown">
                                         <h2><span><?php echo $name; ?></span></h2>
                                         <div>
-                                            <div class="rounded shadow-md  md:flex md:bg-gray-900 md:h-64">
+                                            <div class="rounded shadow-md  md:flex bg-gray-900 p-3 md:h-full">
 
 
                                                 <div class="w-full md:w-1/5 ">
@@ -349,8 +349,8 @@ if($isParameter === false){
 
                                                                 echo '<div class="flex items-center justify-between px-3 py-2 text-white bg-gray-900 border-b border-gray-800">
                                             
-                                                    <a target="_blank" href="' . $link . '">
-                                                    <div class=" text-gray-500 ">    <h5 class="text-theme"> ' . $file . '</h5> </div>
+                                                    <a class="cursor-pointer text-gray-500 " target="_blank" href="' . $link . '">
+                                                      <h5 class="text-theme"> ' .  substr($file, 0, 50)    . '</h5> 
                                             </a>
                                             </div>';
                                                             }
@@ -382,7 +382,7 @@ if($isParameter === false){
                                         </div>
                                     </div>
                                 </div>
-                                <div class="w-1/4">
+                                <div class="w-full md:w-1/4">
 
                                     <div class="bg-white single_post_content wow fadeInDown">
                                         <h2><span>Join Us</span></h2>
@@ -541,7 +541,7 @@ if($isParameter === false){
         </div>
         <div class="footer_bottom">
             <p class="copyright">
-                Copyright &copy; 2021 <a href="index">NewsFeed</a>
+                Copyright &copy; 2021 <a href="index">BekyFeeds</a>
             </p>
             <p class="developer">Developed By Bekyfeeds</p>
         </div>

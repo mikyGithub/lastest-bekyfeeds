@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>NewsFeed</title>
+    <title>BekyFeeds</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -251,10 +251,11 @@ if($isParameter === false){
                         </div>
                     </form>
                     <div class="w-auto my-6">
-                        <div style="border:1px dashed #139ea8" class="flex  flex-wrap p-3 bg-gray-200">
+                        <div style="border:1px dashed #139ea8"
+                            class="flex w-full overflow-x-auto md:flex-wrap p-3 bg-gray-200">
                             <?php
                              foreach ($film->genres as $genre) {
-                                echo '<a class="px-6 my-3 py-3 mr-1 rounded cursor-pointer hover:bg-blue-200 bg-theme" href="movies.php?genre=' . $genre["link"] . '">' . $genre["link"] . '</a>';
+                                echo '<a class="w-auto px-6 my-3 py-3 mr-1 rounded cursor-pointer hover:bg-blue-200 bg-theme" href="movies.php?genre=' . $genre["link"] . '">' . $genre["link"] . '</a>';
                             }
                             ?>
 
@@ -526,7 +527,7 @@ if($isParameter === false){
         </div>
         <div class="footer_bottom">
             <p class="copyright">
-                Copyright &copy; 2021 <a href="index">NewsFeed</a>
+                Copyright &copy; 2021 <a href="index">BekyFeeds</a>
             </p>
             <p class="developer">Developed By Bekyfeeds</p>
         </div>

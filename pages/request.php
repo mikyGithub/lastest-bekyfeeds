@@ -249,7 +249,7 @@ echo '<li class="p-3 my-1 bg-gray-200 hover:bg-gray-100 "><a class="flex justify
         </div>
         <div class="footer_bottom">
             <p class="copyright">
-                Copyright &copy; 2021 <a href="index">NewsFeed</a>
+                Copyright &copy; 2021 <a href="index">BekyFeeds</a>
             </p>
             <p class="developer">Developed By Bekyfeeds</p>
         </div>

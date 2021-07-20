@@ -142,7 +142,7 @@ $editorMovies = $home->getEditorMovies()->fetchAll(PDO::FETCH_ASSOC);
 
                 echo '
               <li>
-                <a href="pages/single-series.php?series_id=' . $popular['id'] . '">' . $popular['name'] . '</a>
+                <a href="pages/single-series.php?series_id=' . $popular['id'] . '">' . '<img src="images/posters/'.$popular['img_url'] . '" alt="'.$popular['name'] . '">'.$popular['name'] . '</a>
               </li>
               ';
               }
@@ -453,46 +453,74 @@ echo '<li><a style="padding-top: 10px;padding-bottom: 10px;" href="'.$request["s
             <div class="footer_top">
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-sm-4">
-                        <div class="footer_widget wow fadeInLeftBig">
-                            <h2>Flickr Images</h2>
+                        <div class=" wow fadeInLeftBig">
+                            <h2 class="text-genre"> Disclaimer</h2>
                         </div>
+                        <p>
+                            bekyfeeds.com does not host any files on it's servers. All files or contents hosted on third
+                            party websites.this site does not accept responsibility for contents hosted on third party
+                            websites. We just index those links which are already available in internet.
+                        </p>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-4">
                         <div class="footer_widget wow fadeInDown">
-                            <h2>Tag</h2>
+                            <h2>Important Links</h2>
                             <ul class="tag_nav">
-                                <li><a href="#">Games</a></li>
-                                <li><a href="#">Sports</a></li>
-                                <li><a href="#">Fashion</a></li>
-                                <li><a href="#">Business</a></li>
-                                <li><a href="#">Life &amp; Style</a></li>
-                                <li><a href="#">Technology</a></li>
-                                <li><a href="#">Photo</a></li>
-                                <li><a href="#">Slider</a></li>
+                                <li><a href="about"
+                                        class="text-white text-green-400 my-1 hover:text-green-500 text-justify">About
+                                        Us</a></li>
+                                <li><a href="dmca"
+                                        class="text-white text-green-400 my-1 hover:text-green-500 text-justify">DMCA</a>
+                                </li>
+                                <li><a href="privacy"
+                                        class="text-white text-green-400 my-1 hover:text-green-500 text-justify">Privacy
+                                        Policies</a></li>
+                                <li><a href="terms"
+                                        class="text-white text-green-400 my-1 hover:text-green-500 text-justify">Terms
+                                        and Conditions</a></li>
+                                <li><a href="contact-us"
+                                        class="text-white text-green-400 my-1 hover:text-green-500 text-justify">Contact
+                                        Us</a></li>
+
+
+
+
+
+
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-4">
                         <div class="footer_widget wow fadeInRightBig">
-                            <h2>Contact</h2>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                                do eiusmod tempor incididunt ut labore et dolore magna aliqua
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                            </p>
-                            <address>
-                                Perfect News,1238 S . 123 St.Suite 25 Town City 3333,USA
-                                Phone: 123-326-789 Fax: 123-546-567
-                            </address>
+                            <h2>Contact Us</h2>
+
+
+
+                            <ul class="tag_nav">
+                                <li><a href="https://t.me/bekyfeedscommounity">
+                                        Telegram
+                                    </a></li>
+                                <li><a href="https://www.facebook.com/Beky-Feeds-112556537282665">
+                                        Facebook
+                                    </a>
+                                </li>
+
+
+
+
+
+
+
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="footer_bottom">
                 <p class="copyright">
-                    Copyright &copy; 2021 <a href="index">NewsFeed</a>
+                    Copyright &copy; 2020 <a href="index">BekyFeeds</a>
                 </p>
-                <p class="developer">Developed By Bekyfeeds</p>
+                <p class="developer text-white">Developed By Bekyfeeds</p>
             </div>
         </footer>
     </div>
