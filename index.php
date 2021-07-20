@@ -71,7 +71,7 @@ $editorMovies = $home->getEditorMovies()->fetchAll(PDO::FETCH_ASSOC);
                             </ul>
                         </div>
                         <div class="header_top_right">
-                            <a href="https://t.me/bekyfeedscommounity">Join Us on Telegram</a>
+                            <a target="_blank" href="https://t.me/bekyfeedscommounity">Join Us on Telegram</a>
                         </div>
                     </div>
                 </div>
@@ -172,8 +172,9 @@ $editorMovies = $home->getEditorMovies()->fetchAll(PDO::FETCH_ASSOC);
   <div class="single_iteam">
   <a href="pages/single-movie.php?title=' . $slider["title"] . '">
  
-  
-  <img style="background-color:black;object-fit:contain" src="' . $slider["img_url"] . '" alt="' . $slider["title"] . '" /></a>
+  <div style="object-fit:contain;background-color:black url("' . $slider["img_url"] . '") no-repeat fixed center">
+  <img   src="' . $slider["img_url"] . '" alt="' . $slider["title"] . '" /></a>
+  </div>
 
   <div class="slider_article">
     <h2>
@@ -466,19 +467,19 @@ echo '<li><a style="padding-top: 10px;padding-bottom: 10px;" href="'.$request["s
                         <div class="footer_widget wow fadeInDown">
                             <h2>Important Links</h2>
                             <ul class="tag_nav">
-                                <li><a href="about"
+                                <li><a href="pages/about"
                                         class="text-white text-green-400 my-1 hover:text-green-500 text-justify">About
                                         Us</a></li>
-                                <li><a href="dmca"
+                                <li><a href="pages/dmca"
                                         class="text-white text-green-400 my-1 hover:text-green-500 text-justify">DMCA</a>
                                 </li>
-                                <li><a href="privacy"
+                                <li><a href="pages/privacy"
                                         class="text-white text-green-400 my-1 hover:text-green-500 text-justify">Privacy
                                         Policies</a></li>
-                                <li><a href="terms"
+                                <li><a href="pages/terms"
                                         class="text-white text-green-400 my-1 hover:text-green-500 text-justify">Terms
                                         and Conditions</a></li>
-                                <li><a href="contact-us"
+                                <li><a href="pages/contact-us"
                                         class="text-white text-green-400 my-1 hover:text-green-500 text-justify">Contact
                                         Us</a></li>
 
