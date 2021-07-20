@@ -107,13 +107,13 @@ $latestEpisodes = $request->getLatestEpisodes()->fetchAll(PDO::FETCH_ASSOC);
             </nav>
 
 
-
-            <div class="md:flex justify-between">
-                <div class="md:w-3/4 md:mr-3">
-                    <div class="single_post_content wow fadeInDown">
-                        <h2><span>Your Requests</span></h2>
-                        <ul>
-                            <?php
+            <section class="contentSection">
+                <div class="md:flex justify-between">
+                    <div class="md:w-3/4 md:mr-3">
+                        <div class="single_post_content wow fadeInDown">
+                            <h2><span>Your Requests</span></h2>
+                            <ul>
+                                <?php
 
 foreach ($requests as $request) {
 echo '<li class="p-3 my-1 bg-gray-200 hover:bg-gray-100 "><a class="flex justify-between "  style="padding-top: 10px;padding-bottom: 10px;" href="'.$request["solution"].'"> <div class="w-1/6 text-2xl text-blue-400">'.$request["id"].'</div>'.$request["requester"].'<div class="w-1/3">['.$request["subject"].']</div></a></li>';
@@ -122,32 +122,32 @@ echo '<li class="p-3 my-1 bg-gray-200 hover:bg-gray-100 "><a class="flex justify
 
 
 
-                        </ul>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="md:w-1/4">
+
+                        <div class="bg-white single_post_content wow fadeInDown">
+                            <h2><span>Join Us</span></h2>
+                            <a class="sideAdd" href="#"><img style="object-fit:cover" src="../images/telegram.gif"
+                                    alt="" /></a>
+                        </div>
+
+
                     </div>
                 </div>
-                <div class="md:w-1/4">
-
-                    <div class="bg-white single_post_content wow fadeInDown">
-                        <h2><span>Join Us</span></h2>
-                        <a class="sideAdd" href="#"><img style="object-fit:cover" src="../images/telegram.gif"
-                                alt="" /></a>
-                    </div>
-
-
-                </div>
-            </div>
 
 
 
 
-            <div class="fashion_technology_area">
-                <div class="fashion">
-                    <div class="single_post_content">
-                        <h2><span>Latest Movies</span></h2>
+                <div class="fashion_technology_area">
+                    <div class="fashion">
+                        <div class="single_post_content">
+                            <h2><span>Latest Movies</span></h2>
 
 
-                        <ul class="my-2 spost_nav">
-                            <?php
+                            <ul class="my-2 spost_nav">
+                                <?php
 
                     foreach ($latestMovies as $latest) {
 
@@ -168,14 +168,14 @@ echo '<li class="p-3 my-1 bg-gray-200 hover:bg-gray-100 "><a class="flex justify
 
 
 
-                        </ul>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <div class="technology">
-                    <div class="single_post_content">
-                        <h2><span>Latest Episodes</span></h2>
-                        <ul class="my-2 spost_nav">
-                            <?php
+                    <div class="technology">
+                        <div class="single_post_content">
+                            <h2><span>Latest Episodes</span></h2>
+                            <ul class="my-2 spost_nav">
+                                <?php
 
                     foreach ($latestEpisodes as $latest) {
 
@@ -196,66 +196,93 @@ echo '<li class="p-3 my-1 bg-gray-200 hover:bg-gray-100 "><a class="flex justify
 
 
 
-                        </ul>
+                            </ul>
 
+                        </div>
                     </div>
                 </div>
-            </div>
 
 
 
 
 
     </div>
-
+    </section>
     <footer id="footer">
         <div class="footer_top">
             <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-4">
-                    <div class="footer_widget wow fadeInLeftBig">
-                        <h2>Flickr Images</h2>
+                    <div class=" wow fadeInLeftBig">
+                        <h2 class="text-genre"> Disclaimer</h2>
                     </div>
+                    <p>
+                        bekyfeeds.com does not host any files on it's servers. All files or contents hosted on third
+                        party websites.this site does not accept responsibility for contents hosted on third party
+                        websites. We just index those links which are already available in internet.
+                    </p>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4">
                     <div class="footer_widget wow fadeInDown">
-                        <h2>Tag</h2>
+                        <h2>Important Links</h2>
                         <ul class="tag_nav">
-                            <li><a href="#">Games</a></li>
-                            <li><a href="#">Sports</a></li>
-                            <li><a href="#">Fashion</a></li>
-                            <li><a href="#">Business</a></li>
-                            <li><a href="#">Life &amp; Style</a></li>
-                            <li><a href="#">Technology</a></li>
-                            <li><a href="#">Photo</a></li>
-                            <li><a href="#">Slider</a></li>
+                            <li><a href="about"
+                                    class="text-white text-green-400 my-1 hover:text-green-500 text-justify">About
+                                    Us</a></li>
+                            <li><a href="dmca"
+                                    class="text-white text-green-400 my-1 hover:text-green-500 text-justify">DMCA</a>
+                            </li>
+                            <li><a href="privacy"
+                                    class="text-white text-green-400 my-1 hover:text-green-500 text-justify">Privacy
+                                    Policies</a></li>
+                            <li><a href="terms"
+                                    class="text-white text-green-400 my-1 hover:text-green-500 text-justify">Terms
+                                    and Conditions</a></li>
+                            <li><a href="contact-us"
+                                    class="text-white text-green-400 my-1 hover:text-green-500 text-justify">Contact
+                                    Us</a></li>
+
+
+
+
+
+
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4">
                     <div class="footer_widget wow fadeInRightBig">
-                        <h2>Contact</h2>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                            do eiusmod tempor incididunt ut labore et dolore magna aliqua
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        </p>
-                        <address>
-                            Perfect News,1238 S . 123 St.Suite 25 Town City 3333,USA
-                            Phone: 123-326-789 Fax: 123-546-567
-                        </address>
+                        <h2>Contact Us</h2>
+
+
+
+                        <ul class="tag_nav">
+                            <li><a href="https://t.me/bekyfeedscommounity">
+                                    Telegram
+                                </a></li>
+                            <li><a href="https://www.facebook.com/Beky-Feeds-112556537282665">
+                                    Facebook
+                                </a>
+                            </li>
+
+
+
+
+
+
+
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
         <div class="footer_bottom">
             <p class="copyright">
-                Copyright &copy; 2021 <a href="index">BekyFeeds</a>
+                Copyright &copy; 2020 <a href="index">BekyFeeds</a>
             </p>
-            <p class="developer">Developed By Bekyfeeds</p>
+            <p class="developer text-white">Developed By Bekyfeeds</p>
         </div>
     </footer>
     </div>
-
     <script src="../assets/js/jquery.min.js"></script>
     <script src="../assets/js/wow.min.js"></script>
     <script src="../assets/js/bootstrap.min.js"></script>
