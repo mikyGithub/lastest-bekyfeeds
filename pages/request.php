@@ -151,12 +151,12 @@ echo '<li class="p-3 my-1 bg-gray-200 hover:bg-gray-100 "><a class="flex justify
                     foreach ($latestMovies as $latest) {
 
                       echo '<li class="my-3">
-  <figure href="pages/single-movie/' . $latest["title"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
-    <a href="pages/single-movie/' . $latest["title"] . '" class="w-32 mr-3">
+  <figure href="../pages/single-movie.php?title=' . $latest["title"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
+    <a href="../pages/single-movie.php?title=' . $latest["title"] . '" class="w-32 mr-3">
       <img alt="'. $latest["title"] .'" class="w-32 h-full" src="' . $latest["img_url"] . '" />
     </a>
     <figcaption class="p-3 media-body">
-      <a href=" pages/single-movie/' . $latest["title"] . '" class="">
+      <a href="../pages/single-movie.php?title=' . $latest["title"] . '" class="">
       ' . $latest["title"] . ' <p class="genre">' . $latest["genre"] . '</p> <p class="year">' . $latest["releasing_year"] . '</p> </a>
     </figcaption>
   </figure>
