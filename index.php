@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<?php require "./config/meta.php"; ?>
 
 <head>
     <title>Bekyfeeds | Home</title>
@@ -16,6 +17,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/theme.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/utilities.min.css" />
+     <?php require "./config/js.php"; ?>
     <!--[if lt IE 9]>
       <script src="assets/js/html5shiv.min.js"></script>
       <script src="assets/js/respond.min.js"></script>
@@ -171,9 +173,7 @@ $editorMovies = $home->getEditorMovies()->fetchAll(PDO::FETCH_ASSOC);
   <div class="single_iteam">
   <a href="pages/single-movie.php?title=' . $slider["title"] . '">
  
-  <div style="object-fit:contain;background-color:black url("' . $slider["slider_img"] . '") no-repeat fixed center">
-  <img   src="' . $slider["slider_img"] . '" alt="' . $slider["title"] . '" /></a>
-  </div>
+   <img   class="object-cover" src="' . $slider["slider_img"] . '" alt="' . $slider["title"] . '" /></a>
 
   <div class="slider_article">
     <h2>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<?php require "../config/meta.php"; ?>
 
 <head>
     <title>BekyFeeds | Pages | Contact</title>

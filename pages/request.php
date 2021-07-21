@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<?php require "../config/meta.php"; ?>
 
 <head>
     <title>Bekyfeeds</title>
@@ -15,7 +16,7 @@
     <link rel="stylesheet" type="text/css" href="../assets/css/jquery.fancybox.css" />
     <link rel="stylesheet" type="text/css" href="../assets/css/theme.css" />
     <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/utilities.min.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/utilities.min.css" /> <?php require "../config/js.php"; ?>
 
 </head>
 
