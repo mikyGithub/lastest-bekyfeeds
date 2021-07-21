@@ -97,16 +97,17 @@ if($isParameter === false){
         <div id="status">&nbsp;</div>
     </div>
     <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
-    <div >
+    <div class="container">
         <header id="header">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="header_top">
                         <div class="header_top_left">
-                            <ul class="top_nav">
-                                <li><a href="index">Home</a></li>
+                        <ul class="top_nav">
+                                <li><a href="../index">Home</a></li>
                                 <li><a href="../pages/about">About</a></li>
                                 <li><a href="../pages/contact-us">Contact</a></li>
+                               
                             </ul>
                         </div>
                         <div class="header_top_right">
@@ -117,7 +118,7 @@ if($isParameter === false){
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="header_bottom">
                         <div class="logo_area">
-                            <a href="index" class="logo">
+                            <a href="../index" class="logo">
                                 <h1>bekyfeeds</h1>
                             </a>
                         </div>
@@ -239,7 +240,7 @@ if (is_array($episodesJson) || is_object($episodesJson)) {
         
         echo '<div class="flex items-center justify-between px-3 py-2 text-white bg-gray-900 border-b border-gray-800">
                                             
-        <a class="sideAdd" target="_blank" target="_blank" href="https://t.me/bekyfeedscommounity" href="' . $link . '">
+        <a class="sideAdd" target="_blank"  href="' . $link . '">
         <div class=" text-gray-500 ">    <h5 class="text-theme"> ' . $file . '</h5> </div>
 </a>
 </div>';
@@ -424,7 +425,7 @@ Sorry, It will be uploaded soon </div>';
         </div>
         <div class="footer_bottom">
             <p class="copyright">
-                Copyright &copy; 2021 <a href="index">BekyFeeds</a>
+                Copyright &copy; 2021 <a href="../index">BekyFeeds</a>
             </p>
             <p class="developer">Developed By Bekyfeeds</p>
         </div>

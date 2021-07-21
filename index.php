@@ -56,22 +56,21 @@ $editorMovies = $home->getEditorMovies()->fetchAll(PDO::FETCH_ASSOC);
         <div id="status">&nbsp;</div>
     </div>
     <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
-    <div >
+    <div class="container">
         <header id="header">
             <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="header_top">
                         <div class="header_top_left">
-                            <ul class="top_nav">
+                        <ul class="top_nav">
                                 <li><a href="index">Home</a></li>
                                 <li><a href="pages/about">About</a></li>
                                 <li><a href="pages/contact-us">Contact</a></li>
-                                <!-- <li><a href="pages/privacy">Privacy Policies</a></li>
-                <li><a href="pages/terms">Terms and Conditions</a></li> -->
+                               
                             </ul>
                         </div>
                         <div class="header_top_right">
-                            <a class="sideAdd" target="_blank" target="_blank" href="https://t.me/bekyfeedscommounity" target="_blank" href="https://t.me/bekyfeedscommounity">Join Us on Telegram</a>
+                            <a target="_blank" href="https://t.me/bekyfeedscommounity">Join Us on Telegram</a>
                         </div>
                     </div>
                 </div>
@@ -172,8 +171,8 @@ $editorMovies = $home->getEditorMovies()->fetchAll(PDO::FETCH_ASSOC);
   <div class="single_iteam">
   <a href="pages/single-movie.php?title=' . $slider["title"] . '">
  
-  <div style="object-fit:contain;background-color:black url("' . $slider["img_url"] . '") no-repeat fixed center">
-  <img   src="' . $slider["img_url"] . '" alt="' . $slider["title"] . '" /></a>
+  <div style="object-fit:contain;background-color:black url("' . $slider["slider_img"] . '") no-repeat fixed center">
+  <img   src="' . $slider["slider_img"] . '" alt="' . $slider["title"] . '" /></a>
   </div>
 
   <div class="slider_article">
@@ -359,7 +358,7 @@ $editorMovies = $home->getEditorMovies()->fetchAll(PDO::FETCH_ASSOC);
                     <aside class="right_content">
                         <div class="bg-white single_sidebar wow fadeInDown">
                             <h2><span>Join Us</span></h2>
-                            <a class="sideAdd" class="sideAdd" target="_blank" target="_blank" href="https://t.me/bekyfeedscommounity" target="_blank" href="https://t.me/bekyfeedscommounity"><img style="object-fit:cover" src="images/telegram.gif"
+                            <a class="sideAdd" class="sideAdd" target="_blank" href="https://t.me/bekyfeedscommounity"  ><img style="object-fit:cover" src="images/telegram.gif"
                                     alt="" /></a>
                         </div>
                         <div class="bg-white single_sidebar">
@@ -457,6 +456,7 @@ $editorMovies = $home->getEditorMovies()->fetchAll(PDO::FETCH_ASSOC);
                             <ul class="tag_nav">
                                 <li><a target="_blank" href="https://t.me/bekyfeedscommounity">
                                         Telegram
+
                                     </a></li>
                                 <li><a href="https://www.facebook.com/Beky-Feeds-112556537282665">
                                         Facebook
