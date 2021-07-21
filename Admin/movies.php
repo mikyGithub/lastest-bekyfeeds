@@ -34,7 +34,7 @@ $movies = $home->getFilms()->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
-<body class="container">
+<body >
     <div class="flex py-3 mt-4 mb-6 bg-gray-200" style="border-bottom:1px #1D2861 dashed ">
         <a style="border:0px" href="movies.php" class="w-auto p-2 mx-3 bg-primary focus:outline-none hover:bg-white hover:text-black">Movies</a>
         <a style="border:0px" href="series.php" class="w-auto p-2 mx-3 bg-primary focus:outline-none hover:bg-white hover:text-black">Tv Shows</a>

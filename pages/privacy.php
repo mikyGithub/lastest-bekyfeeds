@@ -31,7 +31,7 @@
         <div id="status">&nbsp;</div>
     </div>
     <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
-    <div class="container">
+    <div >
         <header id="header">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
@@ -44,7 +44,7 @@
                             </ul>
                         </div>
                         <div class="header_top_right">
-                            <a href="https://t.me/bekyfeedscommounity">Join Us on Telegram</a>
+                            <a target="_blank" href="https://t.me/bekyfeedscommounity">Join Us on Telegram</a>
                         </div>
                     </div>
                 </div>
@@ -183,7 +183,7 @@
 
 
                             <ul class="tag_nav">
-                                <li><a href="https://t.me/bekyfeedscommounity">
+                                <li><a target="_blank" href="https://t.me/bekyfeedscommounity">
                                         Telegram
                                     </a></li>
                                 <li><a href="https://www.facebook.com/Beky-Feeds-112556537282665">

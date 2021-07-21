@@ -61,7 +61,7 @@ class Home
     // Get Action Episodes
     public function getActionMovies()
     {
-        $query = "SELECT * FROM " . $this->movies . " WHERE genre  LIKE '%Action%' ORDER BY title ASC LIMIT 4;";
+        $query = "SELECT * FROM " . $this->movies . " WHERE genre  LIKE '%Action%' ORDER BY title ASC LIMIT 10;";
         $stmt = $this->connection->prepare($query);
         $stmt->execute();
         return $stmt;
@@ -70,7 +70,7 @@ class Home
     // Get Romantic Episodes
     public function getRomanticMovies()
     {
-        $query = "SELECT * FROM " . $this->movies . " WHERE genre  LIKE '%Roman%' ORDER BY title ASC LIMIT 4;";
+        $query = "SELECT * FROM " . $this->movies . " WHERE genre  LIKE '%Roman%' ORDER BY title ASC LIMIT 10;";
         $stmt = $this->connection->prepare($query);
         $stmt->execute();
         return $stmt;

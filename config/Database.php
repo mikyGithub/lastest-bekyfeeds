@@ -4,7 +4,7 @@ class Database
     // DB Params
 
     private $host = 'localhost';
-    private $db_name = 'bekymovies';
+    private $db_name = 'bekyfeedscom_movies';
     private $username = 'root';
     private $password = '';
     private $connection;

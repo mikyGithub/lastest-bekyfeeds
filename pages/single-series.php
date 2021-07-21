@@ -95,7 +95,7 @@ if($isParameter === false){
         <div id="status">&nbsp;</div>
     </div>
     <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
-    <div class="container">
+    <div >
         <header id="header">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
@@ -108,7 +108,7 @@ if($isParameter === false){
                             </ul>
                         </div>
                         <div class="header_top_right">
-                            <a href="https://t.me/bekyfeedscommounity">Join Us on Telegram</a>
+                            <a target="_blank" href="https://t.me/bekyfeedscommounity">Join Us on Telegram</a>
                         </div>
                     </div>
                 </div>
@@ -349,7 +349,7 @@ if($isParameter === false){
 
                                                                 echo '<div class="flex items-center justify-between px-3 py-2 text-white bg-gray-900 border-b border-gray-800">
                                             
-                                                    <a class="cursor-pointer text-gray-500 " target="_blank" href="' . $link . '">
+                                                    <a class="cursor-pointer text-gray-500 " class="sideAdd" target="_blank" target="_blank" href="https://t.me/bekyfeedscommounity" href="' . $link . '">
                                                       <h5 class="text-theme"> ' .  substr($file, 0, 50)    . '</h5> 
                                             </a>
                                             </div>';
@@ -386,7 +386,7 @@ if($isParameter === false){
 
                                     <div class="bg-white single_post_content wow fadeInDown">
                                         <h2><span>Join Us</span></h2>
-                                        <a class="sideAdd" href="#"><img style="object-fit:cover"
+                                        <a class="sideAdd" class="sideAdd" target="_blank" target="_blank" href="https://t.me/bekyfeedscommounity" target="_blank" href="https://t.me/bekyfeedscommounity"><img style="object-fit:cover"
                                                 src="../images/telegram.gif" alt="" /></a>
                                     </div>
 
@@ -468,7 +468,7 @@ if($isParameter === false){
             <div class="single_post_content">
                 <h2><span>Editor's Choice</span></h2>
                 <div class="single_post_content_left">
-                    <a class="sideAdd" href="#"><img class="object-contain" src="../images/telegram.gif" alt="" /></a>
+                    <a class="sideAdd" class="sideAdd" target="_blank" target="_blank" href="https://t.me/bekyfeedscommounity" target="_blank" href="https://t.me/bekyfeedscommounity"><img class="object-contain" src="../images/telegram.gif" alt="" /></a>
                 </div>
                 <div class="single_post_content_right">
                     <ul class="my-2 spost_nav">

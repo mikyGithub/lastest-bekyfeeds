@@ -82,7 +82,7 @@ if($isParameter === false){
         <div id="status">&nbsp;</div>
     </div>
     <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
-    <div class="container">
+    <div >
         <header id="header">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
@@ -95,7 +95,7 @@ if($isParameter === false){
                             </ul>
                         </div>
                         <div class="header_top_right">
-                            <a href="https://t.me/bekyfeedscommounity">Join Us on Telegram</a>
+                            <a target="_blank" href="https://t.me/bekyfeedscommounity">Join Us on Telegram</a>
                         </div>
                     </div>
                 </div>
@@ -454,7 +454,7 @@ if($isParameter === false){
             <div class="single_post_content">
                 <h2><span>Editor's Choice</span></h2>
                 <div class="single_post_content_left">
-                    <a class="sideAdd" href="#"><img class="object-contain" src="../images/telegram.gif" alt="" /></a>
+                    <a class="sideAdd" class="sideAdd" target="_blank" target="_blank" href="https://t.me/bekyfeedscommounity" target="_blank" href="https://t.me/bekyfeedscommounity"><img class="object-contain" src="../images/telegram.gif" alt="" /></a>
                 </div>
                 <div class="single_post_content_right">
                     <ul class="my-2 spost_nav">

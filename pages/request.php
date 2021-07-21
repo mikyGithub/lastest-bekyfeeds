@@ -45,7 +45,7 @@ $latestEpisodes = $request->getLatestEpisodes()->fetchAll(PDO::FETCH_ASSOC);
         <div id="status">&nbsp;</div>
     </div>
     <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
-    <div class="container">
+    <div >
         <header id="header">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
@@ -60,7 +60,7 @@ $latestEpisodes = $request->getLatestEpisodes()->fetchAll(PDO::FETCH_ASSOC);
                             </ul>
                         </div>
                         <div class="header_top_right">
-                            <a href="https://t.me/bekyfeedscommounity">Join Us on Telegram</a>
+                            <a target="_blank" href="https://t.me/bekyfeedscommounity">Join Us on Telegram</a>
                         </div>
                     </div>
                 </div>
@@ -129,7 +129,7 @@ echo '<li class="p-3 my-1 bg-gray-200 hover:bg-gray-100 "><a class="flex justify
 
                         <div class="bg-white single_post_content wow fadeInDown">
                             <h2><span>Join Us</span></h2>
-                            <a class="sideAdd" href="#"><img style="object-fit:cover" src="../images/telegram.gif"
+                            <a class="sideAdd" class="sideAdd" target="_blank" target="_blank" href="https://t.me/bekyfeedscommounity" target="_blank" href="https://t.me/bekyfeedscommounity"><img style="object-fit:cover" src="../images/telegram.gif"
                                     alt="" /></a>
                         </div>
 
@@ -180,12 +180,12 @@ echo '<li class="p-3 my-1 bg-gray-200 hover:bg-gray-100 "><a class="flex justify
                     foreach ($latestEpisodes as $latest) {
 
                       echo '<li class="my-3">
-                      <figure href="pages/single-movie/' . $latest["name"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
-                        <a href="pages/single-movie/' . $latest["name"] . '" class="w-32 mr-3">
-                          <img alt="'. $latest["name"] .'" class="w-32 h-full" src="' . $latest["img_url"] . '" />
+                      <figure href="pages/single-series/series_id=' . $latest["id"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
+                        <a href="pages/single-series/series_id=' . $latest["id"] . '" class="w-32 mr-3">
+                          <img alt="'. $latest["name"] .'" class="w-32 h-full" src="../images/posters/' . $latest["img_url"] . '" />
                         </a>
                         <figcaption class="p-3 media-body">
-                          <a href=" pages/single-movie/' . $latest["name"] . '" class="">
+                          <a href=" pages/single-series/series_id=' . $latest["id"] . '" class="">
                           ' . $latest["name"] . ' <p class="genre">' . $latest["genre"] . '</p> <p class="year">' . $latest["releasing_year"] . '</p> </a>
                         </figcaption>
                       </figure>
@@ -256,7 +256,7 @@ echo '<li class="p-3 my-1 bg-gray-200 hover:bg-gray-100 "><a class="flex justify
 
 
                         <ul class="tag_nav">
-                            <li><a href="https://t.me/bekyfeedscommounity">
+                            <li><a target="_blank" href="https://t.me/bekyfeedscommounity">
                                     Telegram
                                 </a></li>
                             <li><a href="https://www.facebook.com/Beky-Feeds-112556537282665">
