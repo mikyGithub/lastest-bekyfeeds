@@ -1,6 +1,6 @@
 /*
-Template Name: NewsFeed
-Template URI: http://www.wpfreeware.com/newsfeed-ultra-responsive-news-magazine-theme/
+Template Name: BekyFeeds
+Template URI: http://www.wpfreeware.com/BekyFeeds-ultra-responsive-news-magazine-theme/
 Author: WpFreeware
 Author URI: http://www.wpfreeware.com
 Description: A Pro bootstrap html5 css3 responsive news magazine website template
@@ -12,7 +12,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 body{background:#f5f5f5;font-family:"Oswald",sans-serif}
 ul{padding:0; margin:0; list-style:none}
 a{text-decoration:none; color:#2f2f2f}
-a:hover{color:#646464; text-decoration:none}
+a:hover{color:#646464; text-decoration:none;cursor:pointer}
 a:focus{outline:none; text-decoration:none}
 h1, h2, h3, h4, h5, h6{}
 h2{line-height:23px}
@@ -149,7 +149,7 @@ img:hover{opacity:0.75}
 
 /* .spost_nav .media-left-custom{width:220px;height: 243px} */
 .media-left-custom { width:170px;height: 243px}
-
+.h-78{height: 25rem}
 
 
 .spost_nav .media-body > a{font-family:"Oswald",sans-serif}
@@ -203,7 +203,7 @@ figure.effect-layla:hover figcaption::after, figure.effect-layla:hover h2, figur
 .single_sidebar .spost_nav li a{border-bottom:none; float:left}
 #footer{display:inline; float:left; width:100%; margin-bottom:20px}
 .footer_top{background-color:#252525; color:#ddd; display:inline; float:left; padding:10px 30px 48px; width:100%}
-.footer_widget{display:inline; float:left; width:100%; min-height:310px}
+.footer_widget{display:inline; float:left; width:100%}
 .footer_widget > h2{border-bottom:3px solid #666;  font-size:16px; padding:10px 0; text-transform:uppercase}
 .tag_nav{}
 .tag_nav li{}

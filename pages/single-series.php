@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>NewsFeed</title>
+    <title>BekyFeeds</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -95,7 +95,7 @@ if($isParameter === false){
         <div id="status">&nbsp;</div>
     </div>
     <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
-    <div class="container">
+    <div >
         <header id="header">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
@@ -108,7 +108,7 @@ if($isParameter === false){
                             </ul>
                         </div>
                         <div class="header_top_right">
-                            <a href="https://t.me/bekyfeedscommounity">Join Us on Telegram</a>
+                            <a target="_blank" href="https://t.me/bekyfeedscommounity">Join Us on Telegram</a>
                         </div>
                     </div>
                 </div>
@@ -267,17 +267,17 @@ if($isParameter === false){
 
 
 
-                    <div class="flex">
+                    <div class="md:flex">
 
 
                         <div>
 
-                            <div class="flex justify-between">
-                                <div class="w-3/4 mr-3">
+                            <div class="md:flex justify-between">
+                                <div class="w-full md:w-3/4 md:mr-3">
                                     <div class="single_post_content wow fadeInDown">
                                         <h2><span><?php echo $name; ?></span></h2>
                                         <div>
-                                            <div class="rounded shadow-md  md:flex md:bg-gray-900 md:h-64">
+                                            <div class="rounded shadow-md  md:flex bg-gray-900 p-3 md:h-full">
 
 
                                                 <div class="w-full md:w-1/5 ">
@@ -349,8 +349,8 @@ if($isParameter === false){
 
                                                                 echo '<div class="flex items-center justify-between px-3 py-2 text-white bg-gray-900 border-b border-gray-800">
                                             
-                                                    <a target="_blank" href="' . $link . '">
-                                                    <div class=" text-gray-500 ">    <h5 class="text-theme"> ' . $file . '</h5> </div>
+                                                    <a class="cursor-pointer text-gray-500 " class="sideAdd" target="_blank" target="_blank" href="https://t.me/bekyfeedscommounity" href="' . $link . '">
+                                                      <h5 class="text-theme"> ' .  substr($file, 0, 50)    . '</h5> 
                                             </a>
                                             </div>';
                                                             }
@@ -382,11 +382,11 @@ if($isParameter === false){
                                         </div>
                                     </div>
                                 </div>
-                                <div class="w-1/4">
+                                <div class="w-full md:w-1/4">
 
                                     <div class="bg-white single_post_content wow fadeInDown">
                                         <h2><span>Join Us</span></h2>
-                                        <a class="sideAdd" href="#"><img style="object-fit:cover"
+                                        <a class="sideAdd" class="sideAdd" target="_blank" target="_blank" href="https://t.me/bekyfeedscommounity" target="_blank" href="https://t.me/bekyfeedscommounity"><img style="object-fit:cover"
                                                 src="../images/telegram.gif" alt="" /></a>
                                     </div>
 
@@ -468,7 +468,7 @@ if($isParameter === false){
             <div class="single_post_content">
                 <h2><span>Editor's Choice</span></h2>
                 <div class="single_post_content_left">
-                    <a class="sideAdd" href="#"><img class="object-contain" src="../images/telegram.gif" alt="" /></a>
+                    <a class="sideAdd" class="sideAdd" target="_blank" target="_blank" href="https://t.me/bekyfeedscommounity" target="_blank" href="https://t.me/bekyfeedscommounity"><img class="object-contain" src="../images/telegram.gif" alt="" /></a>
                 </div>
                 <div class="single_post_content_right">
                     <ul class="my-2 spost_nav">
@@ -541,7 +541,7 @@ if($isParameter === false){
         </div>
         <div class="footer_bottom">
             <p class="copyright">
-                Copyright &copy; 2021 <a href="index">NewsFeed</a>
+                Copyright &copy; 2021 <a href="index">BekyFeeds</a>
             </p>
             <p class="developer">Developed By Bekyfeeds</p>
         </div>

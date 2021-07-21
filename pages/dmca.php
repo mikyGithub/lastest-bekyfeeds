@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>About Us</title>
+    <title>Privacy Policies</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -93,11 +93,23 @@
 
 
         <section class="p-4" id="contentSection">
-            <h2><span>About Bekyfeeds</span></h2>
-            <h4 class="my-12">bekyfeeds.com is an entertainment site where you can find the latest entertainment
-                news,sports and music
-                videos,and best place to find multiple direct download links to your favorite Tv series/shows and latest
-                movies just for free.</h4>
+            <h2><span>DMCA</span></h2>
+            <div class="p-2  md:p-0">
+
+                <div class="md:px-3 mt-3 text-justify md:w-1/2">
+                    <img src="../images/dmca.png" class="h-32 object-cover" />
+                    <h4 class=" pt-3 ">None of the files linked in this website are hosted on the server of
+                        <span class="text-green-500"><a href="https://www.bekyfeeds.com">www.bekyfeeds.com</a></span>
+                        <br /> All the contents in this website are for personal
+                        use only. This site does not accept responsibility for content hosted on another website and
+                        does not have any action into the downloading and uploading series
+                    </h4>
+                    <img class="flex items-center mt-3 h-64" src="https://api.dmca.com/GetQr?tag=d5ge0pj"
+                        class="h-32 object-cover" />
+
+                </div>
+
+            </div>
 
         </section>
         <footer id="footer">
@@ -117,20 +129,15 @@
                         <div class="footer_widget wow fadeInDown">
                             <h2>Important Links</h2>
                             <ul class="tag_nav">
-                                <li><a href="about"
-                                        class="text-white text-green-400 my-1 hover:text-green-500 text-justify">About
+                                <li><a href="about" class=" text-green-400 my-1 hover: text-justify">About
                                         Us</a></li>
-                                <li><a href="dmca"
-                                        class="text-white text-green-400 my-1 hover:text-green-500 text-justify">DMCA</a>
+                                <li><a href="dmca" class=" text-green-400 my-1 hover: text-justify">DMCA</a>
                                 </li>
-                                <li><a href="privacy"
-                                        class="text-white text-green-400 my-1 hover:text-green-500 text-justify">Privacy
+                                <li><a href="privacy" class=" text-green-400 my-1 hover: text-justify">Privacy
                                         Policies</a></li>
-                                <li><a href="terms"
-                                        class="text-white text-green-400 my-1 hover:text-green-500 text-justify">Terms
+                                <li><a href="terms" class=" text-green-400 my-1 hover: text-justify">Terms
                                         and Conditions</a></li>
-                                <li><a href="contact-us"
-                                        class="text-white text-green-400 my-1 hover:text-green-500 text-justify">Contact
+                                <li><a href="contact-us" class=" text-green-400 my-1 hover: text-justify">Contact
                                         Us</a></li>
 
 
@@ -171,7 +178,7 @@
                 <p class="copyright">
                     Copyright &copy; 2020 <a href="index">BekyFeeds</a>
                 </p>
-                <p class="developer text-white">Developed By Bekyfeeds</p>
+                <p class="developer ">Developed By Bekyfeeds</p>
             </div>
         </footer>
     </div>

@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>NewsFeed</title>
+    <title>BekyFeeds</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -83,7 +83,7 @@ if($isParameter === false){
         <div id="status">&nbsp;</div>
     </div>
     <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
-    <div class="container">
+    <div >
         <header id="header">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
@@ -96,7 +96,7 @@ if($isParameter === false){
                             </ul>
                         </div>
                         <div class="header_top_right">
-                            <a href="https://t.me/bekyfeedscommounity">Join Us on Telegram</a>
+                            <a target="_blank" href="https://t.me/bekyfeedscommounity">Join Us on Telegram</a>
                         </div>
                     </div>
                 </div>
@@ -154,15 +154,17 @@ if($isParameter === false){
                                 placeholder="Search.." class="w-5/6 px-3 py-3 bg-gray-200 border-b focus:outline-none"
                                 name="search">
                             <button style="border:0px; border-bottom:2px solid #139ea8"
-                                class="w-1/6 px-6 py-3 bg-theme focus:outline-none" type="submit">Search</button>
+                                class="w-2/6 md:w-1/6 px-6 py-3 bg-theme focus:outline-none"
+                                type="submit">Search</button>
                         </div>
                     </form>
 
-                    <div class="w-auto my-6">
-                        <div style="border:1px dashed #139ea8" class="flex  flex-wrap p-3 bg-gray-200">
+                    <div class="  my-6">
+                        <div style="border:1px dashed #139ea8"
+                            class="flex w-full overflow-x-auto md:flex-wrap p-3 bg-gray-200">
                             <?php
                              foreach ($series->genres as $genre) {
-                                echo '<a class="px-6 my-3 py-3 mr-1 rounded cursor-pointer hover:bg-blue-200 bg-theme" href="tv-show.php?genre=' . $genre["link"] . '">' . $genre["link"] . '</a>';
+                                echo '<a class="w-auto px-6 my-3 py-3 mr-1 rounded cursor-pointer hover:bg-blue-200 bg-theme" href="tv-show.php?genre=' . $genre["link"] . '">' . $genre["link"] . '</a>';
                             }
                             ?>
 
@@ -171,7 +173,7 @@ if($isParameter === false){
                     <h2><span>Series</span></h2>
 
                     <div class="flex">
-                        <div class="w-auto">
+                        <div class=" ">
                             <div style="border:1px dashed #139ea8"
                                 class="bg-gray-100 p-3 flex flex-col justify-between">
                                 <?php
@@ -184,24 +186,24 @@ if($isParameter === false){
                         </div>
 
                         <div>
-                            <div class="flex flex-wrap w-full ">
+                            <div class="flex flex-wrap  ">
 
                                 <?php
                                 foreach ($allSeries as $series) {
 
-                                    echo ' <a href="single-series.php?series_id=' . $series['id'] . '" class=" ">
-                                    <div class="media-left-custom mx-1 mb-20 mx-6 ">
-                                   
-                                    <img src="../images/posters/' . $series['img_url'] . '" class="inner-img object-cover  rounded-t media-left-custom" alt="' . $series['name'] . '">
+                                    echo ' <a href="single-series.php?series_id=' . $series['id'] . '" class=" w-1/2 md:w-1/6  mb-20 md:mx-6">
+                                    
+                                    <div class="h-78 w-64  ">
+                                    <img src="../images/posters/' . $series['img_url'] . '" class="  object-cover h-78 w-64 " alt="' . $series['name'] . '">
                                 
                       
-                                      <div class="flex items-center justify-between p-2 bg-theme rounded-b ">
+                                      <div class="flex items-center justify-between p-2 bg-theme ">
                       
                                         <h5 class="  text-white ">' . substr($series['name'], 0, 20)  . '</h5>
                                         
                       
                                       </div>
-                                    </div>
+                                  </div>
                                   </a>';
                                 }
 
@@ -360,7 +362,7 @@ if($isParameter === false){
             <div class="single_post_content">
                 <h2><span>Editor's Choice</span></h2>
                 <div class="single_post_content_left">
-                    <a class="sideAdd" href="#"><img class="object-contain" src="../images/telegram.gif" alt="" /></a>
+                    <a class="sideAdd" class="sideAdd" target="_blank" target="_blank" href="https://t.me/bekyfeedscommounity" target="_blank" href="https://t.me/bekyfeedscommounity"><img class="object-contain" src="../images/telegram.gif" alt="" /></a>
                 </div>
                 <div class="single_post_content_right">
                     <ul class="my-2 spost_nav">
@@ -433,7 +435,7 @@ if($isParameter === false){
         </div>
         <div class="footer_bottom">
             <p class="copyright">
-                Copyright &copy; 2021 <a href="index">NewsFeed</a>
+                Copyright &copy; 2021 <a href="index">BekyFeeds</a>
             </p>
             <p class="developer">Developed By Bekyfeeds</p>
         </div>
