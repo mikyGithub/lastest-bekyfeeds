@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html>
-<?php require "../config/meta.php"; ?>
+<?php require "config/meta.php"; ?>
 
 <head>
-    <title>About Us</title>
+    <title>Privacy Policies</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/font-awesome.min.css" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/animate.css" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/font.css" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/li-scroller.css" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/slick.css" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/jquery.fancybox.css" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/theme.css" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/utilities.min.css" /> <?php require "../config/js.php"; ?>
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/animate.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/font.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/li-scroller.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/slick.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/jquery.fancybox.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/theme.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/utilities.min.css" /> <?php require "config/js.php"; ?>
     <!--[if lt IE 9]>
       <script src="assets/js/html5shiv.min.js"></script>
       <script src="assets/js/respond.min.js"></script>
@@ -40,8 +40,8 @@
                         <div class="header_top_left">
                         <ul class="top_nav">
                                 <li><a href="../index">Home</a></li>
-                                <li><a href="../pages/about">About</a></li>
-                                <li><a href="../pages/contact-us">Contact</a></li>
+                                <li><a href="about">About</a></li>
+                                <li><a href="contact-us">Contact</a></li>
                                
                             </ul>
                         </div>
@@ -58,7 +58,7 @@
                             </a>
                         </div>
                         <div class="add_banner">
-                            <a href="#"><img src="../images/banner.jpg" alt="" /></a>
+                            <a href="#"><img src="images/banner.jpg" alt="" /></a>
                         </div>
                     </div>
                 </div>
@@ -81,13 +81,13 @@
                                     class="mobile-show">Home</span></a>
                         </li>
 
-                        <li><a href="../pages/tv-show">TV Show</a></li>
-                        <li><a href="../pages/movies">Movies</a></li>
-                        <li><a href="../pages/request">Your Requests</a></li>
-                        <!-- <li><a href="../pages/news">News</a></li>
-                        <li><a href="../pages/trailer">Movie Trailers</a></li>
-                        <li><a href="../pages/sport">Sport</a></li>
-                        <li><a href="../pages/game">Game</a></li> -->
+                        <li><a href="tv-show">TV Show</a></li>
+                        <li><a href="movies">Movies</a></li>
+                        <li><a href="request">Your Requests</a></li>
+                        <!-- <li><a href="news">News</a></li>
+                        <li><a href="trailer">Movie Trailers</a></li>
+                        <li><a href="sport">Sport</a></li>
+                        <li><a href="game">Game</a></li> -->
                     </ul>
                 </div>
             </nav>
@@ -95,11 +95,51 @@
 
 
         <section class="p-4" id="contentSection">
-            <h2><span>About Bekyfeeds</span></h2>
-            <h4 class="my-12">bekyfeeds.com is an entertainment site where you can find the latest entertainment
-                news,sports and music
-                videos,and best place to find multiple direct download links to your favorite Tv series/shows and latest
-                movies just for free.</h4>
+            <h2><span>Privacy Policies</span></h2>
+
+            <div class="  text-justify">
+
+                <div>
+
+
+
+                    <p>You agree not to use bekyfeeds</span><span>! website in a way that may impair the performance,
+                            corrupt or manipulate the content or information available on the website or reduce the
+                            overall functionality of the website.</p>
+
+                    <p><br></p>
+                    <h3 class=" my-6  font-semibold "><span>Disclaimer</span></h3>
+
+                    <p>Though we strive to be completely accurate in the information that is presented on our site and
+                        attempt to keep it as up to date as possible, in some cases, some of the information you find on
+                        the website may be slightly outdated.</p>
+
+                    <p>(Bekyfeeds )</span><span>reserves the right to make any modifications or corrections to the
+                            information you find on the website at any time without </span><span>notice.The Website may
+                            include general content relating to a range of topics, including medical, health, legal,
+                            tax, or financial issues. You should not rely on the service for individual advice on such
+                            issues and should rather inquire from a qualified professional. You alone will bear the sole
+                            responsibility for evaluating the merits and/or risks associated with use of the Website’s
+                            content.</p>
+                    <p><br></p>
+
+
+                    <h3 class=" my-6  font-semibold ">
+                        Print
+                    </h3>
+                    <p>A reproduction of a screenshot in print form is permissible if and only if the URL, Website name
+                        and logo is fully visible or included. The content may also be reproduced in print form if and
+                        only if it is rightfully and clearly referenced as being from the Website including the Website
+                        name, URL and logo in references. Images from the Website may not be used in print.</p>
+
+                    <p>The print medium shall not promote adult content (pornography), hate, racism or any illegal
+                        content<span>.</p>
+
+                    <p class="mt-3 ">Last Revised:</span><span>14-07-2020</p>
+                </div>
+
+            </div>
+
 
         </section>
         <footer id="footer">
@@ -119,20 +159,15 @@
                         <div class="footer_widget wow fadeInDown">
                             <h2>Important Links</h2>
                             <ul class="tag_nav">
-                                <li><a href="about"
-                                        class="text-white text-green-400 my-1 hover:text-green-500 text-justify">About
+                                <li><a href="about" class=" text-green-400 my-1 hover: text-justify">About
                                         Us</a></li>
-                                <li><a href="dmca"
-                                        class="text-white text-green-400 my-1 hover:text-green-500 text-justify">DMCA</a>
+                                <li><a href="dmca" class=" text-green-400 my-1 hover: text-justify">DMCA</a>
                                 </li>
-                                <li><a href="privacy"
-                                        class="text-white text-green-400 my-1 hover:text-green-500 text-justify">Privacy
+                                <li><a href="privacy" class=" text-green-400 my-1 hover: text-justify">Privacy
                                         Policies</a></li>
-                                <li><a href="terms"
-                                        class="text-white text-green-400 my-1 hover:text-green-500 text-justify">Terms
+                                <li><a href="terms" class=" text-green-400 my-1 hover: text-justify">Terms
                                         and Conditions</a></li>
-                                <li><a href="contact-us"
-                                        class="text-white text-green-400 my-1 hover:text-green-500 text-justify">Contact
+                                <li><a href="contact-us" class=" text-green-400 my-1 hover: text-justify">Contact
                                         Us</a></li>
 
 
@@ -173,18 +208,18 @@
                 <p class="copyright">
                     Copyright &copy; 2020 <a href="../index">BekyFeeds</a>
                 </p>
-                <p class="developer text-white">Developed By Bekyfeeds</p>
+                <p class="developer ">Developed By Bekyfeeds</p>
             </div>
         </footer>
     </div>
-    <script src="../assets/js/jquery.min.js"></script>
-    <script src="../assets/js/wow.min.js"></script>
-    <script src="../assets/js/bootstrap.min.js"></script>
-    <script src="../assets/js/slick.min.js"></script>
-    <script src="../assets/js/jquery.li-scroller.1.0.js"></script>
-    <script src="../assets/js/jquery.newsTicker.min.js"></script>
-    <script src="../assets/js/jquery.fancybox.pack.js"></script>
-    <script src="../assets/js/custom.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/slick.min.js"></script>
+    <script src="assets/js/jquery.li-scroller.1.0.js"></script>
+    <script src="assets/js/jquery.newsTicker.min.js"></script>
+    <script src="assets/js/jquery.fancybox.pack.js"></script>
+    <script src="assets/js/custom.js"></script>
 </body>
 
 </html>

@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html>
-<?php require "../config/meta.php"; ?>
+<?php require "config/meta.php"; ?>
 
 <head>
     <title>BekyFeeds</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/font-awesome.min.css" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/animate.css" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/font.css" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/li-scroller.css" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/slick.css" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/jquery.fancybox.css" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/theme.css" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/utilities.min.css" /> <?php require "../config/js.php"; ?>
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/animate.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/font.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/li-scroller.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/slick.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/jquery.fancybox.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/theme.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/utilities.min.css" />
+    <?php require "config/js.php"; ?>
     <!--[if lt IE 9]>
       <script src="assets/js/html5shiv.min.js"></script>
       <script src="assets/js/respond.min.js"></script>
@@ -27,8 +28,8 @@
 <?php
 
 
-require '../models/FeatureFilm.php';
-require '../config/Database.php';
+require 'models/FeatureFilm.php';
+require 'config/Database.php';
 $database = new Database();
 $db = $database->connect();
 $film = new FeatureFilm($db);
@@ -89,11 +90,11 @@ if($isParameter === false){
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="header_top">
                         <div class="header_top_left">
-                        <ul class="top_nav">
+                            <ul class="top_nav">
                                 <li><a href="../index">Home</a></li>
-                                <li><a href="../pages/about">About</a></li>
-                                <li><a href="../pages/contact-us">Contact</a></li>
-                               
+                                <li><a href="about">About</a></li>
+                                <li><a href="contact-us">Contact</a></li>
+
                             </ul>
                         </div>
                         <div class="header_top_right">
@@ -109,7 +110,7 @@ if($isParameter === false){
                             </a>
                         </div>
                         <div class="add_banner">
-                            <a href="#"><img src="../images/banner.jpg" alt="" /></a>
+                            <a href="#"><img src="images/banner.jpg" alt="" /></a>
                         </div>
                     </div>
                 </div>
@@ -132,13 +133,13 @@ if($isParameter === false){
                                     class="mobile-show">Home</span></a>
                         </li>
 
-                        <li><a href="../pages/tv-show">TV Show</a></li>
-                        <li class="active"><a href="../pages/movies">Movies</a></li>
-                        <li><a href="../pages/request">Your Requests</a></li>
-                        <!-- <li><a href="../pages/news">News</a></li>
-                        <li><a href="../pages/trailer">Movie Trailers</a></li>
-                        <li><a href="../pages/sport">Sport</a></li>
-                        <li><a href="../pages/game">Game</a></li> -->
+                        <li><a href="tv-show">TV Show</a></li>
+                        <li class="active"><a href="movies">Movies</a></li>
+                        <li><a href="request">Your Requests</a></li>
+                        <!-- <li><a href="news">News</a></li>
+                        <li><a href="trailer">Movie Trailers</a></li>
+                        <li><a href="sport">Sport</a></li>
+                        <li><a href="game">Game</a></li> -->
                     </ul>
                 </div>
             </nav>
@@ -155,7 +156,7 @@ if($isParameter === false){
 
                                 echo '
               <li>
-                <a href="single-movie.php?title=' . $popular['url_name'] . '">' . $popular['name'] . '</a>
+                <a href="film/' . $popular["alias"] . '">' . $popular['name'] . '</a>
               </li>
               ';
                             }
@@ -182,14 +183,14 @@ if($isParameter === false){
 
                             echo '
   <div class="single_iteam">
-  <a href="../pages/single-movie.php?title=' . $recent["title"] . '">
+  <a href="film/' . $recent["alias"] . '">
  
   
   <img style="background-color:black;object-fit:contain" src="images/posters/' . $recent["img_url"] . '" alt="' . $recent["name"] . '" /></a>
 
   <div class="slider_article">
     <h2>
-      <a class="slider_tittle" href="../pages/single-movie.php?title=">' . $recent["name"] . '</a>
+      <a class="slider_tittle" href="film/' . $recent["alias"] . '</a>
     </h2>
     <p>
     ' . $recent["description"] . '
@@ -216,11 +217,11 @@ if($isParameter === false){
 
                                     echo '<li>
   <div class="media">
-    <a href="../pages/single-movie.php?title=' . $recent["title"] . '" class="media-left-custom">
+    <a href="film/' . $recent["alias"] . '" class="media-left-custom">
       <img alt=". $recent["title"] ." style="background-color:black;object-fit:contain" src="' . $recent["img_url"] . '" />
     </a>
     <div class="media-body">
-      <a href="../pages/single-movie.php?title=' . $recent["title"] . '" class="catg_title">
+      <a href="film/' . $recent["alias"] . '" class="catg_title">
       ' . $recent["title"] . ' <p class="genre">' . $recent["genre"] . '</p> <p class="year">' . $recent["releasing_year"] . '</p> </a>
     </div>
   </div>
@@ -249,7 +250,8 @@ if($isParameter === false){
                                 placeholder="Search.." class="w-5/6 px-3 py-3 bg-gray-200 border-b focus:outline-none"
                                 name="search">
                             <button style="border:0px; border-bottom:2px solid #139ea8"
-                                class="w-2/6 md:w-1/6 px-6 py-3 bg-theme focus:outline-none" type="submit">Search</button>
+                                class="w-2/6 md:w-1/6 px-6 py-3 bg-theme focus:outline-none"
+                                type="submit">Search</button>
                         </div>
                     </form>
                     <!-- <div class="w-auto my-6">
@@ -285,7 +287,7 @@ if($isParameter === false){
                                 foreach ($allFilms as $movie) {
 
                                     echo '
-            <a href="single-movie.php?title=' . $movie['title'] . '" class="">
+            <a href="film/' . $movie["alias"] . '" class="">
             <div  class="m-1 md:mx-3">
             <div class="w-full h-full overflow-hidden">
             <img src="' . $movie['img_url'] . '" class="object-cover rounded-t inner-img media-left-custom " alt="' . $movie['title'] . '">
@@ -403,12 +405,12 @@ if($isParameter === false){
                             foreach ($recentMovies as $recent) {
 
                                 echo '<li class="my-3">
-  <figure href="../pages/single-movie.php?title=' . $recent["title"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
-    <a href="../pages/single-movie.php?title=' . $recent["title"] . '" class="w-32 mr-3">
+  <figure href="film/' . $recent["alias"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
+    <a href="film/' . $recent["alias"] . '" class="w-32 mr-3">
       <img alt="'. $recent["title"] .'" class="w-32 h-full" src="' . $recent["img_url"] . '" />
     </a>
     <figcaption class="p-3 media-body">
-      <a href=" ../pages/single-movie.php?title=' . $recent["title"] . '" class="">
+      <a href=" film/' . $recent["alias"] . '" class="">
       ' . $recent["title"] . ' <p class="genre">' . $recent["genre"] . '</p> <p class="year">' . $recent["releasing_year"] . '</p> </a>
     </figcaption>
   </figure>
@@ -432,12 +434,12 @@ if($isParameter === false){
                             foreach ($popularMovies as $popular) {
 
                                 echo '<li class="my-3">
-  <figure href="../pages/single-movie.php?title=' . $popular["title"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
-    <a href="../pages/single-movie.php?title=' . $popular["title"] . '" class="w-32 mr-3">
+  <figure href="film/' . $popular["alias"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
+    <a href="film/' . $popular["alias"] . '" class="w-32 mr-3">
       <img alt="'. $popular["title"] .'" class="w-32 h-full" src="' . $popular["img_url"] . '" />
     </a>
     <figcaption class="p-3 media-body">
-      <a href=" ../pages/single-movie.php?title=' . $popular["title"] . '" class="">
+      <a href=" film/' . $popular["alias"] . '" class="">
       ' . $popular["title"] . ' <p class="genre">' . $popular["genre"] . '</p> <p class="year">' . $popular["releasing_year"] . '</p> </a>
     </figcaption>
   </figure>
@@ -456,7 +458,10 @@ if($isParameter === false){
             <div class="single_post_content">
                 <h2><span>Editor's Choice</span></h2>
                 <div class="single_post_content_left">
-                    <a class="sideAdd" class="sideAdd" target="_blank" target="_blank" href="https://t.me/bekyfeedscommounity" target="_blank" href="https://t.me/bekyfeedscommounity"><img class="object-contain" src="../images/telegram.gif" alt="" /></a>
+                    <a class="sideAdd" class="sideAdd" target="_blank" target="_blank"
+                        href="https://t.me/bekyfeedscommounity" target="_blank"
+                        href="https://t.me/bekyfeedscommounity"><img class="object-contain" src="images/telegram.gif"
+                            alt="" /></a>
                 </div>
                 <div class="single_post_content_right">
                     <ul class="my-2 spost_nav">
@@ -465,12 +470,12 @@ if($isParameter === false){
                         foreach ($editorMovies as $editor) {
 
                             echo '<li class="my-3">
-  <figure href="../pages/single-movie.php?title=' . $editor["title"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
-    <a href="../pages/single-movie.php?title=' . $editor["title"] . '" class="w-32 mr-3">
+  <figure href="film/' . $editor["alias"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
+    <a href="film/' . $editor["alias"] . '" class="w-32 mr-3">
       <img alt="'. $editor["title"] .'" class="w-32 h-full" src="' . $editor["img_url"] . '" />
     </a>
     <figcaption class="p-3 media-body">
-      <a href=" ../pages/single-movie.php?title=' . $editor["title"] . '" class="">
+      <a href=" film/' . $editor["alias"] . '" class="">
       ' . $editor["title"] . ' <p class="genre">' . $editor["genre"] . '</p> <p class="year">' . $editor["releasing_year"] . '</p> </a>
     </figcaption>
   </figure>
@@ -489,60 +494,60 @@ if($isParameter === false){
     </div>
     </section>
     <footer id="footer">
-            <div class="footer_top">
-                <div class="row">
-                    <div class="col-lg-4 col-md-4 col-sm-4">
-                        <div class=" wow fadeInLeftBig">
-                            <h2 class="text-genre"> Disclaimer</h2>
-                        </div>
-                        <p>
-                            bekyfeeds.com does not host any files on it's servers. All files or contents hosted on third
-                            party websites.this site does not accept responsibility for contents hosted on third party
-                            websites. We just index those links which are already available in internet.
-                        </p>
+        <div class="footer_top">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class=" wow fadeInLeftBig">
+                        <h2 class="text-genre"> Disclaimer</h2>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4">
-                        <div class="footer_widget wow fadeInDown">
-                            <h2>Important Links</h2>
-                            <ul class="tag_nav">
-                                <li><a href="about"
-                                        class="text-white text-green-400 my-1 hover:text-green-500 text-justify">About
-                                        Us</a></li>
-                                <li><a href="dmca"
-                                        class="text-white text-green-400 my-1 hover:text-green-500 text-justify">DMCA</a>
-                                </li>
-                                <li><a href="privacy"
-                                        class="text-white text-green-400 my-1 hover:text-green-500 text-justify">Privacy
-                                        Policies</a></li>
-                                <li><a href="terms"
-                                        class="text-white text-green-400 my-1 hover:text-green-500 text-justify">Terms
-                                        and Conditions</a></li>
-                                <li><a href="contact-us"
-                                        class="text-white text-green-400 my-1 hover:text-green-500 text-justify">Contact
-                                        Us</a></li>
+                    <p>
+                        bekyfeeds.com does not host any files on it's servers. All files or contents hosted on third
+                        party websites.this site does not accept responsibility for contents hosted on third party
+                        websites. We just index those links which are already available in internet.
+                    </p>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="footer_widget wow fadeInDown">
+                        <h2>Important Links</h2>
+                        <ul class="tag_nav">
+                            <li><a href="about"
+                                    class="text-white text-green-400 my-1 hover:text-green-500 text-justify">About
+                                    Us</a></li>
+                            <li><a href="dmca"
+                                    class="text-white text-green-400 my-1 hover:text-green-500 text-justify">DMCA</a>
+                            </li>
+                            <li><a href="privacy"
+                                    class="text-white text-green-400 my-1 hover:text-green-500 text-justify">Privacy
+                                    Policies</a></li>
+                            <li><a href="terms"
+                                    class="text-white text-green-400 my-1 hover:text-green-500 text-justify">Terms
+                                    and Conditions</a></li>
+                            <li><a href="contact-us"
+                                    class="text-white text-green-400 my-1 hover:text-green-500 text-justify">Contact
+                                    Us</a></li>
 
 
 
 
 
 
-                            </ul>
-                        </div>
+                        </ul>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4">
-                        <div class="footer_widget wow fadeInRightBig">
-                            <h2>Contact Us</h2>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="footer_widget wow fadeInRightBig">
+                        <h2>Contact Us</h2>
 
 
 
-                            <ul class="tag_nav">
-                                <li><a target="_blank" href="https://t.me/bekyfeedscommounity">
-                                        Telegram
-                                    </a></li>
-                                <li><a href="https://www.facebook.com/Beky-Feeds-112556537282665">
-                                        Facebook
-                                    </a>
-                                </li>
+                        <ul class="tag_nav">
+                            <li><a target="_blank" href="https://t.me/bekyfeedscommounity">
+                                    Telegram
+                                </a></li>
+                            <li><a href="https://www.facebook.com/Beky-Feeds-112556537282665">
+                                    Facebook
+                                </a>
+                            </li>
 
 
 
@@ -550,27 +555,27 @@ if($isParameter === false){
 
 
 
-                            </ul>
-                        </div>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <div class="footer_bottom">
-                <p class="copyright">
-                    Copyright &copy; 2020 <a href="../index">BekyFeeds</a>
-                </p>
-                <p class="developer text-white">Developed By Bekyfeeds</p>
-            </div>
-        </footer>
+        </div>
+        <div class="footer_bottom">
+            <p class="copyright">
+                Copyright &copy; 2020 <a href="../index">BekyFeeds</a>
+            </p>
+            <p class="developer text-white">Developed By Bekyfeeds</p>
+        </div>
+    </footer>
     </div>
-    <script src="../assets/js/jquery.min.js"></script>
-    <script src="../assets/js/wow.min.js"></script>
-    <script src="../assets/js/bootstrap.min.js"></script>
-    <script src="../assets/js/slick.min.js"></script>
-    <script src="../assets/js/jquery.li-scroller.1.0.js"></script>
-    <script src="../assets/js/jquery.newsTicker.min.js"></script>
-    <script src="../assets/js/jquery.fancybox.pack.js"></script>
-    <script src="../assets/js/custom.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/slick.min.js"></script>
+    <script src="assets/js/jquery.li-scroller.1.0.js"></script>
+    <script src="assets/js/jquery.newsTicker.min.js"></script>
+    <script src="assets/js/jquery.fancybox.pack.js"></script>
+    <script src="assets/js/custom.js"></script>
 </body>
 
 </html>

@@ -3,7 +3,8 @@ RewriteCond %{REQUEST_FILENAME} !-f
 
 
 
-RewriteRule ^([^\.]+)$ $1.php [NC,L]
-RewriteRule ^pages/single-series/([a-zA-Z0-9\-=&_@\.\,\)\(]*)$ pages/single-series.php?series_id=$1 [NC,L]
+RewriteRule ^([^\.]+)$ $1.php [NC,QSA]
 
+RewriteRule ^film/([0-9a-zA-Z_-]+) single-movie.php?alias=$1 [NC,QSA]
+RewriteRule ^series/([0-9a-zA-Z_-]+) single-series.php?alias=$1 [NC,QSA]
 

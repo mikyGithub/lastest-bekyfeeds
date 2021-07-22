@@ -63,10 +63,10 @@ class FeatureFilm
     }
 
     // Film Detail
-    public function getFilmDetail($title)
+    public function getFilmDetail($alias)
     {
        
-        $query = 'SELECT * FROM ' . $this->films . ' WHERE title="' . $title.'"';
+        $query = 'SELECT * FROM ' . $this->films . ' WHERE alias="' . $alias.'"';
         $stmt = $this->connection->prepare($query);
         $stmt->execute();
         return $stmt;

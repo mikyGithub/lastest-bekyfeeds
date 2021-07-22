@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html>
-<?php require "../config/meta.php"; ?>
+<?php require "config/meta.php"; ?>
 
 <head>
     <title>Bekyfeeds</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/font-awesome.min.css" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/animate.css" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/font.css" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/li-scroller.css" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/slick.css" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/jquery.fancybox.css" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/theme.css" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/utilities.min.css" /> <?php require "../config/js.php"; ?>
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/animate.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/font.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/li-scroller.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/slick.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/jquery.fancybox.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/theme.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/utilities.min.css" /> <?php require "config/js.php"; ?>
 
 </head>
 
 <?php
 
-require '../models/Request.php';
-require '../config/Database.php';
+require 'models/Request.php';
+require 'config/Database.php';
 $database = new Database();
 $db = $database->connect();
 $request = new Request($db);
@@ -54,8 +54,8 @@ $latestEpisodes = $request->getLatestEpisodes()->fetchAll(PDO::FETCH_ASSOC);
                         <div class="header_top_left">
                             <ul class="top_nav">
                                 <li><a href="../index">Home</a></li>
-                                <li><a href="../pages/about">About</a></li>
-                                <li><a href="../pages/contact-us">Contact</a></li>
+                                <li><a href="about">About</a></li>
+                                <li><a href="contact-us">Contact</a></li>
                                
                             </ul>
                         </div>
@@ -72,7 +72,7 @@ $latestEpisodes = $request->getLatestEpisodes()->fetchAll(PDO::FETCH_ASSOC);
                             </a>
                         </div>
                         <div class="add_banner">
-                            <a href="#"><img src="../images/banner.jpg" alt="" /></a>
+                            <a href="#"><img src="images/banner.jpg" alt="" /></a>
                         </div>
                     </div>
                 </div>
@@ -95,13 +95,13 @@ $latestEpisodes = $request->getLatestEpisodes()->fetchAll(PDO::FETCH_ASSOC);
                                     class="mobile-show">Home</span></a>
                         </li>
 
-                        <li><a href="../pages/tv-show">TV Show</a></li>
-                        <li><a href="../pages/movies">Movies</a></li>
-                        <li class="active"><a href="../pages/request">Your Requests</a></li>
-                        <!-- <li><a href="../pages/news">News</a></li>
-            <li><a href="../pages/trailer">Movie Trailers</a></li>
-            <li><a href="../pages/sport">Sport</a></li>
-            <li><a href="../pages/game">Game</a></li> -->
+                        <li><a href="tv-show">TV Show</a></li>
+                        <li><a href="movies">Movies</a></li>
+                        <li class="active"><a href="request">Your Requests</a></li>
+                        <!-- <li><a href="news">News</a></li>
+            <li><a href="trailer">Movie Trailers</a></li>
+            <li><a href="sport">Sport</a></li>
+            <li><a href="game">Game</a></li> -->
                     </ul>
                 </div>
             </nav>
@@ -129,7 +129,7 @@ echo '<li class="p-3 my-1 bg-gray-200 hover:bg-gray-100 "><a class="flex justify
 
                         <div class="bg-white single_post_content wow fadeInDown">
                             <h2><span>Join Us</span></h2>
-                            <a class="sideAdd" class="sideAdd" target="_blank" target="_blank" href="https://t.me/bekyfeedscommounity" target="_blank" href="https://t.me/bekyfeedscommounity"><img style="object-fit:cover" src="../images/telegram.gif"
+                            <a class="sideAdd" class="sideAdd" target="_blank" target="_blank" href="https://t.me/bekyfeedscommounity" target="_blank" href="https://t.me/bekyfeedscommounity"><img style="object-fit:cover" src="images/telegram.gif"
                                     alt="" /></a>
                         </div>
 
@@ -152,12 +152,12 @@ echo '<li class="p-3 my-1 bg-gray-200 hover:bg-gray-100 "><a class="flex justify
                     foreach ($latestMovies as $latest) {
 
                       echo '<li class="my-3">
-  <figure href="../pages/single-movie.php?title=' . $latest["title"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
-    <a href="../pages/single-movie.php?title=' . $latest["title"] . '" class="w-32 mr-3">
+  <figure href="single-movie.php?title=' . $latest["title"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
+    <a href="single-movie.php?title=' . $latest["title"] . '" class="w-32 mr-3">
       <img alt="'. $latest["title"] .'" class="w-32 h-full" src="' . $latest["img_url"] . '" />
     </a>
     <figcaption class="p-3 media-body">
-      <a href="../pages/single-movie.php?title=' . $latest["title"] . '" class="">
+      <a href="single-movie.php?title=' . $latest["title"] . '" class="">
       ' . $latest["title"] . ' <p class="genre">' . $latest["genre"] . '</p> <p class="year">' . $latest["releasing_year"] . '</p> </a>
     </figcaption>
   </figure>
@@ -180,12 +180,12 @@ echo '<li class="p-3 my-1 bg-gray-200 hover:bg-gray-100 "><a class="flex justify
                     foreach ($latestEpisodes as $latest) {
 
                       echo '<li class="my-3">
-                      <figure href="pages/single-series/series_id=' . $latest["id"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
-                        <a href="pages/single-series/series_id=' . $latest["id"] . '" class="w-32 mr-3">
-                          <img alt="'. $latest["name"] .'" class="w-32 h-full" src="../images/posters/' . $latest["img_url"] . '" />
+                      <figure href="single-series/series_id=' . $latest["id"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
+                        <a href="single-series/series_id=' . $latest["id"] . '" class="w-32 mr-3">
+                          <img alt="'. $latest["name"] .'" class="w-32 h-full" src="images/posters/' . $latest["img_url"] . '" />
                         </a>
                         <figcaption class="p-3 media-body">
-                          <a href=" pages/single-series/series_id=' . $latest["id"] . '" class="">
+                          <a href=" single-series/series_id=' . $latest["id"] . '" class="">
                           ' . $latest["name"] . ' <p class="genre">' . $latest["genre"] . '</p> <p class="year">' . $latest["releasing_year"] . '</p> </a>
                         </figcaption>
                       </figure>
@@ -283,14 +283,14 @@ echo '<li class="p-3 my-1 bg-gray-200 hover:bg-gray-100 "><a class="flex justify
         </div>
     </footer>
     </div>
-    <script src="../assets/js/jquery.min.js"></script>
-    <script src="../assets/js/wow.min.js"></script>
-    <script src="../assets/js/bootstrap.min.js"></script>
-    <script src="../assets/js/slick.min.js"></script>
-    <script src="../assets/js/jquery.li-scroller.1.0.js"></script>
-    <script src="../assets/js/jquery.newsTicker.min.js"></script>
-    <script src="../assets/js/jquery.fancybox.pack.js"></script>
-    <script src="../assets/js/custom.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/slick.min.js"></script>
+    <script src="assets/js/jquery.li-scroller.1.0.js"></script>
+    <script src="assets/js/jquery.newsTicker.min.js"></script>
+    <script src="assets/js/jquery.fancybox.pack.js"></script>
+    <script src="assets/js/custom.js"></script>
 </body>
 
 </html>

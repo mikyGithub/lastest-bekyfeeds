@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html>
-<?php require "../config/meta.php"; ?>
+<?php require "config/meta.php"; ?>
 
 <head>
     <title>Privacy Policies</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/font-awesome.min.css" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/animate.css" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/font.css" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/li-scroller.css" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/slick.css" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/jquery.fancybox.css" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/theme.css" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/utilities.min.css" /> <?php require "../config/js.php"; ?>
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/animate.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/font.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/li-scroller.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/slick.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/jquery.fancybox.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/theme.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/utilities.min.css" /> <?php require "config/js.php"; ?>
     <!--[if lt IE 9]>
       <script src="assets/js/html5shiv.min.js"></script>
       <script src="assets/js/respond.min.js"></script>
@@ -40,8 +40,8 @@
                         <div class="header_top_left">
                         <ul class="top_nav">
                                 <li><a href="../index">Home</a></li>
-                                <li><a href="../pages/about">About</a></li>
-                                <li><a href="../pages/contact-us">Contact</a></li>
+                                <li><a href="about">About</a></li>
+                                <li><a href="contact-us">Contact</a></li>
                                
                             </ul>
                         </div>
@@ -58,7 +58,7 @@
                             </a>
                         </div>
                         <div class="add_banner">
-                            <a href="#"><img src="../images/banner.jpg" alt="" /></a>
+                            <a href="#"><img src="images/banner.jpg" alt="" /></a>
                         </div>
                     </div>
                 </div>
@@ -81,13 +81,13 @@
                                     class="mobile-show">Home</span></a>
                         </li>
 
-                        <li><a href="../pages/tv-show">TV Show</a></li>
-                        <li><a href="../pages/movies">Movies</a></li>
-                        <li><a href="../pages/request">Your Requests</a></li>
-                        <!-- <li><a href="../pages/news">News</a></li>
-                        <li><a href="../pages/trailer">Movie Trailers</a></li>
-                        <li><a href="../pages/sport">Sport</a></li>
-                        <li><a href="../pages/game">Game</a></li> -->
+                        <li><a href="tv-show">TV Show</a></li>
+                        <li><a href="movies">Movies</a></li>
+                        <li><a href="request">Your Requests</a></li>
+                        <!-- <li><a href="news">News</a></li>
+                        <li><a href="trailer">Movie Trailers</a></li>
+                        <li><a href="sport">Sport</a></li>
+                        <li><a href="game">Game</a></li> -->
                     </ul>
                 </div>
             </nav>
@@ -99,7 +99,7 @@
             <div class="p-2  md:p-0">
 
                 <div class="md:px-3 mt-3 text-justify md:w-1/2">
-                    <img src="../images/dmca.png" class="h-32 object-cover" />
+                    <img src="images/dmca.png" class="h-32 object-cover" />
                     <h4 class=" pt-3 ">None of the files linked in this website are hosted on the server of
                         <span class="text-green-500"><a href="https://www.bekyfeeds.com">www.bekyfeeds.com</a></span>
                         <br /> All the contents in this website are for personal
@@ -184,14 +184,14 @@
             </div>
         </footer>
     </div>
-    <script src="../assets/js/jquery.min.js"></script>
-    <script src="../assets/js/wow.min.js"></script>
-    <script src="../assets/js/bootstrap.min.js"></script>
-    <script src="../assets/js/slick.min.js"></script>
-    <script src="../assets/js/jquery.li-scroller.1.0.js"></script>
-    <script src="../assets/js/jquery.newsTicker.min.js"></script>
-    <script src="../assets/js/jquery.fancybox.pack.js"></script>
-    <script src="../assets/js/custom.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/slick.min.js"></script>
+    <script src="assets/js/jquery.li-scroller.1.0.js"></script>
+    <script src="assets/js/jquery.newsTicker.min.js"></script>
+    <script src="assets/js/jquery.fancybox.pack.js"></script>
+    <script src="assets/js/custom.js"></script>
 </body>
 
 </html>

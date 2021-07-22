@@ -25,7 +25,7 @@ class Home
     // Get Latest Episodes
     public function getLatestEpisodes()
     {
-        $query = 'SELECT * FROM ' . $this->series . ' WHERE isRecent = true  ORDER BY name ASC LIMIT 4;';
+        $query = 'SELECT * FROM ' . $this->series . ' WHERE isRecent = true  ORDER BY releasing_year desc LIMIT 4;';
         $stmt = $this->connection->prepare($query);
         $stmt->execute();
         return $stmt;
@@ -43,7 +43,7 @@ class Home
     // Get Editors Movies
     public function getEditorMovies()
     {
-        $query = 'SELECT * FROM ' . $this->movies . ' WHERE isEditor = true  ORDER BY title ASC LIMIT 6;';
+        $query = 'SELECT * FROM ' . $this->movies . ' WHERE isEditor = true  ORDER BY releasing_year desc LIMIT 6;';
         $stmt = $this->connection->prepare($query);
         $stmt->execute();
         return $stmt;
@@ -52,7 +52,7 @@ class Home
     // Get Popular Episodes
     public function getPopularEpisodes()
     {
-        $query = 'SELECT * FROM ' . $this->series . ' WHERE isPopular = true  ORDER BY name ASC LIMIT 4;';
+        $query = 'SELECT * FROM ' . $this->series . ' WHERE isPopular = true  ORDER BY releasing_year desc LIMIT 4;';
         $stmt = $this->connection->prepare($query);
         $stmt->execute();
         return $stmt;
@@ -61,7 +61,7 @@ class Home
     // Get Action Episodes
     public function getActionMovies()
     {
-        $query = "SELECT * FROM " . $this->movies . " WHERE genre  LIKE '%Action%' ORDER BY title ASC LIMIT 10;";
+        $query = "SELECT * FROM " . $this->movies . " WHERE genre  LIKE '%Action%' ORDER BY releasing_year desc LIMIT 10;";
         $stmt = $this->connection->prepare($query);
         $stmt->execute();
         return $stmt;
@@ -70,7 +70,7 @@ class Home
     // Get Romantic Episodes
     public function getRomanticMovies()
     {
-        $query = "SELECT * FROM " . $this->movies . " WHERE genre  LIKE '%Roman%' ORDER BY title ASC LIMIT 10;";
+        $query = "SELECT * FROM " . $this->movies . " WHERE genre  LIKE '%Roman%' ORDER BY releasing_year desc LIMIT 10;";
         $stmt = $this->connection->prepare($query);
         $stmt->execute();
         return $stmt;
@@ -81,7 +81,7 @@ class Home
     public function getLatestMovies()
     {
         
-        $query = 'SELECT * FROM ' . $this->movies . ' WHERE isRecent = true  ORDER BY title ASC LIMIT 4';
+        $query = 'SELECT * FROM ' . $this->movies . ' WHERE isRecent = true  ORDER BY releasing_year desc LIMIT 4';
         $stmt = $this->connection->prepare($query);
         $stmt->execute();
         return $stmt;
@@ -91,7 +91,7 @@ class Home
     public function getPopularMovies()
     {
         
-        $query = 'SELECT * FROM ' . $this->movies . ' WHERE isPopular = true  ORDER BY title ASC LIMIT 4;';
+        $query = 'SELECT * FROM ' . $this->movies . ' WHERE isPopular = true  ORDER BY releasing_year desc LIMIT 4;';
         $stmt = $this->connection->prepare($query);
         $stmt->execute();
         return $stmt;
