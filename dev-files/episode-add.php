@@ -4,10 +4,11 @@
 Hello Man
 </title>
 <?php 
+
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "bekymovies";
+$dbname = "bekyfeedscom_movies";
 $film_id=0;
 $episodes="";
 $season="";
