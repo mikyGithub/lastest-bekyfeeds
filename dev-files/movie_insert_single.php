@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "bekymovies";
+$dbname = "bekyfeedscom_movies";
 $movie=$request;
 //$data=array();
 //$data2=array("title"=>"nodeValue","links"=>"temp_links","poster"=>"Poster","imdbRating"=>"imdbRating","plot"=>"Plot","year"=>"Year","genre"=>"Genre");

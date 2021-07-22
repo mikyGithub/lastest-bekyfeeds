@@ -1,9 +1,11 @@
 <?php
 
+
+
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "bekymovies";
+$dbname = "bekyfeedscom_movies";
 $data=$links;
 //$data=array();
 //$data2=array("title"=>"nodeValue","links"=>"temp_links","poster"=>"Poster","imdbRating"=>"imdbRating","plot"=>"Plot","year"=>"Year","genre"=>"Genre");
