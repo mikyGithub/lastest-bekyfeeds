@@ -17,7 +17,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/theme.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/utilities.min.css" />
-     <?php require "./config/js.php"; ?>
+    <?php require "./config/js.php"; ?>
     <!--[if lt IE 9]>
       <script src="assets/js/html5shiv.min.js"></script>
       <script src="assets/js/respond.min.js"></script>
@@ -61,14 +61,14 @@ $editorMovies = $home->getEditorMovies()->fetchAll(PDO::FETCH_ASSOC);
     <div class="container">
         <header id="header">
             <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="header_top">
                         <div class="header_top_left">
-                        <ul class="top_nav">
+                            <ul class="top_nav">
                                 <li><a href="index">Home</a></li>
                                 <li><a href="pages/about">About</a></li>
                                 <li><a href="pages/contact-us">Contact</a></li>
-                               
+
                             </ul>
                         </div>
                         <div class="header_top_right">
@@ -154,7 +154,8 @@ $editorMovies = $home->getEditorMovies()->fetchAll(PDO::FETCH_ASSOC);
                             <ul class="social_nav">
                                 <li class="twitter"><a href="https://www.facebook.com/Beky-Feeds-112556537282665"></a>
                                 </li>
-                                <li class="facebook"><a target="_blank" href="https://t.me/bekyfeedscommounity"></a></li>
+                                <li class="facebook"><a target="_blank" href="https://t.me/bekyfeedscommounity"></a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -208,7 +209,7 @@ $editorMovies = $home->getEditorMovies()->fetchAll(PDO::FETCH_ASSOC);
       <img alt="' . $recent["title"] . '" class="w-32 h-full" src="' . $recent["img_url"] . '" />
     </a>
     <figcaption class="p-3 media-body">
-      <a href="catg_title pages/single-movie.php?title=' . $recent["title"] . '" class="catg_title">
+      <a href="pages/single-movie.php?title=' . $recent["title"] . '" class="catg_title">
       ' . $recent["title"] . ' <p class="genre">' . $recent["genre"] . '</p> <p class="year">' . $recent["releasing_year"] . '</p> </a>
     </figcaption>
   </figure>
@@ -358,8 +359,9 @@ $editorMovies = $home->getEditorMovies()->fetchAll(PDO::FETCH_ASSOC);
                     <aside class="right_content">
                         <div class="bg-white single_sidebar wow fadeInDown">
                             <h2><span>Join Us</span></h2>
-                            <a class="sideAdd" class="sideAdd" target="_blank" href="https://t.me/bekyfeedscommounity"  ><img style="object-fit:cover" src="images/telegram.gif"
-                                    alt="" /></a>
+                            <a class="sideAdd" class="sideAdd" target="_blank"
+                                href="https://t.me/bekyfeedscommounity"><img style="object-fit:cover"
+                                    src="images/telegram.gif" alt="" /></a>
                         </div>
                         <div class="bg-white single_sidebar">
                             <h2><span>Editor's Choice</span></h2>
