@@ -1,23 +1,15 @@
 <html>
 <head>
 <title> 
-Hello Man
+Add New Movie
 </title>
 
 
 
 <?php
 
-
-
-
-// extract from http://qd6qsuqis6edd5gp192vgccnwwxidzxu29q0t69s3tb6ohlwwth2v0wx2zl6o86.rklarmsbo0c2z3kor3bfskiowmugz1nwbex8qvallstrlk5idnnwxwqzoqmdizf.site/Movie/Movie/
-
-
 libxml_use_internal_errors(true); //hide warnings
-// $movieLink="";
-// $movie="";
-// $episode="";
+
 $year="";
 $title="";
 $link="";
@@ -28,10 +20,9 @@ $links=array();
 $test_link="";
 $api_html="";
 $url="";
+$notify=false;
 $api_url="http://www.omdbapi.com/?t=";
 $api_key="be3457be";
-    // $movie=$_POST['movie'];
-    // $episode=$_POST['episode'];
     if(isset($_POST['button1'])) {
 
 $year=$_POST['year'];
@@ -42,6 +33,7 @@ $isRecent=$_POST['isRecent']==='on'?1:0;
 $isPopular=$_POST['isPopular']==='on'?1:0;
 $isSlider=$_POST['isSlider']==='on'?1:0;
 $isEditor=$_POST['isEditor']==='on'?1:0;
+$notify=$_POST['notify']==='on'?1:0;
 
 echo $isEditor;
 if(strlen($year)!==4){
@@ -52,12 +44,11 @@ if(strlen($year)!==4){
       echo $url;
 $api_html =file_get_contents($url);
 $pp=Json_decode($api_html);
-// var_dump($pp);
-//substr($node->nodeValue,-4) ;
+
 
 var_dump($pp);
-  //$api_json_Value=json_decode($html);
-  $temp_links=array($link);
+
+  $temp_links=explode(PHP_EOL, $link);
   if($pp!==null&&$pp->Response==="True"){
      $tj=array("title"=>$title,"links"=> $temp_links,"poster"=>$pp->Poster,"imdbRating"=>$pp->imdbRating,"plot"=>$pp->Plot,"year"=>$pp->Year,"genre"=>$pp->Genre,"isRecent"=>$isRecent,"isPopular"=>$isPopular,"isEditor"=>$isEditor,"isSlider"=>$isSlider);
     
@@ -91,17 +82,15 @@ include 'movie_insert.php';
  <input type="checkbox" name="isEditor" />
  <p>  Is Slider</p>
  <input type="checkbox" name="isSlider" />
+ <p> Notify (send message to telegram Channel)</p>
+ <input type="checkbox" name="notify" />
  
-<!-- <p>  Enter as S(number)E(number)</p>
-    <input name="episode" type=""> -->
+
 
     <button name="button1"> Add Movie</button> 
 </form >
 <?php
-// foreach( $links as  $item ){
-//     echo "<a href=$item>$movie"."$episode</a> ";
-//     echo "</br>";
-// }
+
 
 ?>
 </body>

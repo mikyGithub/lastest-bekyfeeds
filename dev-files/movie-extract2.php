@@ -21,12 +21,13 @@ $links=array();
 $test_link="";
 $api_url="http://www.omdbapi.com/?t=";
 $api_key="be3457be";
+$notify=false;
     // $movie=$_POST['movie'];
     // $episode=$_POST['episode'];
     if(isset($_POST['button1'])) {
 
 $year=$_POST['year'];
-
+$notify=$_POST['notify']==='on'?1:0;
 
 $url="http://qd6qsuqis6edd5gp192vgccnwwxidzxu29q0t69s3tb6ohlwwth2v0wx2zl6o86.rklarmsbo0c2z3kor3bfskiowmugz1nwbex8qvallstrlk5idnnwxwqzoqmdizf.site/Movie/Movie/".$year;
    $trunc_url="http://qd6qsuqis6edd5gp192vgccnwwxidzxu29q0t69s3tb6ohlwwth2v0wx2zl6o86.rklarmsbo0c2z3kor3bfskiowmugz1nwbex8qvallstrlk5idnnwxwqzoqmdizf.site";
@@ -119,16 +120,13 @@ include 'movie_insert.php';
 <form method="post">
 <p>  Enter Year</p>
  <input name="year" type="Movie Title">
-<!-- <p>  Enter as S(number)E(number)</p>
-    <input name="episode" type=""> -->
 
+    <p> Notify (send message to telegram Channel)</p>
+  <input type="checkbox" name="notify" />
     <button name="button1"> GetMovie</button> 
 </form >
 <?php
-// foreach( $links as  $item ){
-//     echo "<a href=$item>$movie"."$episode</a> ";
-//     echo "</br>";
-// }
+
 
 ?>
 </body>

@@ -1,28 +1,46 @@
 
 <?php
-$BOT_TOKEN = "1195720491:AAEealf0gixhJsJ_P1wRVfRCj04Wi2aA7k4"; //botToken
+
+$BOT_TOKEN = "1900106823:AAECIQGvedOssmQoyC0qPbdmB5jpR-pIlD4"; //botToken
+
 $siteUrl="";//link to this file
-//$update = file_get_contents('php://input');
-//$update = json_decode($update, true);
-//$userChatId = $update["message"]["from"]["id"]?$update["message"]["from"]["id"]:null; 
-$userChatId="410802945";
+
+$userChatId="410802945"; // change to Channel Chat Id
+// $userChatId="339630322";
+
+//$userChatId="-1001210488562";//me
+//$userChatId="-1001373583472"; //BekyFeeds Group
 $groupId="";//GroupId
 
 if($userChatId){
 //Database code return site link
-foreach($posts as $movie){
-    $parameters2 = array(
+if($type==='movie'){
+    foreach($posts as $movie){
+    $parameters = array(
         "chat_id" => $userChatId,
         "photo" => $movie['poster'],
         "caption"=>"🚀".$movie['title'].
        "🚀https://bekyfeeds.com/single-movie.php?title=".$movie['title'],// site ink for response of a request
         "parseMode" => "html"
     );
-    send("sendPhoto", $parameters2);
+    send("sendPhoto", $parameters);
+}
+}else{
+    foreach($posts as $movie){
+        $parameters = array(
+            "chat_id" => $userChatId,
+            "photo" => $movie['poster'],
+           "caption"=>"🚀".$movie['title']."New Episode Added".
+           "🚀https://bekyfeeds.com/series-movie.php?title=".$movie['title'],// site ink for response of a request
+            "parseMode" => "html"
+        );
+        send("sendPhoto", $parameters);
+    }
 }
 
 
-//send("sendPhoto", $parameters2);
+
+//send("sendPhoto", $parameters);
 //send("sendMessage", $parametersGroup);
 }
 
