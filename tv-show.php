@@ -133,9 +133,9 @@ if($isParameter === false){
                                     class="mobile-show">Home</span></a>
                         </li>
 
-                        <li class="active"><a href="tv-show">TV Show</a></li>
-                        <li><a href="movies">Movies</a></li>
-                        <li><a href="request">Your Requests</a></li>
+                        <li class="active"><a href="../tv-show">TV Show</a></li>
+                        <li><a href="../movies">Movies</a></li>
+                        <li><a href="../request">Your Requests</a></li>
                         <!-- <li><a href="news">News</a></li>
                         <li><a href="trailer">Movie Trailers</a></li>
                         <li><a href="sport">Sport</a></li>

@@ -143,7 +143,7 @@ $editorMovies = $home->getEditorMovies()->fetchAll(PDO::FETCH_ASSOC);
 
                                 echo '
               <li>
-                <a href="single-series.php?series_id=' . $popular['id'] . '">' . '<img src="images/posters/' . $popular['img_url'] . '" alt="' . $popular['name'] . '">' . $popular['name'] . '</a>
+                <a href="series/' . $popular['id'] . '">' . '<img src="images/posters/' . $popular['img_url'] . '" alt="' . $popular['name'] . '">' . $popular['name'] . '</a>
               </li>
               ';
                             }
@@ -172,13 +172,13 @@ $editorMovies = $home->getEditorMovies()->fetchAll(PDO::FETCH_ASSOC);
 
                             echo '
   <div class="single_iteam">
-  <a href="single-movie.php?title=' . $slider["title"] . '">
+  <a href="film/' . $slider["alias"] . '">
  
    <img   class="object-cover" src="' . $slider["slider_img"] . '" alt="' . $slider["title"] . '" /></a>
 
   <div class="slider_article">
     <h2>
-      <a class="slider_tittle" href="single-movie.php?title=">' . $slider["title"] . '</a>
+      <a class="slider_tittle" href="film/">' . $slider["alias"] . '</a>
     </h2>
     <p>
     ' . $slider["description"] . '
@@ -204,12 +204,12 @@ $editorMovies = $home->getEditorMovies()->fetchAll(PDO::FETCH_ASSOC);
                                 foreach ($recentMovies as $recent) {
 
                                     echo '<li>
-  <figure href="single-movie.php?title=' . $recent["title"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
-    <a href="single-movie.php?title=' . $recent["title"] . '" class="w-32 mr-3">
+  <figure href="film/' . $recent["alias"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
+    <a href="film/' . $recent["alias"] . '" class="w-32 mr-3">
       <img alt="' . $recent["title"] . '" class="w-32 h-full" src="' . $recent["img_url"] . '" />
     </a>
     <figcaption class="p-3 media-body">
-      <a href="single-movie.php?title=' . $recent["title"] . '" class="catg_title">
+      <a href="film/' . $recent["alias"] . '" class="catg_title">
       ' . $recent["title"] . ' <p class="genre">' . $recent["genre"] . '</p> <p class="year">' . $recent["releasing_year"] . '</p> </a>
     </figcaption>
   </figure>
@@ -240,13 +240,13 @@ $editorMovies = $home->getEditorMovies()->fetchAll(PDO::FETCH_ASSOC);
 
                                     foreach ($recentSeries as $recent) {
 
-                                        echo '<li href="single-series.php?series_id=' . $recent["id"] . '" class="w-full px-1 my-2 border rounded md:w-1/2">
+                                        echo '<li href="series/' . $recent["alias"] . '" class="w-full px-1 my-2 border rounded md:w-1/2">
   <div class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated">
-    <a href="single-series.php?series_id=' . $recent["id"] . '" class="w-32 text-lg md:mr-3 cursor-pointer">
+    <a href="series/' . $recent["alias"] . '" class="w-32 text-lg md:mr-3 cursor-pointer">
       <img class="w-32 h-full"  alt="" src="images/posters/' . $recent["img_url"] . '" />
     </a>
     <div class="p-3 media-body">
-      <a href="single-series.php?series_id=' . $recent["id"] . '" class="catg_title">'
+      <a href="series/' . $recent["alias"] . '" class="catg_title">'
                                             . $recent["name"] . '<p class="genre">' . $recent["genre"] . '</p> <p class="year">' . $recent["releasing_year"] . '</p> </a>
     </div>
   </div>
@@ -269,13 +269,13 @@ $editorMovies = $home->getEditorMovies()->fetchAll(PDO::FETCH_ASSOC);
 
                                     foreach ($popularSeries as $popular) {
 
-                                        echo '<li href="single-series.php?series_id=' . $popular["id"] . '" class="w-full px-1 my-2 border rounded md:w-1/2">
+                                        echo '<li href="series/' . $popular["alias"] . '" class="w-full px-1 my-2 border rounded md:w-1/2">
                     <div class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated">
-                      <a href="single-series.php?series_id=' . $popular["id"] . '" class="w-32 text-lg md:mr-3 cursor-pointer">
+                      <a href="series/' . $popular["alias"] . '" class="w-32 text-lg md:mr-3 cursor-pointer">
                         <img class="w-32 h-full"  alt="" src="images/posters/' . $popular["img_url"] . '" />
                       </a>
                       <div class="p-3 media-body">
-                        <a href="single-series.php?series_id=' . $popular["id"] . '" class="catg_title">'
+                        <a href="series/' . $popular["alias"] . '" class="catg_title">'
                                             . $popular["name"] . '<p class="genre">' . $popular["genre"] . '</p> <p class="year">' . $popular["releasing_year"] . '</p> </a>
                       </div>
                     </div>
@@ -299,12 +299,12 @@ $editorMovies = $home->getEditorMovies()->fetchAll(PDO::FETCH_ASSOC);
                                         foreach ($actionMovies as $action) {
 
                                             echo '<li class="my-3">
-  <figure href="single-movie.php?title=' . $action["title"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
-    <a href="single-movie.php?title=' . $action["title"] . '" class="w-32 mr-3">
+  <figure href="film/' . $action["alias"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
+    <a href="film/' . $action["alias"] . '" class="w-32 mr-3">
       <img alt="' . $action["title"] . '" class="w-32 h-full" src="' . $action["img_url"] . '" />
     </a>
     <figcaption class="p-3 media-body">
-      <a href=" single-movie.php?title=' . $action["title"] . '" class="">
+      <a href=" film/' . $action["alias"] . '" class="">
       ' . $action["title"] . ' <p class="genre">' . $action["genre"] . '</p> <p class="year">' . $action["releasing_year"] . '</p> </a>
     </figcaption>
   </figure>
@@ -329,12 +329,12 @@ $editorMovies = $home->getEditorMovies()->fetchAll(PDO::FETCH_ASSOC);
                                         foreach ($romanticMovies as $romantic) {
 
                                             echo '<li class="my-3">
-  <figure href="single-movie.php?title=' . $romantic["title"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
-    <a href="single-movie.php?title=' . $romantic["title"] . '" class="w-32 mr-3">
+  <figure href="film/' . $romantic["alias"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
+    <a href="film/' . $romantic["alias"] . '" class="w-32 mr-3">
       <img alt="' . $romantic["title"] . '" class="w-32 h-full" src="' . $romantic["img_url"] . '" />
     </a>
     <figcaption class="p-3 media-body">
-      <a href=" single-movie.php?title=' . $romantic["title"] . '" class="">
+      <a href=" film/' . $romantic["alias"] . '" class="">
       ' . $romantic["title"] . ' <p class="genre">' . $romantic["genre"] . '</p> <p class="year">' . $romantic["releasing_year"] . '</p> </a>
     </figcaption>
   </figure>
@@ -371,12 +371,12 @@ $editorMovies = $home->getEditorMovies()->fetchAll(PDO::FETCH_ASSOC);
                                 foreach ($editorMovies as $editor) {
 
                                     echo '<li class="my-3">
-  <figure href="single-movie.php?title=' . $editor["title"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
-    <a href="single-movie.php?title=' . $editor["title"] . '" class="w-32 mr-3">
+  <figure href="film/' . $editor["alias"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
+    <a href="film/' . $editor["alias"] . '" class="w-32 mr-3">
       <img alt="' . $editor["title"] . '" class="w-32 h-full" src="' . $editor["img_url"] . '" />
     </a>
     <figcaption class="p-3 media-body">
-      <a href=" single-movie.php?title=' . $editor["title"] . '" class="">
+      <a href=" film/' . $editor["alias"] . '" class="">
       ' . $editor["title"] . ' <p class="genre">' . $editor["genre"] . '</p> <p class="year">' . $editor["releasing_year"] . '</p> </a>
     </figcaption>
   </figure>
