@@ -27,7 +27,7 @@ echo "</br></br>";
 
 
 
-         $sql = "INSERT INTO `feature_film`(`id`, `title`, `description`,`releasing_year`,`genre`,`img_url`,`link`,`imdb_rating`)
+         $sql = "INSERT INTO `feature_film`(`id`, `title`, `description`,`releasing_year`,`genre`,`img_url`,`link`,`imdb_rating`,`isRecent`,`isPopular`,`isEditor`,`isSlider`)
       VALUES( 
           NULL,
          '".$movie['title']."',
@@ -36,7 +36,11 @@ echo "</br></br>";
           '".$movie['genre']."',
           '".$movie['poster']."',
           '".json_encode($movie['links'])."',
-          '".$movie['imdbRating']."'
+          '".$movie['imdbRating']."',
+          '".$movie['isRecent']."',
+          '".$movie['isPopular']."',
+          '".$movie['isEditor']."',
+          '".$movie['isSlider']."'
           
       )";
     echo $sql;

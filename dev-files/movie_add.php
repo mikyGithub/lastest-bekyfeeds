@@ -37,9 +37,13 @@ $api_key="be3457be";
 $year=$_POST['year'];
 $title=$_POST['title'];
 $link=$_POST['link'];
-$isRecent=$_POST['isRecent'];
-$isPopular=$_POST['isPopular'];
 
+$isRecent=$_POST['isRecent']==='on'?1:0;
+$isPopular=$_POST['isPopular']==='on'?1:0;
+$isSlider=$_POST['isSlider']==='on'?1:0;
+$isEditor=$_POST['isEditor']==='on'?1:0;
+
+echo $isEditor;
 if(strlen($year)!==4){
     $url =  $api_url.str_replace(' ', '.',$title)."&apikey=be3457be";
 }else{
@@ -55,7 +59,7 @@ var_dump($pp);
   //$api_json_Value=json_decode($html);
   $temp_links=array($link);
   if($pp!==null&&$pp->Response==="True"){
-     $tj=array("title"=>$title,"links"=> $temp_links,"poster"=>$pp->Poster,"imdbRating"=>$pp->imdbRating,"plot"=>$pp->Plot,"year"=>$pp->Year,"genre"=>$pp->Genre,"isRecent"=>$isRecent,"isPopular"=>$isPopular);
+     $tj=array("title"=>$title,"links"=> $temp_links,"poster"=>$pp->Poster,"imdbRating"=>$pp->imdbRating,"plot"=>$pp->Plot,"year"=>$pp->Year,"genre"=>$pp->Genre,"isRecent"=>$isRecent,"isPopular"=>$isPopular,"isEditor"=>$isEditor,"isSlider"=>$isSlider);
     
       array_push($links,$tj);
      
@@ -78,11 +82,15 @@ include 'movie_insert.php';
 <p>  Enter Year</p>
  <input name="year" type="text">
  <p>  Enter Link</p>
- <input name="link" type="text">
+ <textarea name="link" type="text"> </textarea>
  <p>  Is Recent</p>
  <input type="checkbox" name="isRecent" />
  <p>  Is Popular</p>
  <input type="checkbox" name="isPopular" />
+ <p>  Is Editor</p>
+ <input type="checkbox" name="isEditor" />
+ <p>  Is Slider</p>
+ <input type="checkbox" name="isSlider" />
  
 <!-- <p>  Enter as S(number)E(number)</p>
     <input name="episode" type=""> -->
