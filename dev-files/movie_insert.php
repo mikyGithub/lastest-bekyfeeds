@@ -1,12 +1,11 @@
 <?php
 
-
-
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "bekyfeedscom_movies";
+$dbname = "bekymovies";
 $data=$links;
+$posts=array();
 //$data=array();
 //$data2=array("title"=>"nodeValue","links"=>"temp_links","poster"=>"Poster","imdbRating"=>"imdbRating","plot"=>"Plot","year"=>"Year","genre"=>"Genre");
    //array_push($data,$data2);
@@ -28,7 +27,7 @@ echo "</br></br>";
 
 
 
-         $sql = "INSERT INTO `feature_film` ( `id`, `title`, `description`, `releasing_year`, `genre`,`img_url`, `link`, `imdb_rating`)
+         $sql = "INSERT INTO `feature_film`(`id`, `title`, `description`,`releasing_year`,`genre`,`img_url`,`link`,`imdb_rating`)
       VALUES( 
           NULL,
          '".$movie['title']."',
@@ -40,8 +39,9 @@ echo "</br></br>";
           '".$movie['imdbRating']."'
           
       )";
-   //   echo $sql;
+    echo $sql;
       if ($conn->query($sql) === TRUE) {
+        array_push($posts,$movie);
           echo "Activated successfully";
           echo "</br></br>";
           $created_series_id= $conn->insert_id;
@@ -52,6 +52,8 @@ echo "</br></br>";
       }
   }
 
+
+  include 'bot-test.php'
 
    
   
