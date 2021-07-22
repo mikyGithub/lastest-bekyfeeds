@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<?php require "../config/meta.php"; ?>
 
 <head>
     <title>BekyFeeds</title>
@@ -15,7 +16,7 @@
     <link rel="stylesheet" type="text/css" href="../assets/css/jquery.fancybox.css" />
     <link rel="stylesheet" type="text/css" href="../assets/css/theme.css" />
     <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/utilities.min.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/utilities.min.css" /> <?php require "../config/js.php"; ?>
     <!--[if lt IE 9]>
       <script src="assets/js/html5shiv.min.js"></script>
       <script src="assets/js/respond.min.js"></script>
@@ -82,16 +83,17 @@ if($isParameter === false){
         <div id="status">&nbsp;</div>
     </div>
     <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
-    <div >
+    <div class="container">
         <header id="header">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="header_top">
                         <div class="header_top_left">
-                            <ul class="top_nav">
-                                <li><a href="index,">Home</a></li>
+                        <ul class="top_nav">
+                                <li><a href="../index">Home</a></li>
                                 <li><a href="../pages/about">About</a></li>
                                 <li><a href="../pages/contact-us">Contact</a></li>
+                               
                             </ul>
                         </div>
                         <div class="header_top_right">
@@ -247,10 +249,10 @@ if($isParameter === false){
                                 placeholder="Search.." class="w-5/6 px-3 py-3 bg-gray-200 border-b focus:outline-none"
                                 name="search">
                             <button style="border:0px; border-bottom:2px solid #139ea8"
-                                class="w-1/6 px-6 py-3 bg-theme focus:outline-none" type="submit">Search</button>
+                                class="w-2/6 md:w-1/6 px-6 py-3 bg-theme focus:outline-none" type="submit">Search</button>
                         </div>
                     </form>
-                    <div class="w-auto my-6">
+                    <!-- <div class="w-auto my-6">
                         <div style="border:1px dashed #139ea8"
                             class="flex w-full overflow-x-auto md:flex-wrap p-3 bg-gray-200">
                             <?php
@@ -260,11 +262,11 @@ if($isParameter === false){
                             ?>
 
                         </div>
-                    </div>
+                    </div> -->
                     <h2><span>Movies</span></h2>
 
                     <div class="flex">
-                        <div class="w-auto">
+                        <!-- <div class="w-auto">
                             <div style="border:1px dashed #139ea8"
                                 class="bg-gray-100 p-3 flex flex-col justify-between">
                                 <?php
@@ -274,7 +276,7 @@ if($isParameter === false){
                                 ?>
 
                             </div>
-                        </div>
+                        </div> -->
 
                         <div>
                             <ul class="flex flex-wrap ">
@@ -487,51 +489,79 @@ if($isParameter === false){
     </div>
     </section>
     <footer id="footer">
-        <div class="footer_top">
-            <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-4">
-                    <div class="footer_widget wow fadeInLeftBig">
-                        <h2>Flickr Images</h2>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4">
-                    <div class="footer_widget wow fadeInDown">
-                        <h2>Tag</h2>
-                        <ul class="tag_nav">
-                            <li><a href="#">Games</a></li>
-                            <li><a href="#">Sports</a></li>
-                            <li><a href="#">Fashion</a></li>
-                            <li><a href="#">Business</a></li>
-                            <li><a href="#">Life &amp; Style</a></li>
-                            <li><a href="#">Technology</a></li>
-                            <li><a href="#">Photo</a></li>
-                            <li><a href="#">Slider</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4">
-                    <div class="footer_widget wow fadeInRightBig">
-                        <h2>Contact</h2>
+            <div class="footer_top">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4">
+                        <div class=" wow fadeInLeftBig">
+                            <h2 class="text-genre"> Disclaimer</h2>
+                        </div>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                            do eiusmod tempor incididunt ut labore et dolore magna aliqua
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            bekyfeeds.com does not host any files on it's servers. All files or contents hosted on third
+                            party websites.this site does not accept responsibility for contents hosted on third party
+                            websites. We just index those links which are already available in internet.
                         </p>
-                        <address>
-                            Perfect News,1238 S . 123 St.Suite 25 Town City 3333,USA
-                            Phone: 123-326-789 Fax: 123-546-567
-                        </address>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4">
+                        <div class="footer_widget wow fadeInDown">
+                            <h2>Important Links</h2>
+                            <ul class="tag_nav">
+                                <li><a href="about"
+                                        class="text-white text-green-400 my-1 hover:text-green-500 text-justify">About
+                                        Us</a></li>
+                                <li><a href="dmca"
+                                        class="text-white text-green-400 my-1 hover:text-green-500 text-justify">DMCA</a>
+                                </li>
+                                <li><a href="privacy"
+                                        class="text-white text-green-400 my-1 hover:text-green-500 text-justify">Privacy
+                                        Policies</a></li>
+                                <li><a href="terms"
+                                        class="text-white text-green-400 my-1 hover:text-green-500 text-justify">Terms
+                                        and Conditions</a></li>
+                                <li><a href="contact-us"
+                                        class="text-white text-green-400 my-1 hover:text-green-500 text-justify">Contact
+                                        Us</a></li>
+
+
+
+
+
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4">
+                        <div class="footer_widget wow fadeInRightBig">
+                            <h2>Contact Us</h2>
+
+
+
+                            <ul class="tag_nav">
+                                <li><a target="_blank" href="https://t.me/bekyfeedscommounity">
+                                        Telegram
+                                    </a></li>
+                                <li><a href="https://www.facebook.com/Beky-Feeds-112556537282665">
+                                        Facebook
+                                    </a>
+                                </li>
+
+
+
+
+
+
+
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="footer_bottom">
-            <p class="copyright">
-                Copyright &copy; 2021 <a href="index">BekyFeeds</a>
-            </p>
-            <p class="developer">Developed By Bekyfeeds</p>
-        </div>
-    </footer>
+            <div class="footer_bottom">
+                <p class="copyright">
+                    Copyright &copy; 2020 <a href="../index">BekyFeeds</a>
+                </p>
+                <p class="developer text-white">Developed By Bekyfeeds</p>
+            </div>
+        </footer>
     </div>
     <script src="../assets/js/jquery.min.js"></script>
     <script src="../assets/js/wow.min.js"></script>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<?php require "../config/meta.php"; ?>
 
 <head>
     <title>Bekyfeeds</title>
@@ -15,7 +16,7 @@
     <link rel="stylesheet" type="text/css" href="../assets/css/jquery.fancybox.css" />
     <link rel="stylesheet" type="text/css" href="../assets/css/theme.css" />
     <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/utilities.min.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/utilities.min.css" /> <?php require "../config/js.php"; ?>
 
 </head>
 
@@ -45,18 +46,17 @@ $latestEpisodes = $request->getLatestEpisodes()->fetchAll(PDO::FETCH_ASSOC);
         <div id="status">&nbsp;</div>
     </div>
     <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
-    <div >
+    <div class="container">
         <header id="header">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="header_top">
                         <div class="header_top_left">
                             <ul class="top_nav">
-                                <li><a href="./index">Home</a></li>
+                                <li><a href="../index">Home</a></li>
                                 <li><a href="../pages/about">About</a></li>
                                 <li><a href="../pages/contact-us">Contact</a></li>
-                                <!-- <li><a href="pages/privacy">Privacy Policies</a></li>
-                <li><a href="pages/terms">Terms and Conditions</a></li> -->
+                               
                             </ul>
                         </div>
                         <div class="header_top_right">
@@ -67,7 +67,7 @@ $latestEpisodes = $request->getLatestEpisodes()->fetchAll(PDO::FETCH_ASSOC);
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="header_bottom">
                         <div class="logo_area">
-                            <a href="index" class="logo">
+                            <a href="../index" class="logo">  
                                 <h1>bekyfeeds</h1>
                             </a>
                         </div>
@@ -277,7 +277,7 @@ echo '<li class="p-3 my-1 bg-gray-200 hover:bg-gray-100 "><a class="flex justify
         </div>
         <div class="footer_bottom">
             <p class="copyright">
-                Copyright &copy; 2020 <a href="index">BekyFeeds</a>
+                Copyright &copy; 2020 <a href="../index">BekyFeeds</a>
             </p>
             <p class="developer text-white">Developed By Bekyfeeds</p>
         </div>

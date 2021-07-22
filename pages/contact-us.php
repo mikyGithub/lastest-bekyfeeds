@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<?php require "../config/meta.php"; ?>
 
 <head>
     <title>BekyFeeds | Pages | Contact</title>
@@ -26,16 +27,17 @@
         <div id="status">&nbsp;</div>
     </div>
     <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
-    <div >
+    <div class="container">
         <header id="header">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="header_top">
                         <div class="header_top_left">
-                            <ul class="top_nav">
-                                <li><a href="../index.html">Home</a></li>
-                                <li><a href="#">About</a></li>
-                                <li><a href="contact.html">Contact</a></li>
+                        <ul class="top_nav">
+                                <li><a href="../index">Home</a></li>
+                                <li><a href="../pages/about">About</a></li>
+                                <li><a href="../pages/contact-us">Contact</a></li>
+                               
                             </ul>
                         </div>
                         <div class="header_top_right">
@@ -206,7 +208,7 @@
             </div>
             <div class="footer_bottom">
                 <p class="copyright">
-                    Copyright &copy; 2020 <a href="index">BekyFeeds</a>
+                    Copyright &copy; 2020 <a href="../index">BekyFeeds</a>
                 </p>
                 <p class="developer text-white">Developed By Bekyfeeds</p>
             </div>
