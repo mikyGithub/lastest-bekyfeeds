@@ -48,7 +48,7 @@ class Series
     // Get All Series
     public function getSeries()
     {
-        $query = 'SELECT * FROM ' . $this->series . '  ORDER BY name ASC  LIMIT ' . $this->limit;
+        $query = 'SELECT * FROM ' . $this->series . '  ORDER BY releasing_year DESC  LIMIT ' . $this->limit;
         $stmt = $this->connection->prepare($query);
         $stmt->execute();
         return $stmt;
@@ -58,7 +58,7 @@ class Series
     public function getSeriesPaginated($page)
     {
         $offset = ($this->limit * ($page - 1));
-        $query = 'SELECT * FROM ' . $this->series . '  ORDER BY name ASC ';
+        $query = 'SELECT * FROM ' . $this->series . '  ORDER BY releasing_year  DESC ';
         return $this->paginate($query, $page);
     }
 

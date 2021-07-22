@@ -48,7 +48,7 @@ class FeatureFilm
     // Get All Films
     public function getFilms()
     {
-        $query = 'SELECT * FROM ' . $this->films . '  ORDER BY title ASC  LIMIT ' . $this->limit;
+        $query = 'SELECT * FROM ' . $this->films . '  ORDER BY releasing_year Desc  LIMIT ' . $this->limit;
         $stmt = $this->connection->prepare($query);
         $stmt->execute();
         return $stmt;
@@ -58,7 +58,7 @@ class FeatureFilm
     public function getFilmsPaginated($page)
     {
         $offset = ($this->limit * ($page - 1));
-        $query = 'SELECT * FROM ' . $this->films . '  ORDER BY title ASC ';
+        $query = 'SELECT * FROM ' . $this->films . '  ORDER BY releasing_year Desc ';
         return $this->paginate($query, $page);
     }
 
