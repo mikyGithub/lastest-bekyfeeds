@@ -121,7 +121,7 @@ var_dump($pp);
 
   //$temp_links=explode(PHP_EOL, $link);
   if($pp!==null&&$pp->Response==="True"){
-     $tj=array("title"=>$title,"links"=> "temp_links","poster"=>$pp->Poster,"imdbRating"=>$pp->imdbRating,"plot"=>$pp->Plot,"year"=>$pp->Year,"genre"=>$pp->Genre,"isRecent"=>$isRecent,"isPopular"=>$isPopular,"isEditor"=>$isEditor,"isSlider"=>$isSlider);
+     $tj=array("title"=>$pp->Title,"links"=> "temp_links","poster"=>$pp->Poster,"imdbRating"=>$pp->imdbRating,"plot"=>$pp->Plot,"year"=>$pp->Year,"genre"=>$pp->Genre,"isRecent"=>$isRecent,"isPopular"=>$isPopular,"isEditor"=>$isEditor,"isSlider"=>$isSlider);
     
       array_push($posts,$tj);
   

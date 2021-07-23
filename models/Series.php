@@ -68,6 +68,15 @@ class Series
         //Get Series 
         $query = 'SELECT * FROM ' . $this->series . ' s  LEFT JOIN ' . $this->episode . ' e on e.season_id = s.id WHERE s.id=' . $series_id;
 
+    //    $query = 'SELECT * FROM ' . $this->series . ' s  LEFT JOIN ' . $this->episode . ' e on e.id = s.id WHERE s.alias="' . $alias.'"';
+
+
+
+    //    $query = 'SELECT * FROM ' . $this->series . ' s  LEFT JOIN ' . $this->episode . ' e on e.alias = s.alias WHERE s.alias="' . $alias.'"';
+
+
+    //     $query =  'SELECT * FROM' . $this->series .  ' s LEFT JOIN '  . $this->episode . ' e on e.alias = s.alias WHERE s.alias="' .$alias'"';
+
         // Prepare Statement
         $stmt = $this->connection->prepare($query);
 

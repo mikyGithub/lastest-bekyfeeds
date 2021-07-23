@@ -30,8 +30,15 @@ if($type==='movie'){
         $parameters = array(
             "chat_id" => $userChatId,
             "photo" => $movie['poster'],
-           "caption"=>"🚀".$movie['title']."New Episode Added".
-           "🚀https://bekyfeeds.com/series-movie.php?title=".$movie['title'],// site ink for response of a request
+           "caption"=>"🚀".$movie['title']."New Episode Added  \r\n ".
+           "•——————————————-• \r\n ". 
+           "https://bekyfeeds.com/series/".str_replace(" ","-",$movie['title'])."\r\n ".  
+           "•——————————————-•\r\n ". 
+           "@bekyfeedscommounity \r\n ".
+           "Bekyfeeds- movie and serial download reference \r\n ".
+           "Permanent site address:".
+           
+            "bekyfeeds.com" ,// site ink for response of a request
             "parseMode" => "html"
         );
         send("sendPhoto", $parameters);
