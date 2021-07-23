@@ -54,11 +54,7 @@ jQuery(document).ready(function () {
     $("ul#ticker01").liScroll();
 });
 
-wow = new WOW({
-    animateClass: '',
-    offset: 100
-});
-wow.init();
+
 
 jQuery(window).load(function () { // makes sure the whole site is loaded
     $('#status').fadeOut(); // will first fade out the loading animation

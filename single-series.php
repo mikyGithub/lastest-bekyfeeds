@@ -69,6 +69,8 @@ if($isParameter === false){
     <title><?php echo "index of ".$name; ?></title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="../assets/css/font-awesome.min.css" />
@@ -94,9 +96,7 @@ if($isParameter === false){
 
 
 <body>
-    <div id="preloader">
-        <div id="status">&nbsp;</div>
-    </div>
+    
 
     <div class="container">
         <header id="header">
@@ -124,7 +124,7 @@ if($isParameter === false){
                             </a>
                         </div>
                         <div class="add_banner">
-                            <a href="#"><img src="../images/banner.jpg" alt="" /></a>
+
                         </div>
                     </div>
                 </div>
@@ -446,12 +446,12 @@ if($isParameter === false){
                             foreach ($popularSeries as $popular) {
 
                                 echo '<li class="my-3">
-  <figure href="series/' . $popular["id"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
-    <a href="series/' . $popular["id"] . '" class="w-32 mr-3">
+  <figure href="series/' . $popular["alias"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
+    <a href="series/' . $popular["alias"] . '" class="w-32 mr-3">
       <img alt="'. $popular["name"] .'" class="w-32 h-full" src="../images/posters/' . $popular["img_url"] . '" />
     </a>
     <figcaption class="p-3 media-body">
-      <a href=" series/' . $popular["id"] . '" class="">
+      <a href=" series/' . $popular["alias"] . '" class="">
       ' . $popular["name"] . ' <p class="genre">' . $popular["genre"] . '</p> <p class="year">' . $popular["releasing_year"] . '</p> </a>
     </figcaption>
   </figure>
@@ -482,12 +482,12 @@ if($isParameter === false){
                         foreach ($editorSeries as $editor) {
 
                             echo '<li class="my-3">
-  <figure href="series/' . $editor["id"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
-    <a href="series/' . $editor["id"] . '" class="w-32 mr-3">
+  <figure href="series/' . $editor["alias"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
+    <a href="series/' . $editor["alias"] . '" class="w-32 mr-3">
       <img alt="'. $editor["name"] .'" class="w-32 h-full" src="../images/posters/' . $editor["img_url"] . '" />
     </a>
     <figcaption class="p-3 media-body">
-      <a href=" series/' . $editor["id"] . '" class="">
+      <a href=" series/' . $editor["alias"] . '" class="">
       ' . $editor["name"] . ' <p class="genre">' . $editor["genre"] . '</p> <p class="year">' . $editor["releasing_year"] . '</p> </a>
     </figcaption>
   </figure>

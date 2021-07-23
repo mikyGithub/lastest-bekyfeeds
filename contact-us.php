@@ -57,7 +57,7 @@ $popularMovies = $film->getPopular()->fetchAll(PDO::FETCH_ASSOC);
                             </a>
                         </div>
                         <div class="add_banner">
-                            <a href="#"><img src="images/banner.jpg" alt="" /></a>
+                           
                         </div>
                     </div>
                 </div>

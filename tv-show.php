@@ -6,6 +6,8 @@
     <title>BekyFeeds | Tv Show</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" />
 
@@ -79,9 +81,7 @@ if($isParameter === false){
 
 
 <body>
-    <div id="preloader">
-        <div id="status">&nbsp;</div>
-    </div>
+
 
     <div class="container">
         <header id="header">
@@ -109,7 +109,7 @@ if($isParameter === false){
                             </a>
                         </div>
                         <div class="add_banner">
-                            <a href="#"><img src="images/banner.jpg" alt="" /></a>
+
                         </div>
                     </div>
                 </div>

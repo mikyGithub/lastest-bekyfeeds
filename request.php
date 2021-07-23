@@ -6,6 +6,8 @@
     <title>Bekyfeeds | Requests</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" />
  
@@ -69,7 +71,7 @@ $latestEpisodes = $request->getLatestEpisodes()->fetchAll(PDO::FETCH_ASSOC);
                             </a>
                         </div>
                         <div class="add_banner">
-                            <a href="#"><img src="images/banner.jpg" alt="" /></a>
+                           
                         </div>
                     </div>
                 </div>

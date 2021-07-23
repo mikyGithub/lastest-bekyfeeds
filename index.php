@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" />
- 
+
 
     <link rel="stylesheet" type="text/css" href="assets/css/li-scroller.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/slick.css" />
@@ -55,7 +55,7 @@ $editorMovies = $home->getEditorMovies()->fetchAll(PDO::FETCH_ASSOC);
 
 <body>
     <!--  -->
-    
+
     <div class="container">
         <header id="header">
             <div class="row">
@@ -82,7 +82,7 @@ $editorMovies = $home->getEditorMovies()->fetchAll(PDO::FETCH_ASSOC);
                             </a>
                         </div>
                         <div class="add_banner">
-                            <a href="#"><img src="images/banner.jpg" alt="" /></a>
+
                         </div>
                     </div>
                 </div>
@@ -174,7 +174,7 @@ $editorMovies = $home->getEditorMovies()->fetchAll(PDO::FETCH_ASSOC);
 
   <div class="slider_article">
     <h2>
-      <a class="slider_tittle" href="film/">' . $slider["alias"] . '</a>
+      <a class="slider_tittle" href="film/">' . $slider["title"] . '</a>
     </h2>
     <p>
     ' . $slider["description"] . '
@@ -226,82 +226,79 @@ $editorMovies = $home->getEditorMovies()->fetchAll(PDO::FETCH_ASSOC);
         <section id="contentSection">
             <div class="row">
                 <div class="col-lg-8 col-md-8 col-sm-8">
-                    <div class="left_content">
-                        <div class="single_post_content">
-                            <h2><span>Latest Episodes</span></h2>
+                    <div class="fashion_technology_area">
+                        <div class="fashion">
+                            <div class="single_post_content">
+                                <h2><span>Latest Series</span></h2>
 
-                            <div class="">
-                                <ul class="flex flex-wrap ">
+                                <ul class="my-2 spost_nav">
                                     <?php
 
-                                    foreach ($recentSeries as $recent) {
+                            foreach ($recentSeries as $recent) {
 
-                                        echo '<li href="series/' . $recent["alias"] . '" class=" px-1 my-2 border rounded col-lg-6 col-md-6 col-sm-12">
-  <div class="flex bg-gray-100 border rounded cursor-pointer media  ">
-    <a href="series/' . $recent["alias"] . '" class="w-32 text-lg cursor-pointer md:mr-3">
-      <img class="w-32 h-full"  alt="" src="images/posters/' . $recent["img_url"] . '" />
+                                echo '<li class="my-3">
+  <figure href="series/' . $recent["alias"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
+    <a href="series/' . $recent["alias"] . '" class="w-32 mr-3">
+      <img alt="'. $recent["name"] .'" class="w-32 h-full" src="../images/posters/' . $recent["img_url"] . '" />
     </a>
-    <div class="p-3 media-body flex-1">
-      <a href="series/' . $recent["alias"] . '" class="catg_title">'
-                                            . $recent["name"] . '<p class="genre">' . $recent["genre"] . '</p> <p class="year">' . $recent["releasing_year"] . '</p> </a>
-    </div>
-  </div>
+    <figcaption class="p-3 media-body">
+      <a href=" series/' . $recent["alias"] . '" class="">
+      ' . $recent["name"] . ' <p class="genre">' . $recent["genre"] . '</p> <p class="year">' . $recent["releasing_year"] . '</p> </a>
+    </figcaption>
+  </figure>
 </li>
 ';
-                                    }
-                                    ?>
+                            }
+                            ?>
 
 
 
                                 </ul>
                             </div>
                         </div>
-                        <div class="single_post_content">
-                            <h2><span>Most Rated Movies</span></h2>
+                        <div class="technology">
+                            <div class="single_post_content">
+                                <h2><span>Popular Series</span></h2>
 
-                            <div class="">
-                                <ul class="flex flex-wrap ">
+                                <ul class="my-2 spost_nav">
                                     <?php
 
-                                    foreach ($popularSeries as $popular) {
+                            foreach ($popularSeries as $popular) {
 
-                                        echo '<li href="series/' . $popular["alias"] . '" class=" px-1 my-2 border rounded col-lg-6 col-md-6 col-sm-12">
-                    <div class="flex bg-gray-100 border rounded cursor-pointer media  ">
-                      <a href="series/' . $popular["alias"] . '" class="w-32 text-lg cursor-pointer md:mr-3">
-                        <img class="w-32 h-full"  alt="" src="images/posters/' . $popular["img_url"] . '" />
-                      </a>
-                      <div class="p-3 media-body flex-1">
-                        <a href="series/' . $popular["alias"] . '" class="catg_title">'
-                                            . $popular["name"] . '<p class="genre">' . $popular["genre"] . '</p> <p class="year">' . $popular["releasing_year"] . '</p> </a>
-                      </div>
-                    </div>
-                  </li>
+                                echo '<li class="my-3">
+  <figure href="series/' . $popular["alias"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
+    <a href="series/' . $popular["alias"] . '" class="w-32 mr-3">
+      <img alt="'. $popular["name"] .'" class="w-32 h-full" src="../images/posters/' . $popular["img_url"] . '" />
+    </a>
+    <figcaption class="p-3 media-body">
+      <a href=" series/' . $popular["alias"] . '" class="">
+      ' . $popular["name"] . ' <p class="genre">' . $popular["genre"] . '</p> <p class="year">' . $popular["releasing_year"] . '</p> </a>
+    </figcaption>
+  </figure>
+</li>
 ';
-                                    }
-                                    ?>
+                            }
+                            ?>
 
 
 
                                 </ul>
                             </div>
                         </div>
-
-                        <div class="single_post_content  fadeInDown">
-                            <h2><span>Your Requests</span></h2>
-                            <ul>
-                                <?php
+                    </div>
+                    <div class="single_post_content ">
+                        <h2><span>Your Requests</span></h2>
+                        <ul>
+                            <?php
 
 foreach ($requests as $request) {
-echo '<li class="p-3 my-1 bg-gray-200 hover:bg-gray-100 "><a class="flex justify-between "  style="padding-top: 10px;padding-bottom: 10px;" href="'.$request["solution"].'"> <div class="col-lg-2 col-md-2 col-sm-2 text-2xl text-blue-400">'.$request["id"].'</div>'.$request["requester"].'<div class="col-lg-4 col-md-4 col-sm-4">['.$request["subject"].']</div></a></li>';
+echo '<li class="p-3 my-1 bg-gray-200 hover:bg-gray-100 "><a class="flex justify-between "  style="padding-top: 10px;padding-bottom: 10px;" href="'.$request["solution"].'"> <div class="w-1/6 text-2xl text-blue-400">'.$request["id"].'</div>'.$request["requester"].'<div class="w-1/3">['.$request["subject"].']</div></a></li>';
 }
 ?>
 
 
 
-                            </ul>
-                        </div>
-
-
+                        </ul>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4">
@@ -342,7 +339,10 @@ echo '<li class="p-3 my-1 bg-gray-200 hover:bg-gray-100 "><a class="flex justify
 
                     </aside>
                 </div>
+
             </div>
+
+
         </section>
         <footer id="footer">
             <div class="footer_top">
