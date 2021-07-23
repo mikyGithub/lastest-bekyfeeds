@@ -8,7 +8,7 @@ FilmBan.xyz
 
 <?php
 
-// extracts from http://cf2.oyrbjdbfg.tk/?dir=Movie/
+// extracts from http://dl.filmban.xyz/Movie/
 
 
 libxml_use_internal_errors(true); //hide warnings
@@ -24,9 +24,11 @@ $currentLink="";
 $movieName="";
 $singleLinks=array();
 $movieData="";
+$notify=false;
 if(isset($_POST['button1'])) {
 
     $year=$_POST['year'];
+    $notify=$_POST['notify']==='on'?1:0;
   
     $url="http://dl.filmban.xyz/Movie/".$year;
     $trunc_url="http://dl.filmban.xyz/Movie/".$year."/";
@@ -126,7 +128,7 @@ if(isset($_POST['button1'])) {
 
 
                 }else{
-                    // echo"hqqqqqqqqqqqqqq" . $movieData->Title;
+                    
                     array_push($singleLinks,$trunc_url.$node->getAttribute('href'));
                 }
                 
@@ -152,23 +154,15 @@ include 'movie_insert.php';
 <form method="post">
 <p>  Enter Year</p>
  <input name="year" type="Movie Title">
-<!-- <p>  Enter as S(number)E(number)</p>
-    <input name="episode" type=""> -->
 
+    <input name="episode" type=""> -->
+    <p> Notify (send message to telegram Channel)</p>
+  <input type="checkbox" name="notify" />
     <button name="button1"> GetMovie</button> 
 </form >
 <?php
-// foreach( $links as  $item ){
-//     echo "<a href=$item>$movie"."$episode</a> ";
-//     echo "</br>";
-// }
 
 ?>
 </body>
 
 
-<!-- http://qd6qsuqis6edd5gp192vgccnwwxidzxu29q0t69s3tb6ohlwwth2v0wx2zl6o86.rklarmsbo0c2z3kor3bfskiowmugz1nwbex8qvallstrlk5idnnwxwqzoqmdizf.site/Movie/Movie/1963/High%20And%20Low%201963/ -->
-
-
-
-<!-- http://qd6qsuqis6edd5gp192vgccnwwxidzxu29q0t69s3tb6ohlwwth2v0wx2zl6o86.rklarmsbo0c2z3kor3bfskiowmugz1nwbex8qvallstrlk5idnnwxwqzoqmdizf.sit/Movie/Movie/1963/High%20And%20Low%201963/ -->
