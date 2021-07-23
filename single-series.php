@@ -97,7 +97,7 @@ if($isParameter === false){
     <div id="preloader">
         <div id="status">&nbsp;</div>
     </div>
-    <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
+
     <div class="container">
         <header id="header">
             <div class="row">
@@ -106,8 +106,8 @@ if($isParameter === false){
                         <div class="header_top_left">
                             <ul class="top_nav">
                                 <li><a href="../index">Home</a></li>
-                                <li><a href="about">About</a></li>
-                                <li><a href="contact-us">Contact</a></li>
+                                <li><a href="../about">About</a></li>
+                                <li><a href="../contact-us">Contact</a></li>
 
                             </ul>
                         </div>
@@ -142,11 +142,7 @@ if($isParameter === false){
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav main_nav">
-                        <li>
-                            <a href="../index"><span class="fa fa-home desktop-home"></span><span
-                                    class="mobile-show">Home</span></a>
-                        </li>
-
+                        <li><a href="../index">Home</a></li>
                         <li class="active"><a href="../tv-show">TV Show</a></li>
                         <li><a href="../movies">Movies</a></li>
                         <li><a href="../request">Your Requests</a></li>

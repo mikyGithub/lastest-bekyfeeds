@@ -34,7 +34,7 @@ class Home
     // Get Slider Movies
     public function getSliderMovies()
     {
-        $query = 'SELECT * FROM ' . $this->movies . ' WHERE isSlider = true  ORDER BY title ASC LIMIT 6;';
+        $query = 'SELECT * FROM ' . $this->movies . ' WHERE isSlider = true  ORDER BY title ASC LIMIT 5;';
         $stmt = $this->connection->prepare($query);
         $stmt->execute();
         return $stmt;

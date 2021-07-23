@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <?php require "./config/meta.php"; ?>
 
 <head>
@@ -8,15 +8,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css" />
-    <link rel="stylesheet" type="text/css" href="assets/css/animate.css" />
-    <link rel="stylesheet" type="text/css" href="assets/css/font.css" />
+ 
+
     <link rel="stylesheet" type="text/css" href="assets/css/li-scroller.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/slick.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/jquery.fancybox.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/theme.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
-    <link rel="stylesheet" type="text/css" href="assets/css/utilities.min.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="assets/css/utilities.min.css" /> -->
+    <link rel="stylesheet" type="text/css" href="assets/css/tail.min.css" />
     <?php require "./config/js.php"; ?>
     <!--[if lt IE 9]>
       <script src="assets/js/html5shiv.min.js"></script>
@@ -54,10 +54,8 @@ $editorMovies = $home->getEditorMovies()->fetchAll(PDO::FETCH_ASSOC);
 
 
 <body>
-    <div id="preloader">
-        <div id="status">&nbsp;</div>
-    </div>
-    <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
+    <!--  -->
+    
     <div class="container">
         <header id="header">
             <div class="row">
@@ -102,10 +100,7 @@ $editorMovies = $home->getEditorMovies()->fetchAll(PDO::FETCH_ASSOC);
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav main_nav">
-                        <li class="active">
-                            <a href="index"><span class="fa fa-home desktop-home"></span><span
-                                    class="mobile-show">Home</span></a>
-                        </li>
+
                         <!-- <li><a href="#">Technology</a></li>
           <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Mobile</a>
             <ul class="dropdown-menu" role="menu">
@@ -120,6 +115,7 @@ $editorMovies = $home->getEditorMovies()->fetchAll(PDO::FETCH_ASSOC);
           <li><a href="#">Tablets</a></li>
           <li><a href="contact.html">Contact Us</a></li>
           <li><a href="404.html">404 Page</a></li> -->
+                        <li class="active"><a href="index">Home</a></li>
                         <li><a href="tv-show">TV Show</a></li>
                         <li><a href="movies">Movies</a></li>
                         <li><a href="request">Your Requests</a></li>
@@ -143,7 +139,7 @@ $editorMovies = $home->getEditorMovies()->fetchAll(PDO::FETCH_ASSOC);
 
                                 echo '
               <li>
-                <a href="series/' . $popular['id'] . '">' . '<img src="images/posters/' . $popular['img_url'] . '" alt="' . $popular['name'] . '">' . $popular['name'] . '</a>
+                <a href="series/' . $popular['id'] . '">' .  $popular['name'] . '</a>
               </li>
               ';
                             }
@@ -174,7 +170,7 @@ $editorMovies = $home->getEditorMovies()->fetchAll(PDO::FETCH_ASSOC);
   <div class="single_iteam">
   <a href="film/' . $slider["alias"] . '">
  
-   <img   class="object-cover" src="' . $slider["slider_img"] . '" alt="' . $slider["title"] . '" /></a>
+   <img   class="object-cover" src="images/slider/' . $slider["slider_img"] . '" alt="' . $slider["title"] . '" /></a>
 
   <div class="slider_article">
     <h2>
@@ -204,11 +200,11 @@ $editorMovies = $home->getEditorMovies()->fetchAll(PDO::FETCH_ASSOC);
                                 foreach ($recentMovies as $recent) {
 
                                     echo '<li>
-  <figure href="film/' . $recent["alias"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
+  <figure href="film/' . $recent["alias"] . '" class="flex bg-gray-100 border rounded cursor-pointer media   ">
     <a href="film/' . $recent["alias"] . '" class="w-32 mr-3">
-      <img alt="' . $recent["title"] . '" class="w-32 h-full" src="' . $recent["img_url"] . '" />
+      <img alt="' . $recent["title"] . '" class="w-32 h-full" src="images/mposters/' . $recent["img_url"] . '" />
     </a>
-    <figcaption class="p-3 media-body">
+    <figcaption class="p-3 media-body flex-1">
       <a href="film/' . $recent["alias"] . '" class="catg_title">
       ' . $recent["title"] . ' <p class="genre">' . $recent["genre"] . '</p> <p class="year">' . $recent["releasing_year"] . '</p> </a>
     </figcaption>
@@ -240,12 +236,12 @@ $editorMovies = $home->getEditorMovies()->fetchAll(PDO::FETCH_ASSOC);
 
                                     foreach ($recentSeries as $recent) {
 
-                                        echo '<li href="series/' . $recent["alias"] . '" class="w-full px-1 my-2 border rounded md:w-1/2">
-  <div class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated">
-    <a href="series/' . $recent["alias"] . '" class="w-32 text-lg md:mr-3 cursor-pointer">
+                                        echo '<li href="series/' . $recent["alias"] . '" class=" px-1 my-2 border rounded col-lg-6 col-md-6 col-sm-12">
+  <div class="flex bg-gray-100 border rounded cursor-pointer media  ">
+    <a href="series/' . $recent["alias"] . '" class="w-32 text-lg cursor-pointer md:mr-3">
       <img class="w-32 h-full"  alt="" src="images/posters/' . $recent["img_url"] . '" />
     </a>
-    <div class="p-3 media-body">
+    <div class="p-3 media-body flex-1">
       <a href="series/' . $recent["alias"] . '" class="catg_title">'
                                             . $recent["name"] . '<p class="genre">' . $recent["genre"] . '</p> <p class="year">' . $recent["releasing_year"] . '</p> </a>
     </div>
@@ -269,12 +265,12 @@ $editorMovies = $home->getEditorMovies()->fetchAll(PDO::FETCH_ASSOC);
 
                                     foreach ($popularSeries as $popular) {
 
-                                        echo '<li href="series/' . $popular["alias"] . '" class="w-full px-1 my-2 border rounded md:w-1/2">
-                    <div class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated">
-                      <a href="series/' . $popular["alias"] . '" class="w-32 text-lg md:mr-3 cursor-pointer">
+                                        echo '<li href="series/' . $popular["alias"] . '" class=" px-1 my-2 border rounded col-lg-6 col-md-6 col-sm-12">
+                    <div class="flex bg-gray-100 border rounded cursor-pointer media  ">
+                      <a href="series/' . $popular["alias"] . '" class="w-32 text-lg cursor-pointer md:mr-3">
                         <img class="w-32 h-full"  alt="" src="images/posters/' . $popular["img_url"] . '" />
                       </a>
-                      <div class="p-3 media-body">
+                      <div class="p-3 media-body flex-1">
                         <a href="series/' . $popular["alias"] . '" class="catg_title">'
                                             . $popular["name"] . '<p class="genre">' . $popular["genre"] . '</p> <p class="year">' . $popular["releasing_year"] . '</p> </a>
                       </div>
@@ -289,67 +285,20 @@ $editorMovies = $home->getEditorMovies()->fetchAll(PDO::FETCH_ASSOC);
                                 </ul>
                             </div>
                         </div>
-                        <div class="fashion_technology_area">
-                            <div class="fashion">
-                                <div class="single_post_content">
-                                    <h2><span>Action Movies</span></h2>
-                                    <ul class="my-2 spost_nav">
-                                        <?php
 
-                                        foreach ($actionMovies as $action) {
+                        <div class="single_post_content  fadeInDown">
+                            <h2><span>Your Requests</span></h2>
+                            <ul>
+                                <?php
 
-                                            echo '<li class="my-3">
-  <figure href="film/' . $action["alias"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
-    <a href="film/' . $action["alias"] . '" class="w-32 mr-3">
-      <img alt="' . $action["title"] . '" class="w-32 h-full" src="' . $action["img_url"] . '" />
-    </a>
-    <figcaption class="p-3 media-body">
-      <a href=" film/' . $action["alias"] . '" class="">
-      ' . $action["title"] . ' <p class="genre">' . $action["genre"] . '</p> <p class="year">' . $action["releasing_year"] . '</p> </a>
-    </figcaption>
-  </figure>
-</li>
-';
-                                        }
-                                        ?>
+foreach ($requests as $request) {
+echo '<li class="p-3 my-1 bg-gray-200 hover:bg-gray-100 "><a class="flex justify-between "  style="padding-top: 10px;padding-bottom: 10px;" href="'.$request["solution"].'"> <div class="col-lg-2 col-md-2 col-sm-2 text-2xl text-blue-400">'.$request["id"].'</div>'.$request["requester"].'<div class="col-lg-4 col-md-4 col-sm-4">['.$request["subject"].']</div></a></li>';
+}
+?>
 
 
 
-                                    </ul>
-
-
-                                </div>
-                            </div>
-                            <div class="technology">
-                                <div class="single_post_content">
-                                    <h2><span>Romantic Movies</span></h2>
-                                    <ul class="my-2 spost_nav">
-                                        <?php
-
-                                        foreach ($romanticMovies as $romantic) {
-
-                                            echo '<li class="my-3">
-  <figure href="film/' . $romantic["alias"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
-    <a href="film/' . $romantic["alias"] . '" class="w-32 mr-3">
-      <img alt="' . $romantic["title"] . '" class="w-32 h-full" src="' . $romantic["img_url"] . '" />
-    </a>
-    <figcaption class="p-3 media-body">
-      <a href=" film/' . $romantic["alias"] . '" class="">
-      ' . $romantic["title"] . ' <p class="genre">' . $romantic["genre"] . '</p> <p class="year">' . $romantic["releasing_year"] . '</p> </a>
-    </figcaption>
-  </figure>
-</li>
-';
-                                        }
-                                        ?>
-
-
-
-                                    </ul>
-
-
-                                </div>
-                            </div>
+                            </ul>
                         </div>
 
 
@@ -357,7 +306,7 @@ $editorMovies = $home->getEditorMovies()->fetchAll(PDO::FETCH_ASSOC);
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4">
                     <aside class="right_content">
-                        <div class="bg-white single_sidebar wow fadeInDown">
+                        <div class="bg-white single_sidebar  fadeInDown">
                             <h2><span>Join Us</span></h2>
                             <a class="sideAdd" class="sideAdd" target="_blank"
                                 href="https://t.me/bekyfeedscommounity"><img style="object-fit:cover"
@@ -365,45 +314,32 @@ $editorMovies = $home->getEditorMovies()->fetchAll(PDO::FETCH_ASSOC);
                         </div>
                         <div class="bg-white single_sidebar">
                             <h2><span>Editor's Choice</span></h2>
-                            <ul class="my-2">
+                            <div class="my-2">
                                 <?php
 
                                 foreach ($editorMovies as $editor) {
 
-                                    echo '<li class="my-3">
-  <figure href="film/' . $editor["alias"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
+                                    echo '<div class="my-3 w-full">
+  <figure href="film/' . $editor["alias"] . '" class="flex w-full bg-gray-100 border rounded cursor-pointer media   ">
     <a href="film/' . $editor["alias"] . '" class="w-32 mr-3">
-      <img alt="' . $editor["title"] . '" class="w-32 h-full" src="' . $editor["img_url"] . '" />
+      <img alt="' . $editor["title"] . '" class="w-32 h-full" src="images/mposters/' . $editor["img_url"] . '" />
     </a>
-    <figcaption class="p-3 media-body">
+    <figcaption class="p-3 media-body flex-1 w-full">
       <a href=" film/' . $editor["alias"] . '" class="">
       ' . $editor["title"] . ' <p class="genre">' . $editor["genre"] . '</p> <p class="year">' . $editor["releasing_year"] . '</p> </a>
     </figcaption>
   </figure>
-</li>
+</div>
 ';
                                 }
                                 ?>
 
 
 
-                            </ul>
+                            </div>
                         </div>
 
-                        <div class="single_sidebar wow fadeInDown">
-                            <h2><span>Your Requests</span></h2>
-                            <ul>
-                                <?php
 
-                                foreach ($requests as $request) {
-                                    echo '<li><a style="padding-top: 10px;padding-bottom: 10px;" href="' . $request["solution"] . '">' . $request["requester"] . '<span class="ml-4 text-blue-400">[' . $request["subject"] . ']</span></a></li>';
-                                }
-                                ?>
-
-
-
-                            </ul>
-                        </div>
                     </aside>
                 </div>
             </div>
@@ -412,7 +348,7 @@ $editorMovies = $home->getEditorMovies()->fetchAll(PDO::FETCH_ASSOC);
             <div class="footer_top">
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-sm-4">
-                        <div class=" wow fadeInLeftBig">
+                        <div class="  fadeInLeftBig">
                             <h2 class="text-genre"> Disclaimer</h2>
                         </div>
                         <p>
@@ -422,23 +358,23 @@ $editorMovies = $home->getEditorMovies()->fetchAll(PDO::FETCH_ASSOC);
                         </p>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-4">
-                        <div class="footer_widget wow fadeInDown">
+                        <div class="footer_widget  fadeInDown">
                             <h2>Important Links</h2>
                             <ul class="tag_nav">
                                 <li><a href="about"
-                                        class="text-white text-green-400 my-1 hover:text-green-500 text-justify">About
+                                        class="my-1 text-justify text-white text-green-400 hover:text-green-500">About
                                         Us</a></li>
                                 <li><a href="dmca"
-                                        class="text-white text-green-400 my-1 hover:text-green-500 text-justify">DMCA</a>
+                                        class="my-1 text-justify text-white text-green-400 hover:text-green-500">DMCA</a>
                                 </li>
                                 <li><a href="privacy"
-                                        class="text-white text-green-400 my-1 hover:text-green-500 text-justify">Privacy
+                                        class="my-1 text-justify text-white text-green-400 hover:text-green-500">Privacy
                                         Policies</a></li>
                                 <li><a href="terms"
-                                        class="text-white text-green-400 my-1 hover:text-green-500 text-justify">Terms
+                                        class="my-1 text-justify text-white text-green-400 hover:text-green-500">Terms
                                         and Conditions</a></li>
                                 <li><a href="contact-us"
-                                        class="text-white text-green-400 my-1 hover:text-green-500 text-justify">Contact
+                                        class="my-1 text-justify text-white text-green-400 hover:text-green-500">Contact
                                         Us</a></li>
 
 
@@ -450,7 +386,7 @@ $editorMovies = $home->getEditorMovies()->fetchAll(PDO::FETCH_ASSOC);
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-4">
-                        <div class="footer_widget wow fadeInRightBig">
+                        <div class="footer_widget  fadeInRightBig">
                             <h2>Contact Us</h2>
 
 
@@ -480,12 +416,11 @@ $editorMovies = $home->getEditorMovies()->fetchAll(PDO::FETCH_ASSOC);
                 <p class="copyright">
                     Copyright &copy; 2020 <a href="index">BekyFeeds</a>
                 </p>
-                <p class="developer text-white">Developed By Bekyfeeds</p>
+                <p class="text-white developer">Developed By Bekyfeeds</p>
             </div>
         </footer>
     </div>
     <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/wow.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/slick.min.js"></script>
     <script src="assets/js/jquery.li-scroller.1.0.js"></script>

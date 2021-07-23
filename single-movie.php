@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <?php
 
 require "config/meta.php"; 
@@ -96,10 +96,8 @@ if($isParameter === false){
 
 
 <body>
-    <div id="preloader">
-        <div id="status">&nbsp;</div>
-    </div>
-    <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
+    
+    
     <div class="container">
         <header id="header">
             <div class="row">
@@ -108,8 +106,8 @@ if($isParameter === false){
                         <div class="header_top_left">
                             <ul class="top_nav">
                                 <li><a href="../index">Home</a></li>
-                                <li><a href="about">About</a></li>
-                                <li><a href="contact-us">Contact</a></li>
+                                <li><a href="../about">About</a></li>
+                                <li><a href="../contact-us">Contact</a></li>
 
                             </ul>
                         </div>
@@ -121,7 +119,7 @@ if($isParameter === false){
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="header_bottom">
                         <div class="logo_area">
-                            <a href="../index" class="logo">
+                            <a href="index" class="logo">
                                 <h1>bekyfeeds</h1>
                             </a>
                         </div>
@@ -144,12 +142,9 @@ if($isParameter === false){
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav main_nav">
-                        <li>
-                            <a href="../index"><span class="fa fa-home desktop-home"></span><span
-                                    class="mobile-show">Home</span></a>
-                        </li>
+                        <li><a href="../index">Home</a></li>
 
-                        <li><a href="tv-show">TV Show</a></li>
+                        <li><a href="../tv-show">TV Show</a></li>
                         <li class="active"><a href="../movies">Movies</a></li>
                         <li><a href="../request">Your Requests</a></li>
                         <!-- <li><a href="news">News</a></li>
@@ -187,7 +182,7 @@ if($isParameter === false){
 
                             <div class="md:flex justify-between w-full">
                                 <div class="w-full md:w-3/4 md:mr-3">
-                                    <div class="single_post_content wow fadeInDown">
+                                    <div class="single_post_content ">
                                         <h2><span><?php echo $title; ?></span></h2>
                                         <div>
                                             <div class="rounded shadow-md  md:flex md:bg-gray-900 md:h-64">
@@ -197,7 +192,7 @@ if($isParameter === false){
                                                     <div class="">
 
                                                         <?php
-                            echo '<img src="' .$img_url.  '"  class="w-full md:h-64 md:object-contain md:-mx-4 " alt="' . $title . '">';
+                            echo '<img src="../images/mposters/' .$img_url.  '"  class="w-full md:h-64 md:object-contain md:-mx-4 " alt="' . $title . '">';
                             ?>
 
 
@@ -274,7 +269,7 @@ Sorry, It will be uploaded soon </div>';
                         </div>
                         <div class="w-full md:w-1/4">
 
-                            <div class="bg-white single_post_content wow fadeInDown">
+                            <div class="bg-white single_post_content ">
                                 <h2><span>Join Us</span></h2>
                                 <a class="sideAdd" target="_blank" target="_blank"
                                     href="https://t.me/bekyfeedscommounity" target="_blank"
@@ -304,12 +299,12 @@ Sorry, It will be uploaded soon </div>';
                             foreach ($recentMovies as $recent) {
 
                                 echo '<li class="my-3">
-  <figure href="film/' . $recent["alias"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
-    <a href="film/' . $recent["alias"] . '" class="w-32 mr-3">
-      <img alt="'. $recent["title"] .'" class="w-32 h-full" src="' . $recent["img_url"] . '" />
+  <figure href="../film/' . $recent["alias"] . '" class="flex bg-gray-100 border rounded cursor-pointer media   ">
+    <a href="../film/' . $recent["alias"] . '" class="w-32 mr-3">
+      <img alt="'. $recent["title"] .'" class="w-32 h-full" src="../images/mposters/' . $recent["img_url"] . '" />
     </a>
     <figcaption class="p-3 media-body">
-      <a href="film/' . $recent["alias"] . '" class="">
+      <a href="../film/' . $recent["alias"] . '" class="">
       ' . $recent["title"] . ' <p class="genre">' . $recent["genre"] . '</p> <p class="year">' . $recent["releasing_year"] . '</p> </a>
     </figcaption>
   </figure>
@@ -333,12 +328,12 @@ Sorry, It will be uploaded soon </div>';
                             foreach ($popularMovies as $popular) {
 
                                 echo '<li class="my-3">
-  <figure href="film/' . $popular["title"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
-    <a href="film/' . $popular["title"] . '" class="w-32 mr-3">
-      <img alt="'. $popular["title"] .'" class="w-32 h-full" src="' . $popular["img_url"] . '" />
+  <figure href="../film/' . $popular["title"] . '" class="flex bg-gray-100 border rounded cursor-pointer media   ">
+    <a href="../film/' . $popular["title"] . '" class="w-32 mr-3">
+      <img alt="'. $popular["title"] .'" class="w-32 h-full" src="../images/mposters/' . $popular["img_url"] . '" />
     </a>
     <figcaption class="p-3 media-body">
-      <a href=" film/' . $popular["title"] . '" class="">
+      <a href=" ../film/' . $popular["title"] . '" class="">
       ' . $popular["title"] . ' <p class="genre">' . $popular["genre"] . '</p> <p class="year">' . $popular["releasing_year"] . '</p> </a>
     </figcaption>
   </figure>
@@ -369,12 +364,12 @@ Sorry, It will be uploaded soon </div>';
                         foreach ($editorMovies as $editor) {
 
                             echo '<li class="my-3">
-  <figure href="film/' . $editor["title"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
-    <a href="film/' . $editor["title"] . '" class="w-32 mr-3">
-      <img alt="'. $editor["title"] .'" class="w-32 h-full" src="' . $editor["img_url"] . '" />
+  <figure href="../film/' . $editor["title"] . '" class="flex bg-gray-100 border rounded cursor-pointer media   ">
+    <a href="../film/' . $editor["title"] . '" class="w-32 mr-3">
+      <img alt="'. $editor["title"] .'" class="w-32 h-full" src="../images/mposters/' . $editor["img_url"] . '" />
     </a>
     <figcaption class="p-3 media-body">
-      <a href=" film/' . $editor["title"] . '" class="">
+      <a href=" ../film/' . $editor["title"] . '" class="">
       ' . $editor["title"] . ' <p class="genre">' . $editor["genre"] . '</p> <p class="year">' . $editor["releasing_year"] . '</p> </a>
     </figcaption>
   </figure>
@@ -396,7 +391,7 @@ Sorry, It will be uploaded soon </div>';
         <div class="footer_top">
             <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-4">
-                    <div class=" wow fadeInLeftBig">
+                    <div class=" ">
                         <h2 class="text-genre"> Disclaimer</h2>
                     </div>
                     <p>
@@ -406,7 +401,7 @@ Sorry, It will be uploaded soon </div>';
                     </p>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4">
-                    <div class="footer_widget wow fadeInDown">
+                    <div class="footer_widget ">
                         <h2>Important Links</h2>
                         <ul class="tag_nav">
                             <li><a href="about"
@@ -434,7 +429,7 @@ Sorry, It will be uploaded soon </div>';
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4">
-                    <div class="footer_widget wow fadeInRightBig">
+                    <div class="footer_widget ">
                         <h2>Contact Us</h2>
 
 
@@ -461,7 +456,7 @@ Sorry, It will be uploaded soon </div>';
         </div>
         <div class="footer_bottom">
             <p class="copyright">
-                Copyright &copy; 2020 <a href="../index">BekyFeeds</a>
+                Copyright &copy; 2020 <a href="index">BekyFeeds</a>
             </p>
             <p class="developer text-white">Developed By Bekyfeeds</p>
         </div>

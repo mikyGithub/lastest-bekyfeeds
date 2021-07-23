@@ -1,21 +1,27 @@
 <!DOCTYPE html>
-<html>
-<?php require "config/meta.php"; ?>
+<html lang="en">
+<?php require "config/meta.php";
+require 'models/FeatureFilm.php';
+require 'config/Database.php';
+$database = new Database();
+$db = $database->connect();
+$film = new FeatureFilm($db);
+
+$popularMovies = $film->getPopular()->fetchAll(PDO::FETCH_ASSOC);
+?>
 
 <head>
-    <title>BekyFeeds | Pages | Contact</title>
+    <title>BekyFeeds | Contact</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/font.css">
     <link rel="stylesheet" type="text/css" href="assets/css/li-scroller.css">
     <link rel="stylesheet" type="text/css" href="assets/css/slick.css">
     <link rel="stylesheet" type="text/css" href="assets/css/jquery.fancybox.css">
     <link rel="stylesheet" type="text/css" href="assets/css/theme.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/utilities.min.css" />
     <!--[if lt IE 9]>
 <script src="assets/js/html5shiv.min.js"></script>
 <script src="assets/js/respond.min.js"></script>
@@ -23,21 +29,19 @@
 </head>
 
 <body>
-    <div id="preloader">
-        <div id="status">&nbsp;</div>
-    </div>
-    <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
+
+
     <div class="container">
         <header id="header">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="header_top">
                         <div class="header_top_left">
-                        <ul class="top_nav">
-                                <li><a href="../index">Home</a></li>
+                            <ul class="top_nav">
+                                <li><a href="index">Home</a></li>
                                 <li><a href="about">About</a></li>
                                 <li><a href="contact-us">Contact</a></li>
-                               
+
                             </ul>
                         </div>
                         <div class="header_top_right">
@@ -47,9 +51,13 @@
                 </div>
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="header_bottom">
-                        <div class="logo_area"><a href="../index.html" class="logo"><img src="images/logo.jpg"
-                                    alt=""></a></div>
-                        <div class="add_banner"><a href="#"><img src="images/addbanner_728x90_V1.jpg" alt=""></a>
+                        <div class="logo_area">
+                            <a href="/index" class="logo">
+                                <h1>bekyfeeds</h1>
+                            </a>
+                        </div>
+                        <div class="add_banner">
+                            <a href="#"><img src="images/banner.jpg" alt="" /></a>
                         </div>
                     </div>
                 </div>
@@ -65,11 +73,9 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav main_nav">
-                        <li>
-                            <a href="../index"><span class="fa fa-home desktop-home"></span><span
-                                    class="mobile-show">Home</span></a>
-                        </li>
 
+
+                        <li><a href="index">Home</a></li>
                         <li><a href="tv-show">TV Show</a></li>
                         <li><a href="movies">Movies</a></li>
                         <li><a href="request">Your Requests</a></li>
@@ -88,9 +94,8 @@
                     <div class="left_content">
                         <div class="contact_area">
                             <h2>Contact Us</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                incididunt ut labolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dosectetur
-                                adipisicing elit, sed do.Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                            <p>We would love to hear from you! Leave a message below and we will get in touch with you
+                                shortly. </p>
                             <form action="#" class="contact_form">
                                 <input class="form-control" type="text" placeholder="Name*">
                                 <input class="form-control" type="email" placeholder="Email*">
@@ -99,42 +104,56 @@
                             </form>
                         </div>
                     </div>
+
+                    <ul class="tag_nav">
+                        <li><a target="_blank" href="https://t.me/bekyfeedscommounity">
+                                Telegram
+                            </a></li>
+                        <li><a href="https://www.facebook.com/Beky-Feeds-112556537282665">
+                                Facebook
+                            </a>
+                        </li>
+
+
+
+
+
+
+
+                    </ul>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4">
                     <aside class="right_content">
                         <div class="single_sidebar">
                             <h2><span>Popular Post</span></h2>
-                            <ul class="spost_nav">
-                                <li>
-                                    <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left">
-                                            <img alt="" src="images/post_img1.jpg"> </a>
-                                        <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam
-                                                malesuada diam eget turpis varius 1</a> </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left">
-                                            <img alt="" src="images/post_img2.jpg"> </a>
-                                        <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam
-                                                malesuada diam eget turpis varius 2</a> </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left">
-                                            <img alt="" src="images/post_img1.jpg"> </a>
-                                        <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam
-                                                malesuada diam eget turpis varius 3</a> </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left">
-                                            <img alt="" src="images/post_img2.jpg"> </a>
-                                        <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam
-                                                malesuada diam eget turpis varius 4</a> </div>
-                                    </div>
-                                </li>
+
+
+
+                            <ul class="my-2 spost_nav">
+                                <?php
+
+                            foreach ($popularMovies as $popular) {
+
+                                echo '<li class="my-3">
+  <figure href="film/' . $popular["alias"] . '" class="flex bg-gray-100 border rounded cursor-pointer media   ">
+    <a href="film/' . $popular["alias"] . '" class="w-32 mr-3">
+      <img alt="'. $popular["title"] .'" class="w-32 h-full" src="images/mposters/' . $popular["img_url"] . '" />
+    </a>
+    <figcaption class="p-3 media-body">
+      <a href=" film/' . $popular["alias"] . '" class="">
+      ' . $popular["title"] . ' <p class="genre">' . $popular["genre"] . '</p> <p class="year">' . $popular["releasing_year"] . '</p> </a>
+    </figcaption>
+  </figure>
+</li>
+';
+                            }
+                            ?>
+
+
+
                             </ul>
                         </div>
+
                     </aside>
                 </div>
             </div>
@@ -143,7 +162,7 @@
             <div class="footer_top">
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-sm-4">
-                        <div class=" wow fadeInLeftBig">
+                        <div class=" ">
                             <h2 class="text-genre"> Disclaimer</h2>
                         </div>
                         <p>
@@ -153,7 +172,7 @@
                         </p>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-4">
-                        <div class="footer_widget wow fadeInDown">
+                        <div class="footer_widget ">
                             <h2>Important Links</h2>
                             <ul class="tag_nav">
                                 <li><a href="about"
@@ -181,7 +200,7 @@
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-4">
-                        <div class="footer_widget wow fadeInRightBig">
+                        <div class="footer_widget ">
                             <h2>Contact Us</h2>
 
 
@@ -208,14 +227,14 @@
             </div>
             <div class="footer_bottom">
                 <p class="copyright">
-                    Copyright &copy; 2020 <a href="../index">BekyFeeds</a>
+                    Copyright &copy; 2020 <a href="index">BekyFeeds</a>
                 </p>
                 <p class="developer text-white">Developed By Bekyfeeds</p>
             </div>
         </footer>
     </div>
     <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/wow.min.js"></script>
+
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/slick.min.js"></script>
     <script src="assets/js/jquery.li-scroller.1.0.js"></script>

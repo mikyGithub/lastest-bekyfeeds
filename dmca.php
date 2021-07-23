@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <?php require "config/meta.php"; ?>
 
 <head>
@@ -8,9 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css" />
-    <link rel="stylesheet" type="text/css" href="assets/css/animate.css" />
-    <link rel="stylesheet" type="text/css" href="assets/css/font.css" />
+<link rel="stylesheet" type="text/css" href="assets/css/animate.css" />
+    
     <link rel="stylesheet" type="text/css" href="assets/css/li-scroller.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/slick.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/jquery.fancybox.css" />
@@ -28,10 +27,8 @@
 
 
 <body>
-    <div id="preloader">
-        <div id="status">&nbsp;</div>
-    </div>
-    <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
+    
+    
     <div class="container">
         <header id="header">
             <div class="row">
@@ -39,7 +36,7 @@
                     <div class="header_top">
                         <div class="header_top_left">
                         <ul class="top_nav">
-                                <li><a href="../index">Home</a></li>
+                                <li><a href="index">Home</a></li>
                                 <li><a href="about">About</a></li>
                                 <li><a href="contact-us">Contact</a></li>
                                
@@ -53,7 +50,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="header_bottom">
                         <div class="logo_area">
-                            <a href="../index" class="logo">
+                            <a href="index" class="logo">
                                 <h1>bekyfeeds</h1>
                             </a>
                         </div>
@@ -76,11 +73,8 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav main_nav">
-                        <li>
-                            <a href="../index"><span class="fa fa-home desktop-home"></span><span
-                                    class="mobile-show">Home</span></a>
-                        </li>
-
+                        
+                    <li><a href="index">Home</a></li>
                         <li><a href="tv-show">TV Show</a></li>
                         <li><a href="movies">Movies</a></li>
                         <li><a href="request">Your Requests</a></li>
@@ -118,7 +112,7 @@
             <div class="footer_top">
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-sm-4">
-                        <div class=" wow fadeInLeftBig">
+                        <div class=" ">
                             <h2 class="text-genre"> Disclaimer</h2>
                         </div>
                         <p>
@@ -128,7 +122,7 @@
                         </p>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-4">
-                        <div class="footer_widget wow fadeInDown">
+                        <div class="footer_widget ">
                             <h2>Important Links</h2>
                             <ul class="tag_nav">
                                 <li><a href="about" class=" text-green-400 my-1 hover: text-justify">About
@@ -151,7 +145,7 @@
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-4">
-                        <div class="footer_widget wow fadeInRightBig">
+                        <div class="footer_widget ">
                             <h2>Contact Us</h2>
 
 
@@ -178,14 +172,14 @@
             </div>
             <div class="footer_bottom">
                 <p class="copyright">
-                    Copyright &copy; 2020 <a href="../index">BekyFeeds</a>
+                    Copyright &copy; 2020 <a href="index">BekyFeeds</a>
                 </p>
                 <p class="developer ">Developed By Bekyfeeds</p>
             </div>
         </footer>
     </div>
     <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/wow.min.js"></script>
+
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/slick.min.js"></script>
     <script src="assets/js/jquery.li-scroller.1.0.js"></script>

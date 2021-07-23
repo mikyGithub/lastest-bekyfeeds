@@ -66,17 +66,9 @@ class Series
     public function getSeriesDetail($alias)
     {
         //Get Series 
-        $query = 'SELECT * FROM ' . $this->series . ' s  LEFT JOIN ' . $this->episode . ' e on e.id = s.id WHERE s.alias="' . $alias.'"';
+        $query = 'SELECT * FROM ' . $this->series . ' s  LEFT JOIN ' . $this->episode . ' e on e.alias = s.alias WHERE s.alias="' . $alias.'"';
 
-    //    $query = 'SELECT * FROM ' . $this->series . ' s  LEFT JOIN ' . $this->episode . ' e on e.id = s.id WHERE s.alias="' . $alias.'"';
-
-
-
-    //    $query = 'SELECT * FROM ' . $this->series . ' s  LEFT JOIN ' . $this->episode . ' e on e.alias = s.alias WHERE s.alias="' . $alias.'"';
-
-
-    //     $query =  'SELECT * FROM' . $this->series .  ' s LEFT JOIN '  . $this->episode . ' e on e.alias = s.alias WHERE s.alias="' .$alias'"';
-
+  
         // Prepare Statement
         $stmt = $this->connection->prepare($query);
 

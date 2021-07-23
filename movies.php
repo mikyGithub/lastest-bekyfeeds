@@ -3,14 +3,13 @@
 <?php require "config/meta.php"; ?>
 
 <head>
-    <title>BekyFeeds</title>
+    <title>BekyFeeds | Movies</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css" />
-    <link rel="stylesheet" type="text/css" href="assets/css/animate.css" />
-    <link rel="stylesheet" type="text/css" href="assets/css/font.css" />
+
+
     <link rel="stylesheet" type="text/css" href="assets/css/li-scroller.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/slick.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/jquery.fancybox.css" />
@@ -83,7 +82,7 @@ if($isParameter === false){
     <div id="preloader">
         <div id="status">&nbsp;</div>
     </div>
-    <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
+
     <div class="container">
         <header id="header">
             <div class="row">
@@ -91,7 +90,7 @@ if($isParameter === false){
                     <div class="header_top">
                         <div class="header_top_left">
                             <ul class="top_nav">
-                                <li><a href="../index">Home</a></li>
+                                <li><a href="index">Home</a></li>
                                 <li><a href="about">About</a></li>
                                 <li><a href="contact-us">Contact</a></li>
 
@@ -128,11 +127,7 @@ if($isParameter === false){
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav main_nav">
-                        <li>
-                            <a href="../index"><span class="fa fa-home desktop-home"></span><span
-                                    class="mobile-show">Home</span></a>
-                        </li>
-
+                        <li><a href="index">Home</a></li>
                         <li><a href="tv-show">TV Show</a></li>
                         <li class="active"><a href="movies">Movies</a></li>
                         <li><a href="request">Your Requests</a></li>
@@ -218,7 +213,7 @@ if($isParameter === false){
                                     echo '<li>
   <div class="media">
     <a href="film/' . $recent["alias"] . '" class="media-left-custom">
-      <img alt=". $recent["title"] ." style="background-color:black;object-fit:contain" src="' . $recent["img_url"] . '" />
+      <img alt=". $recent["title"] ." style="background-color:black;object-fit:contain" src="images/mposters/' . $recent["img_url"] . '" />
     </a>
     <div class="media-body">
       <a href="film/' . $recent["alias"] . '" class="catg_title">
@@ -281,16 +276,16 @@ if($isParameter === false){
                         </div> -->
 
                         <div>
-                            <ul class="flex flex-wrap ">
+                            <ul class="flex flex-wrap md:mx-0 -mx-2 ">
 
                                 <?php
                                 foreach ($allFilms as $movie) {
 
                                     echo '
-            <a href="film/' . $movie["alias"] . '" class="">
-            <div  class="m-1 md:mx-3">
-            <div class="w-full h-full overflow-hidden">
-            <img src="' . $movie['img_url'] . '" class="object-cover rounded-t inner-img media-left-custom " alt="' . $movie['title'] . '">
+            <a  href="film/' . $movie["alias"] . '" class="md:mx-0 mx-1">
+            <div  class=" md:mx-3 my-2">
+            <div class="w-full h-full overflow-hidden ">
+            <img src="images/mposters/' . $movie['img_url'] . '" class="object-cover rounded-t inner-img media-left-custom " alt="' . $movie['title'] . '">
             </div>
         
               <div class="flex items-center justify-between p-2 rounded-b bg-theme ">
@@ -407,7 +402,7 @@ if($isParameter === false){
                                 echo '<li class="my-3">
   <figure href="film/' . $recent["alias"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
     <a href="film/' . $recent["alias"] . '" class="w-32 mr-3">
-      <img alt="'. $recent["title"] .'" class="w-32 h-full" src="' . $recent["img_url"] . '" />
+      <img alt="'. $recent["title"] .'" class="w-32 h-full" src="images/mposters/' . $recent["img_url"] . '" />
     </a>
     <figcaption class="p-3 media-body">
       <a href=" film/' . $recent["alias"] . '" class="">
@@ -436,7 +431,7 @@ if($isParameter === false){
                                 echo '<li class="my-3">
   <figure href="film/' . $popular["alias"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
     <a href="film/' . $popular["alias"] . '" class="w-32 mr-3">
-      <img alt="'. $popular["title"] .'" class="w-32 h-full" src="' . $popular["img_url"] . '" />
+      <img alt="'. $popular["title"] .'" class="w-32 h-full" src="images/mposters/' . $popular["img_url"] . '" />
     </a>
     <figcaption class="p-3 media-body">
       <a href=" film/' . $popular["alias"] . '" class="">
@@ -472,7 +467,7 @@ if($isParameter === false){
                             echo '<li class="my-3">
   <figure href="film/' . $editor["alias"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
     <a href="film/' . $editor["alias"] . '" class="w-32 mr-3">
-      <img alt="'. $editor["title"] .'" class="w-32 h-full" src="' . $editor["img_url"] . '" />
+      <img alt="'. $editor["title"] .'" class="w-32 h-full" src="images/mposters/' . $editor["img_url"] . '" />
     </a>
     <figcaption class="p-3 media-body">
       <a href=" film/' . $editor["alias"] . '" class="">
@@ -562,7 +557,7 @@ if($isParameter === false){
         </div>
         <div class="footer_bottom">
             <p class="copyright">
-                Copyright &copy; 2020 <a href="../index">BekyFeeds</a>
+                Copyright &copy; 2020 <a href="index">BekyFeeds</a>
             </p>
             <p class="developer text-white">Developed By Bekyfeeds</p>
         </div>

@@ -1,16 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <?php require "config/meta.php"; ?>
 
 <head>
-    <title>Bekyfeeds</title>
+    <title>Bekyfeeds | Requests</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css" />
-    <link rel="stylesheet" type="text/css" href="assets/css/animate.css" />
-    <link rel="stylesheet" type="text/css" href="assets/css/font.css" />
+ 
+
     <link rel="stylesheet" type="text/css" href="assets/css/li-scroller.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/slick.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/jquery.fancybox.css" />
@@ -42,10 +41,8 @@ $latestEpisodes = $request->getLatestEpisodes()->fetchAll(PDO::FETCH_ASSOC);
 
 
 <body>
-    <div id="preloader">
-        <div id="status">&nbsp;</div>
-    </div>
-    <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
+    
+    
     <div class="container">
         <header id="header">
             <div class="row">
@@ -53,10 +50,10 @@ $latestEpisodes = $request->getLatestEpisodes()->fetchAll(PDO::FETCH_ASSOC);
                     <div class="header_top">
                         <div class="header_top_left">
                             <ul class="top_nav">
-                                <li><a href="../index">Home</a></li>
+                                <li><a href="index">Home</a></li>
                                 <li><a href="about">About</a></li>
                                 <li><a href="contact-us">Contact</a></li>
-                               
+
                             </ul>
                         </div>
                         <div class="header_top_right">
@@ -67,7 +64,7 @@ $latestEpisodes = $request->getLatestEpisodes()->fetchAll(PDO::FETCH_ASSOC);
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="header_bottom">
                         <div class="logo_area">
-                            <a href="../index" class="logo">  
+                            <a href="index" class="logo">
                                 <h1>bekyfeeds</h1>
                             </a>
                         </div>
@@ -90,11 +87,8 @@ $latestEpisodes = $request->getLatestEpisodes()->fetchAll(PDO::FETCH_ASSOC);
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav main_nav">
-                        <li>
-                            <a href="../index"><span class="fa fa-home desktop-home"></span><span
-                                    class="mobile-show">Home</span></a>
-                        </li>
 
+                        <li><a href="index">Home</a></li>
                         <li><a href="tv-show">TV Show</a></li>
                         <li><a href="movies">Movies</a></li>
                         <li class="active"><a href="request">Your Requests</a></li>
@@ -110,7 +104,7 @@ $latestEpisodes = $request->getLatestEpisodes()->fetchAll(PDO::FETCH_ASSOC);
             <section class="contentSection">
                 <div class="md:flex justify-between">
                     <div class="md:w-3/4 md:mr-3">
-                        <div class="single_post_content wow fadeInDown">
+                        <div class="single_post_content ">
                             <h2><span>Your Requests</span></h2>
                             <ul>
                                 <?php
@@ -127,10 +121,12 @@ echo '<li class="p-3 my-1 bg-gray-200 hover:bg-gray-100 "><a class="flex justify
                     </div>
                     <div class="md:w-1/4">
 
-                        <div class="bg-white single_post_content wow fadeInDown">
+                        <div class="bg-white single_post_content ">
                             <h2><span>Join Us</span></h2>
-                            <a class="sideAdd" class="sideAdd" target="_blank" target="_blank" href="https://t.me/bekyfeedscommounity" target="_blank" href="https://t.me/bekyfeedscommounity"><img style="object-fit:cover" src="images/telegram.gif"
-                                    alt="" /></a>
+                            <a class="sideAdd" class="sideAdd" target="_blank" target="_blank"
+                                href="https://t.me/bekyfeedscommounity" target="_blank"
+                                href="https://t.me/bekyfeedscommounity"><img style="object-fit:cover"
+                                    src="images/telegram.gif" alt="" /></a>
                         </div>
 
 
@@ -152,12 +148,12 @@ echo '<li class="p-3 my-1 bg-gray-200 hover:bg-gray-100 "><a class="flex justify
                     foreach ($latestMovies as $latest) {
 
                       echo '<li class="my-3">
-  <figure href="single-movie.php?title=' . $latest["title"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
-    <a href="single-movie.php?title=' . $latest["title"] . '" class="w-32 mr-3">
-      <img alt="'. $latest["title"] .'" class="w-32 h-full" src="' . $latest["img_url"] . '" />
+  <figure href="film/' . $latest["alias"] . '" class="flex bg-gray-100 border rounded cursor-pointer media   ">
+    <a href="film/' . $latest["alias"] . '" class="w-32 mr-3">
+      <img alt="'. $latest["title"] .'" class="w-32 h-full" src="images/mposters/' . $latest["img_url"] . '" />
     </a>
     <figcaption class="p-3 media-body">
-      <a href="single-movie.php?title=' . $latest["title"] . '" class="">
+      <a href="film/' . $latest["alias"] . '" class="">
       ' . $latest["title"] . ' <p class="genre">' . $latest["genre"] . '</p> <p class="year">' . $latest["releasing_year"] . '</p> </a>
     </figcaption>
   </figure>
@@ -180,12 +176,12 @@ echo '<li class="p-3 my-1 bg-gray-200 hover:bg-gray-100 "><a class="flex justify
                     foreach ($latestEpisodes as $latest) {
 
                       echo '<li class="my-3">
-                      <figure href="single-series/series_id=' . $latest["id"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
-                        <a href="single-series/series_id=' . $latest["id"] . '" class="w-32 mr-3">
+                      <figure href="series/' . $latest["alias"] . '" class="flex bg-gray-100 border rounded cursor-pointer media   ">
+                        <a href="series/' . $latest["alias"] . '" class="w-32 mr-3">
                           <img alt="'. $latest["name"] .'" class="w-32 h-full" src="images/posters/' . $latest["img_url"] . '" />
                         </a>
                         <figcaption class="p-3 media-body">
-                          <a href=" single-series/series_id=' . $latest["id"] . '" class="">
+                          <a href=" series/' . $latest["alias"] . '" class="">
                           ' . $latest["name"] . ' <p class="genre">' . $latest["genre"] . '</p> <p class="year">' . $latest["releasing_year"] . '</p> </a>
                         </figcaption>
                       </figure>
@@ -212,7 +208,7 @@ echo '<li class="p-3 my-1 bg-gray-200 hover:bg-gray-100 "><a class="flex justify
         <div class="footer_top">
             <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-4">
-                    <div class=" wow fadeInLeftBig">
+                    <div class=" ">
                         <h2 class="text-genre"> Disclaimer</h2>
                     </div>
                     <p>
@@ -222,7 +218,7 @@ echo '<li class="p-3 my-1 bg-gray-200 hover:bg-gray-100 "><a class="flex justify
                     </p>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4">
-                    <div class="footer_widget wow fadeInDown">
+                    <div class="footer_widget ">
                         <h2>Important Links</h2>
                         <ul class="tag_nav">
                             <li><a href="about"
@@ -250,7 +246,7 @@ echo '<li class="p-3 my-1 bg-gray-200 hover:bg-gray-100 "><a class="flex justify
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4">
-                    <div class="footer_widget wow fadeInRightBig">
+                    <div class="footer_widget ">
                         <h2>Contact Us</h2>
 
 
@@ -277,14 +273,14 @@ echo '<li class="p-3 my-1 bg-gray-200 hover:bg-gray-100 "><a class="flex justify
         </div>
         <div class="footer_bottom">
             <p class="copyright">
-                Copyright &copy; 2020 <a href="../index">BekyFeeds</a>
+                Copyright &copy; 2020 <a href="index">BekyFeeds</a>
             </p>
             <p class="developer text-white">Developed By Bekyfeeds</p>
         </div>
     </footer>
     </div>
     <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/wow.min.js"></script>
+
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/slick.min.js"></script>
     <script src="assets/js/jquery.li-scroller.1.0.js"></script>
