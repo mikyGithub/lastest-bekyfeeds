@@ -96,7 +96,7 @@ if($isParameter === false){
 
 
 <body>
-    
+
 
     <div class="container">
         <header id="header">
@@ -112,7 +112,7 @@ if($isParameter === false){
                             </ul>
                         </div>
                         <div class="header_top_right">
-                            <a target="_blank" href="https://t.me/bekyfeedscommounity">Join Us on Telegram</a>
+                            <a target="_blank" href="https://t.me/bekyfeedscommunity">Join Us on Telegram</a>
                         </div>
                     </div>
                 </div>
@@ -166,7 +166,7 @@ if($isParameter === false){
 
                                 echo '
               <li>
-                <a href="series/' . $popular['alias'] . '">' . $popular['name'] . '</a>
+                <a href="../series/' . $popular['alias'] . '">' . $popular['name'] . '</a>
               </li>
               ';
                             }
@@ -193,14 +193,14 @@ if($isParameter === false){
 
                             echo '
   <div class="single_iteam">
-  <a href="series/' . $recent["alias"] . '">
+  <a href="../series/' . $recent["alias"] . '">
  
   
   <img style="background-color:black;object-fit:contain" src="../images/posters/' . $recent["img_url"] . '" alt="' . $recent["name"] . '" /></a>
 
   <div class="slider_article">
     <h2>
-      <a class="slider_tittle" href="series/">' . $recent["alias"] . '</a>
+      <a class="slider_tittle" href="../series/">' . $recent["alias"] . '</a>
     </h2>
     <p>
     ' . $recent["description"] . '
@@ -227,11 +227,11 @@ if($isParameter === false){
 
                                     echo '<li>
   <div class="media">
-    <a href="series/' . $recent["alias"] . '" class="media-left-custom">
+    <a href="../series/' . $recent["alias"] . '" class="media-left-custom">
       <img alt=". $recent["name"] ." style="background-color:black;object-fit:contain" src="../images/posters/' . $recent["img_url"] . '" />
     </a>
     <div class="media-body">
-      <a href="series/' . $recent["alias"] . '" class="catg_name">
+      <a href="../series/' . $recent["alias"] . '" class="catg_name">
       ' . $recent["name"] . ' <p class="genre">' . $recent["genre"] . '</p> <p class="year">' . $recent["releasing_year"] . '</p> </a>
     </div>
   </div>
@@ -253,7 +253,7 @@ if($isParameter === false){
 
             <div class="flex flex-col w-full">
                 <div class="latest_post">
-                    <form action="./tv-show.php">
+                    <form action="../tv-show.php">
                         <div style="border:0px" class="flex items-center justify-between my-4 outline-none ">
 
                             <input style="border:0px; border-bottom:2px solid #139ea8" type="text"
@@ -387,8 +387,8 @@ if($isParameter === false){
                                     <div class="bg-white single_post_content wow fadeInDown">
                                         <h2><span>Join Us</span></h2>
                                         <a class="sideAdd" target="_blank" target="_blank"
-                                            href="https://t.me/bekyfeedscommounity" target="_blank"
-                                            href="https://t.me/bekyfeedscommounity"><img style="object-fit:cover"
+                                            href="https://t.me/bekyfeedscommunity" target="_blank"
+                                            href="https://t.me/bekyfeedscommunity"><img style="object-fit:cover"
                                                 src="../images/telegram.gif" alt="" /></a>
                                     </div>
 
@@ -417,12 +417,12 @@ if($isParameter === false){
                             foreach ($recentSeries as $recent) {
 
                                 echo '<li class="my-3">
-  <figure href="series/' . $recent["alias"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
-    <a href="series/' . $recent["alias"] . '" class="w-32 mr-3">
+  <figure href="../series/' . $recent["alias"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
+    <a href="../series/' . $recent["alias"] . '" class="w-32 mr-3">
       <img alt="'. $recent["name"] .'" class="w-32 h-full" src="../images/posters/' . $recent["img_url"] . '" />
     </a>
     <figcaption class="p-3 media-body">
-      <a href=" series/' . $recent["alias"] . '" class="">
+      <a href=" ../series/' . $recent["alias"] . '" class="">
       ' . $recent["name"] . ' <p class="genre">' . $recent["genre"] . '</p> <p class="year">' . $recent["releasing_year"] . '</p> </a>
     </figcaption>
   </figure>
@@ -446,12 +446,12 @@ if($isParameter === false){
                             foreach ($popularSeries as $popular) {
 
                                 echo '<li class="my-3">
-  <figure href="series/' . $popular["alias"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
-    <a href="series/' . $popular["alias"] . '" class="w-32 mr-3">
+  <figure href="../series/' . $popular["alias"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
+    <a href="../series/' . $popular["alias"] . '" class="w-32 mr-3">
       <img alt="'. $popular["name"] .'" class="w-32 h-full" src="../images/posters/' . $popular["img_url"] . '" />
     </a>
     <figcaption class="p-3 media-body">
-      <a href=" series/' . $popular["alias"] . '" class="">
+      <a href=" ../series/' . $popular["alias"] . '" class="">
       ' . $popular["name"] . ' <p class="genre">' . $popular["genre"] . '</p> <p class="year">' . $popular["releasing_year"] . '</p> </a>
     </figcaption>
   </figure>
@@ -471,8 +471,8 @@ if($isParameter === false){
                 <h2><span>Editor's Choice</span></h2>
                 <div class="single_post_content_left">
                     <a class="sideAdd" class="sideAdd" target="_blank" target="_blank"
-                        href="https://t.me/bekyfeedscommounity" target="_blank"
-                        href="https://t.me/bekyfeedscommounity"><img class="object-contain" src="../images/telegram.gif"
+                        href="https://t.me/bekyfeedscommunity" target="_blank"
+                        href="https://t.me/bekyfeedscommunity"><img class="object-contain" src="../images/telegram.gif"
                             alt="" /></a>
                 </div>
                 <div class="single_post_content_right">
@@ -482,12 +482,12 @@ if($isParameter === false){
                         foreach ($editorSeries as $editor) {
 
                             echo '<li class="my-3">
-  <figure href="series/' . $editor["alias"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
-    <a href="series/' . $editor["alias"] . '" class="w-32 mr-3">
+  <figure href="../series/' . $editor["alias"] . '" class="flex bg-gray-100 border rounded cursor-pointer media wow fadeInDown animated ">
+    <a href="../series/' . $editor["alias"] . '" class="w-32 mr-3">
       <img alt="'. $editor["name"] .'" class="w-32 h-full" src="../images/posters/' . $editor["img_url"] . '" />
     </a>
     <figcaption class="p-3 media-body">
-      <a href=" series/' . $editor["alias"] . '" class="">
+      <a href=" ../series/' . $editor["alias"] . '" class="">
       ' . $editor["name"] . ' <p class="genre">' . $editor["genre"] . '</p> <p class="year">' . $editor["releasing_year"] . '</p> </a>
     </figcaption>
   </figure>
@@ -553,7 +553,7 @@ if($isParameter === false){
 
 
                         <ul class="tag_nav">
-                            <li><a target="_blank" href="https://t.me/bekyfeedscommounity">
+                            <li><a target="_blank" href="https://t.me/bekyfeedscommunity">
                                     Telegram
                                 </a></li>
                             <li><a href="https://www.facebook.com/Beky-Feeds-112556537282665">

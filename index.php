@@ -70,7 +70,7 @@ $editorMovies = $home->getEditorMovies()->fetchAll(PDO::FETCH_ASSOC);
                             </ul>
                         </div>
                         <div class="header_top_right">
-                            <a target="_blank" href="https://t.me/bekyfeedscommounity">Join Us on Telegram</a>
+                            <a target="_blank" href="https://t.me/bekyfeedscommunity">Join Us on Telegram</a>
                         </div>
                     </div>
                 </div>
@@ -150,7 +150,7 @@ $editorMovies = $home->getEditorMovies()->fetchAll(PDO::FETCH_ASSOC);
                             <ul class="social_nav">
                                 <li class="twitter"><a href="https://www.facebook.com/Beky-Feeds-112556537282665"></a>
                                 </li>
-                                <li class="facebook"><a target="_blank" href="https://t.me/bekyfeedscommounity"></a>
+                                <li class="facebook"><a target="_blank" href="https://t.me/bekyfeedscommunity"></a>
                                 </li>
                             </ul>
                         </div>
@@ -306,7 +306,7 @@ echo '<li class="p-3 my-1 bg-gray-200 hover:bg-gray-100 "><a class="flex justify
                         <div class="bg-white single_sidebar  fadeInDown">
                             <h2><span>Join Us</span></h2>
                             <a class="sideAdd" class="sideAdd" target="_blank"
-                                href="https://t.me/bekyfeedscommounity"><img style="object-fit:cover"
+                                href="https://t.me/bekyfeedscommunity"><img style="object-fit:cover"
                                     src="images/telegram.gif" alt="" /></a>
                         </div>
                         <div class="bg-white single_sidebar">
@@ -392,7 +392,7 @@ echo '<li class="p-3 my-1 bg-gray-200 hover:bg-gray-100 "><a class="flex justify
 
 
                             <ul class="tag_nav">
-                                <li><a target="_blank" href="https://t.me/bekyfeedscommounity">
+                                <li><a target="_blank" href="https://t.me/bekyfeedscommunity">
                                         Telegram
 
                                     </a></li>

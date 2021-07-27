@@ -59,7 +59,7 @@ $latestEpisodes = $request->getLatestEpisodes()->fetchAll(PDO::FETCH_ASSOC);
                             </ul>
                         </div>
                         <div class="header_top_right">
-                            <a target="_blank" href="https://t.me/bekyfeedscommounity">Join Us on Telegram</a>
+                            <a target="_blank" href="https://t.me/bekyfeedscommunity">Join Us on Telegram</a>
                         </div>
                     </div>
                 </div>
@@ -126,8 +126,8 @@ echo '<li class="p-3 my-1 bg-gray-200 hover:bg-gray-100 "><a class="flex justify
                         <div class="bg-white single_post_content ">
                             <h2><span>Join Us</span></h2>
                             <a class="sideAdd" class="sideAdd" target="_blank" target="_blank"
-                                href="https://t.me/bekyfeedscommounity" target="_blank"
-                                href="https://t.me/bekyfeedscommounity"><img style="object-fit:cover"
+                                href="https://t.me/bekyfeedscommunity" target="_blank"
+                                href="https://t.me/bekyfeedscommunity"><img style="object-fit:cover"
                                     src="images/telegram.gif" alt="" /></a>
                         </div>
 
@@ -254,7 +254,7 @@ echo '<li class="p-3 my-1 bg-gray-200 hover:bg-gray-100 "><a class="flex justify
 
 
                         <ul class="tag_nav">
-                            <li><a target="_blank" href="https://t.me/bekyfeedscommounity">
+                            <li><a target="_blank" href="https://t.me/bekyfeedscommunity">
                                     Telegram
                                 </a></li>
                             <li><a href="https://www.facebook.com/Beky-Feeds-112556537282665">

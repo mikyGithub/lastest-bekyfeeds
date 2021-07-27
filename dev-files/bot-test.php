@@ -34,7 +34,7 @@ if($type==='movie'){
            "•——————————————-• \r\n ". 
            "https://bekyfeeds.com/series/".str_replace(" ","-",$movie['title'])."\r\n ".  
            "•——————————————-•\r\n ". 
-           "@bekyfeedscommounity \r\n ".
+           "@bekyfeedscommunity \r\n ".
            "Bekyfeeds- movie and serial download reference \r\n ".
            "Permanent site address:".
            

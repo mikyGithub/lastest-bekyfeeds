@@ -45,7 +45,7 @@
                             </ul>
                         </div>
                         <div class="header_top_right">
-                            <a target="_blank" href="https://t.me/bekyfeedscommounity">Join Us on Telegram</a>
+                            <a target="_blank" href="https://t.me/bekyfeedscommunity">Join Us on Telegram</a>
                         </div>
                     </div>
                 </div>
@@ -180,7 +180,7 @@
 
 
                             <ul class="tag_nav">
-                                <li><a target="_blank" href="https://t.me/bekyfeedscommounity">
+                                <li><a target="_blank" href="https://t.me/bekyfeedscommunity">
                                         Telegram
                                     </a></li>
                                 <li><a href="https://www.facebook.com/Beky-Feeds-112556537282665">

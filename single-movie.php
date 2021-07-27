@@ -74,7 +74,7 @@ if($isParameter === false){
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-<link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="../assets/css/font-awesome.min.css" />
@@ -98,8 +98,8 @@ if($isParameter === false){
 
 
 <body>
-    
-    
+
+
     <div class="container">
         <header id="header">
             <div class="row">
@@ -114,7 +114,7 @@ if($isParameter === false){
                             </ul>
                         </div>
                         <div class="header_top_right">
-                            <a target="_blank" href="https://t.me/bekyfeedscommounity">Join Us on Telegram</a>
+                            <a target="_blank" href="https://t.me/bekyfeedscommunity">Join Us on Telegram</a>
                         </div>
                     </div>
                 </div>
@@ -126,7 +126,7 @@ if($isParameter === false){
                             </a>
                         </div>
                         <div class="add_banner">
-                           
+
                         </div>
                     </div>
                 </div>
@@ -163,7 +163,7 @@ if($isParameter === false){
 
             <div class="flex flex-col w-full">
                 <div class="latest_post">
-                    <form action="./movies.php">
+                    <form action="../movies.php">
                         <div style="border:0px" class="flex items-center justify-between my-4 outline-none ">
 
                             <input style="border:0px; border-bottom:2px solid #139ea8" type="text"
@@ -274,8 +274,8 @@ Sorry, It will be uploaded soon </div>';
                             <div class="bg-white single_post_content ">
                                 <h2><span>Join Us</span></h2>
                                 <a class="sideAdd" target="_blank" target="_blank"
-                                    href="https://t.me/bekyfeedscommounity" target="_blank"
-                                    href="https://t.me/bekyfeedscommounity"><img style="object-fit:cover"
+                                    href="https://t.me/bekyfeedscommunity" target="_blank"
+                                    href="https://t.me/bekyfeedscommunity"><img style="object-fit:cover"
                                         src="../images/telegram.gif" alt="" /></a>
                             </div>
 
@@ -355,8 +355,8 @@ Sorry, It will be uploaded soon </div>';
                 <h2><span>Editor's Choice</span></h2>
                 <div class="single_post_content_left">
                     <a class="sideAdd" class="sideAdd" target="_blank" target="_blank"
-                        href="https://t.me/bekyfeedscommounity" target="_blank"
-                        href="https://t.me/bekyfeedscommounity"><img class="object-contain" src="../images/telegram.gif"
+                        href="https://t.me/bekyfeedscommunity" target="_blank"
+                        href="https://t.me/bekyfeedscommunity"><img class="object-contain" src="../images/telegram.gif"
                             alt="" /></a>
                 </div>
                 <div class="single_post_content_right">
@@ -366,12 +366,12 @@ Sorry, It will be uploaded soon </div>';
                         foreach ($editorMovies as $editor) {
 
                             echo '<li class="my-3">
-  <figure href="../film/' . $editor["title"] . '" class="flex bg-gray-100 border rounded cursor-pointer media   ">
-    <a href="../film/' . $editor["title"] . '" class="w-32 mr-3">
+  <figure href="../film/' . $editor["alias"] . '" class="flex bg-gray-100 border rounded cursor-pointer media   ">
+    <a href="../film/' . $editor["alias"] . '" class="w-32 mr-3">
       <img alt="'. $editor["title"] .'" class="w-32 h-full" src="../images/mposters/' . $editor["img_url"] . '" />
     </a>
     <figcaption class="p-3 media-body">
-      <a href=" ../film/' . $editor["title"] . '" class="">
+      <a href=" ../film/' . $editor["alias"] . '" class="">
       ' . $editor["title"] . ' <p class="genre">' . $editor["genre"] . '</p> <p class="year">' . $editor["releasing_year"] . '</p> </a>
     </figcaption>
   </figure>
@@ -437,7 +437,7 @@ Sorry, It will be uploaded soon </div>';
 
 
                         <ul class="tag_nav">
-                            <li><a target="_blank" href="https://t.me/bekyfeedscommounity">
+                            <li><a target="_blank" href="https://t.me/bekyfeedscommunity">
                                     Telegram
                                 </a></li>
                             <li><a href="https://www.facebook.com/Beky-Feeds-112556537282665">

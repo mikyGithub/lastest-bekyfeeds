@@ -23,7 +23,7 @@ class Request
     // Get Latest Requests
     public function getLatestRequests()
     {
-        $query = 'SELECT * FROM ' . $this->request . ' ORDER BY posted_at Desc LIMIT 10;';
+        $query = 'SELECT * FROM ' . $this->request . ' ORDER BY posted_at Desc;';
         $stmt = $this->connection->prepare($query);
         $stmt->execute();
         return $stmt;

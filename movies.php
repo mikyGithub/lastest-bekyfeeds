@@ -97,7 +97,7 @@ if($isParameter === false){
                             </ul>
                         </div>
                         <div class="header_top_right">
-                            <a target="_blank" href="https://t.me/bekyfeedscommounity">Join Us on Telegram</a>
+                            <a target="_blank" href="https://t.me/bekyfeedscommunity">Join Us on Telegram</a>
                         </div>
                     </div>
                 </div>
@@ -454,8 +454,8 @@ if($isParameter === false){
                 <h2><span>Editor's Choice</span></h2>
                 <div class="single_post_content_left">
                     <a class="sideAdd" class="sideAdd" target="_blank" target="_blank"
-                        href="https://t.me/bekyfeedscommounity" target="_blank"
-                        href="https://t.me/bekyfeedscommounity"><img class="object-contain" src="images/telegram.gif"
+                        href="https://t.me/bekyfeedscommunity" target="_blank"
+                        href="https://t.me/bekyfeedscommunity"><img class="object-contain" src="images/telegram.gif"
                             alt="" /></a>
                 </div>
                 <div class="single_post_content_right">
@@ -536,7 +536,7 @@ if($isParameter === false){
 
 
                         <ul class="tag_nav">
-                            <li><a target="_blank" href="https://t.me/bekyfeedscommounity">
+                            <li><a target="_blank" href="https://t.me/bekyfeedscommunity">
                                     Telegram
                                 </a></li>
                             <li><a href="https://www.facebook.com/Beky-Feeds-112556537282665">

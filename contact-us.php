@@ -106,7 +106,7 @@ $popularMovies = $film->getPopular()->fetchAll(PDO::FETCH_ASSOC);
                     </div>
 
                     <ul class="tag_nav">
-                        <li><a target="_blank" href="https://t.me/bekyfeedscommounity">
+                        <li><a target="_blank" href="https://t.me/bekyfeedscommunity">
                                 Telegram
                             </a></li>
                         <li><a href="https://www.facebook.com/Beky-Feeds-112556537282665">
@@ -206,7 +206,7 @@ $popularMovies = $film->getPopular()->fetchAll(PDO::FETCH_ASSOC);
 
 
                             <ul class="tag_nav">
-                                <li><a target="_blank" href="https://t.me/bekyfeedscommounity">
+                                <li><a target="_blank" href="https://t.me/bekyfeedscommunity">
                                         Telegram
                                     </a></li>
                                 <li><a href="https://www.facebook.com/Beky-Feeds-112556537282665">
